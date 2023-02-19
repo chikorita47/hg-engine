@@ -23,8 +23,8 @@ endif
 
 default: all
 
-ROMNAME = rom.nds
-BUILDROM = test.nds
+ROMNAME = rom-pt.nds
+BUILDROM = test-pt.nds
 ####################### Tools #########################
 O2NARC = tools/o2narc
 MSGENC = tools/msgenc
@@ -72,8 +72,8 @@ OW_SPRITES_SRC := $(wildcard data/graphics/overworlds/*.png)
 OW_SPRITES_OBJS := $(patsubst data/graphics/overworlds/*.png,build/data/graphics/overworlds/%.swav,$(OW_SPRITES_SRC))
 
 ## includes
-include data/graphics/pokegra.mk
-include data/itemdata/itemdata.mk
+# include data/graphics/pokegra.mk
+# include data/itemdata/itemdata.mk
 include narcs.mk
 
 ####################### Build #########################
@@ -101,11 +101,11 @@ all: $(OUTPUT)
 	find . -name '*.DS_Store' -execdir rm -f {} \;
 	$(NDSTOOL) -x $(ROMNAME) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
 	@echo -e "$(ROMNAME) Decompression successful!!"
-	$(PYTHON) $(NARCHIVE) extract $(FILESYS)/a/0/2/8 -o $(BUILD)/a028/ -nf
+	# skipping $(PYTHON) $(NARCHIVE) extract $(FILESYS)/a/0/2/8 -o $(BUILD)/a028/ -nf
 	$(PYTHON) scripts/make.py
 	$(ARMIPS) armips/global.s
 	$(MAKE) move_narc
-	$(PYTHON) $(NARCHIVE) create $(FILESYS)/a/0/2/8 $(BUILD)/a028/ -nf
+	# skipping $(PYTHON) $(NARCHIVE) create $(FILESYS)/a/0/2/8 $(BUILD)/a028/ -nf
 	@echo -e "Making ROM.."
 	$(NDSTOOL) -c $(BUILDROM) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
 	@echo -e "Done."
@@ -161,109 +161,109 @@ clean_tools:
 
 # ideally this is all just copying and no building.
 move_narc: $(NARC_FILES)
-	@echo "battle hud layout:"
-	cp $(BATTLEHUD_NARC) $(BATTLEHUD_TARGET)
+	# @echo "battle hud layout:"
+	# cp $(BATTLEHUD_NARC) $(BATTLEHUD_TARGET)
 	
-	@echo "move data:"
-	cp $(MOVEDATA_NARC) $(MOVEDATA_TARGET)
+	# @echo "move data:"
+	# cp $(MOVEDATA_NARC) $(MOVEDATA_TARGET)
 
-	@echo "move particles:"
-	cp $(MOVEPARTICLES_NARC) $(MOVEPARTICLES_TARGET)
+	# @echo "move particles:"
+	# cp $(MOVEPARTICLES_NARC) $(MOVEPARTICLES_TARGET)
 
-	@echo "text data:"
-	cp $(MSGDATA_NARC) $(MSGDATA_TARGET)
+	# @echo "text data:"
+	# cp $(MSGDATA_NARC) $(MSGDATA_TARGET)
 
-	@echo "item data files:"
-	cp $(ITEMDATA_NARC) $(ITEMDATA_TARGET)
+	# @echo "item data files:"
+	# cp $(ITEMDATA_NARC) $(ITEMDATA_TARGET)
 
-	@echo "mon sprite data:"
-	cp $(POKEGRA_NARC) $(POKEGRA_TARGET)
-	cp $(POKEGRA_NARC) $(PBR_POKEGRA_TARGET)
+	# @echo "mon sprite data:"
+	# cp $(POKEGRA_NARC) $(POKEGRA_TARGET)
+	# cp $(POKEGRA_NARC) $(PBR_POKEGRA_TARGET)
 
-	@echo "opening demo files:"
-	cp $(OPENDEMO_NARC) $(OPENDEMO_TARGET)
+	# @echo "opening demo files:"
+	# cp $(OPENDEMO_NARC) $(OPENDEMO_TARGET)
 
-	@echo "mon data properties:"
-	cp $(MONDATA_NARC) $(MONDATA_TARGET)
+	# @echo "mon data properties:"
+	# cp $(MONDATA_NARC) $(MONDATA_TARGET)
 
-	@echo "sprite offsets:"
-	cp $(SPRITEOFFSETS_NARC) $(SPRITEOFFSETS_TARGET)
+	# @echo "sprite offsets:"
+	# cp $(SPRITEOFFSETS_NARC) $(SPRITEOFFSETS_TARGET)
 
-	@echo "mon height offsets (a005):"
-	cp $(HEIGHT_NARC) $(HEIGHT_TARGET)
+	# @echo "mon height offsets (a005):"
+	# cp $(HEIGHT_NARC) $(HEIGHT_TARGET)
 
-	@echo "dex area data:"
-	cp $(DEXAREA_NARC) $(DEXAREA_TARGET)
+	# @echo "dex area data:"
+	# cp $(DEXAREA_NARC) $(DEXAREA_TARGET)
 
-	@echo "pokedex sort lists:"
-	cp $(DEXSORT_NARC) $(DEXSORT_TARGET)
+	# @echo "pokedex sort lists:"
+	# cp $(DEXSORT_NARC) $(DEXSORT_TARGET)
 
-	@echo "egg moves:"
-	cp $(EGGMOVES_NARC) $(EGGMOVES_TARGET)
-	cp $(EGGMOVES_NARC) $(EGGMOVES_TARGET_2)
+	# @echo "egg moves:"
+	# cp $(EGGMOVES_NARC) $(EGGMOVES_TARGET)
+	# cp $(EGGMOVES_NARC) $(EGGMOVES_TARGET_2)
 
-	@echo "evolution data:"
-	cp $(EVOS_NARC) $(EVOS_TARGET)
+	# @echo "evolution data:"
+	# cp $(EVOS_NARC) $(EVOS_TARGET)
 
-	@echo "mon learnset data:"
-	cp $(LEARNSET_NARC) $(LEARNSET_TARGET)
+	# @echo "mon learnset data:"
+	# cp $(LEARNSET_NARC) $(LEARNSET_TARGET)
 
-	@echo "regional dex order:"
-	cp $(REGIONALDEX_NARC) $(REGIONALDEX_TARGET)
+	# @echo "regional dex order:"
+	# cp $(REGIONALDEX_NARC) $(REGIONALDEX_TARGET)
 
-	@echo "trainer data:"
-	cp $(TRAINERDATA_NARC) $(TRAINERDATA_TARGET)
-	cp $(TRAINERDATA_NARC_2) $(TRAINERDATA_TARGET_2)
+	# @echo "trainer data:"
+	# cp $(TRAINERDATA_NARC) $(TRAINERDATA_TARGET)
+	# cp $(TRAINERDATA_NARC_2) $(TRAINERDATA_TARGET_2)
 
-	@echo "footprints:"
-	cp $(FOOTPRINTS_NARC) $(FOOTPRINTS_TARGET)
+	# @echo "footprints:"
+	# cp $(FOOTPRINTS_NARC) $(FOOTPRINTS_TARGET)
 
-	@echo "move anims:"
-	cp $(MOVEANIM_NARC) $(MOVEANIM_TARGET)
+	# @echo "move anims:"
+	# cp $(MOVEANIM_NARC) $(MOVEANIM_TARGET)
 
-	@echo "move sub animations:"
-	cp $(MOVESUBANIM_NARC) $(MOVESUBANIM_TARGET)
+	# @echo "move sub animations:"
+	# cp $(MOVESUBANIM_NARC) $(MOVESUBANIM_TARGET)
 
-	@echo "move battle scripts:"
-	cp $(MOVE_SEQ_NARC) $(MOVE_SEQ_TARGET)
+	# @echo "move battle scripts:"
+	# cp $(MOVE_SEQ_NARC) $(MOVE_SEQ_TARGET)
 
-	@echo "move battle scripts:"
-	cp $(BATTLE_EFF_NARC) $(BATTLE_EFF_TARGET)
+	# @echo "move battle scripts:"
+	# cp $(BATTLE_EFF_NARC) $(BATTLE_EFF_TARGET)
 
-	@echo "battle sub effects:"
-	cp $(BATTLE_SUB_NARC) $(BATTLE_SUB_TARGET)
+	# @echo "battle sub effects:"
+	# cp $(BATTLE_SUB_NARC) $(BATTLE_SUB_TARGET)
 
-	@echo "item gfx:"
-	cp $(ITEMGFX_NARC) $(ITEMGFX_TARGET)
+	# @echo "item gfx:"
+	# cp $(ITEMGFX_NARC) $(ITEMGFX_TARGET)
 
-	@echo "dex gfx for fairy:"
-	cp $(DEXGFX_NARC) $(DEXGFX_TARGET)
+	# @echo "dex gfx for fairy:"
+	# cp $(DEXGFX_NARC) $(DEXGFX_TARGET)
 
-	@echo "battle gfx for fairy:"
-	cp $(BATTLEGFX_NARC) $(BATTLEGFX_TARGET)
+	# @echo "battle gfx for fairy:"
+	# cp $(BATTLEGFX_NARC) $(BATTLEGFX_TARGET)
 
-	@echo "otherpoke gfx for fairy:"
-	cp $(OTHERPOKE_NARC) $(OTHERPOKE_TARGET)
+	# @echo "otherpoke gfx for fairy:"
+	# cp $(OTHERPOKE_NARC) $(OTHERPOKE_TARGET)
 
-	@echo "pokemon icons:"
-	$(ARMIPS) armips/data/iconpalettetable.s
-	cp $(ICONGFX_NARC) $(ICONGFX_TARGET)
+	# @echo "pokemon icons:"
+	# $(ARMIPS) armips/data/iconpalettetable.s
+	# cp $(ICONGFX_NARC) $(ICONGFX_TARGET)
 
-	@echo "wild encounters:"
-	cp $(ENCOUNTER_NARC) $(ENCOUNTER_TARGET)
+	# @echo "wild encounters:"
+	# cp $(ENCOUNTER_NARC) $(ENCOUNTER_TARGET)
 
 
-	@echo "baby mons:"
-	$(ARMIPS) armips/data/babymons.s
+	# @echo "baby mons:"
+	# $(ARMIPS) armips/data/babymons.s
 
-	@echo "move an updated gs_sound_data.sdat:"
-	cp rawdata/gs_sound_data.sdat $(FILESYS)/data/sound/gs_sound_data.sdat
+	# @echo "move an updated gs_sound_data.sdat:"
+	# cp rawdata/gs_sound_data.sdat $(FILESYS)/data/sound/gs_sound_data.sdat
 
-	@echo "tutor data:"
-	$(ARMIPS) armips/data/tutordata.s
+	# @echo "tutor data:"
+	# $(ARMIPS) armips/data/tutordata.s
 
-	@echo "pokemon overworlds:"
-	mkdir -p build/a141
-	$(ARMIPS) armips/data/monoverworlds.s
-	$(PYTHON) $(NARCHIVE) create $(FILESYS)/a/1/4/1 build/a141 -nf
-	cp $(OVERWORLDS_NARC) $(OVERWORLDS_TARGET)
+	# @echo "pokemon overworlds:"
+	# mkdir -p build/a141
+	# $(ARMIPS) armips/data/monoverworlds.s
+	# $(PYTHON) $(NARCHIVE) create $(FILESYS)/a/1/4/1 build/a141 -nf
+	# cp $(OVERWORLDS_NARC) $(OVERWORLDS_TARGET)
