@@ -8,13 +8,14 @@
 
 .open "base/arm9.bin", 0x02000000
 
-.org 0x020712E0
+// initialize box mon learnset - InitPkmnMovesFromWotbl
+.org 0x02077028
     mov r1, #4*LEARNSET_TOTAL_MOVES
 
-.org 0x02071320
+.org 0x02077068
     ldr r1, [r0]
 
-.org 0x0207132A
+.org 0x02077072
     lsl r7, r6, #16
     ldr r1, [r4] // load full word instead of halfword
     lsr r0, r1, #16
@@ -22,73 +23,78 @@
     nop
     cmp r0, r7 // cmp r0 to current level
 
-.org 0x02071338
+.org 0x02077080
     ldr r0, =0xFFFF // mask is no longer 0x1FF
 
-.org 0x02071356
+.org 0x0207709e
     add r4, #4
     ldr r1, [r4]
 
-.org 0x02071374
+.org 0x020770bc
 .pool
 
 
-.org 0x0207153E
+// learn move on level up - MonTryLearnMoveOnLevelUp
+.org 0x02077286
     mov r1, #4*LEARNSET_TOTAL_MOVES
 
-.org 0x02071580
+.org 0x020772c8
     lsl r0, r0, #2
     ldr r2, [r4, r0] // load full word instead of halfword
 
-.org 0x02071596
-    mov r0, #0xFF
-    lsl r0, #8
-    add r0, #0xFF
+.org 0x020772de
+    //mov r0, #0xFF
+    //lsl r0, #8
+    //add r0, #0xFF
+    ldr r0, =0xFFFF
     lsl r0, #16 // r0 = 0xFFFF0000
+    mov r3, r2
+    and r3, r0
     lsl r6, r6, #16
     cmp r6, r3
 
-.org 0x020715AC
+.org 0x020772f4
     lsl r2, #2
     ldr r2, [r4, r2]
     
+.org 0x02077340 // update move mask with 0xFFFF
+.pool
 
-.org 0x020715F8
-.word 0xFFFF // update move mask
 
-
-.org 0x02071908
+// load learnset table - Species_LoadLearnsetTable
+.org 0x02077668
     mov r1, #4*LEARNSET_TOTAL_MOVES
 
-.org 0x02071926
+.org 0x02077686
     mov r1, r0 // move 0xFFFF into r1 to update mask
 
-.org 0x0207192C
+.org 0x0207768c
     ldr r3, [r0] // load full word
     add r0, r0, #4 // move entries are now 4 bytes long and not 2
 
 
-.org 0x020917C4
+// handle pastoria move reminder properly - GetEligibleLevelUpMoves
+.org 0x02099830
     mov r1, #4*LEARNSET_TOTAL_MOVES
 
-.org 0x020917CE
+.org 0x0209983a
     mov r1, #4*LEARNSET_TOTAL_MOVES
 
-.org 0x020917E6
+.org 0x02099852
     lsl r0, r0, #2 // multiply by 4 instead of 2
     ldr r5, [r7, r0] // load full word
 
-.org 0x020917F0
+.org 0x0209985c
     lsl r0, r2, #1
     strh r6, [r4, r0]
 
-.org 0x020917F6
+.org 0x02099862
     mov r1, #0xFF // 0xFF0000 mask all that is fr necessary
     lsl r1, #16
     and r1, r5
     asr r3, r1, #16
 
-.org 0x02091804
+.org 0x02099870
     mov r1, r6
     and r1, r5 // mask is 0xFFFF and need not be different
     lsr r0, #1
@@ -102,21 +108,21 @@ _moveLoop: // r1 is loop index, r6 is currMoveSet
     lsl r5, r1, #1
     ldrh r5, [r6, r5]
     cmp r3, r5
-    beq 0x02091822
+    beq 0x0209988e
     add r1, #1
     cmp r1, #4
     bcc _moveLoop
     
 
-.org 0x0209182C
+.org 0x02099898
     lsl r5, r1, #2
     ldr r5, [r4, r5]
 
-.org 0x02091844
+.org 0x020998b0
     lsl r0, r2, #1
     strh r1, [r4, r0]
 
-.org 0x02091858
+.org 0x020998c4
     cmp r0, #LEARNSET_TOTAL_MOVES
 
 

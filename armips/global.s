@@ -1,9 +1,9 @@
-; .include "armips/include/monnums.s"
-; .include "armips/include/abilities.s"
-; .include "armips/include/config.s"
-; .include "armips/include/constants.s"
-; .include "armips/include/itemnums.s"
-; .include "armips/include/movenums.s"
+.include "armips/include/monnums.s"
+.include "armips/include/abilities.s"
+.include "armips/include/config.s"
+.include "armips/include/constants.s"
+.include "armips/include/itemnums.s"
+.include "armips/include/movenums.s"
 
 ; .include "armips/asm/backgrounds.s" // fixes new move animations
 ; .include "armips/asm/moves.s" // repoints all the move table defines within the structure
@@ -12,7 +12,7 @@
 ; .include "armips/asm/trainers.s" // code for fixing the trainer ai accessing move data
 ; .include "armips/asm/cries.s" // code for remapping species to the file in the sdat
 ; .include "armips/asm/user_config.s" // user configurable code
-; .include "armips/asm/levelup.s" // change the level up moves to be (u16 level, u16 move) + expand learnset to LEARNSET_TOTAL_MOVES (from armips/include/config.s)
+.include "armips/asm/levelup.s" // change the level up moves to be (u16 level, u16 move) + expand learnset to LEARNSET_TOTAL_MOVES (from armips/include/config.s)
 ; .include "armips/asm/pokedex.s" // code for pokedex expansion, including expanding the save
 ; //.include "armips/asm/overworlds.s" // code for overworlds, specifically repointing gOWTagToFileNum and making dimorphism a byte instead of a halfword.  currently included and built every time as part of armips/data/monoverworlds.s
 

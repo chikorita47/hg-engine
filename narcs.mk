@@ -167,17 +167,17 @@
 # NARC_FILES += $(EVOS_NARC)
 
 
-# LEARNSET_DIR := $(BUILD)/a033
-# LEARNSET_NARC := $(BUILD_NARC)/a033.narc
-# LEARNSET_TARGET := $(FILESYS)/a/0/3/3
-# LEARNSET_DEPENDENCIES := armips/data/levelupdata.s
+LEARNSET_DIR := $(BUILD)/wotbl
+LEARNSET_NARC := $(BUILD_NARC)/wotbl.narc
+LEARNSET_TARGET := $(FILESYS)/poketool/personal/wotbl.narc
+LEARNSET_DEPENDENCIES := armips/data/levelupdata.s
 
-# $(LEARNSET_NARC): $(LEARNSET_DEPENDENCIES)
-# 	mkdir -p $(LEARNSET_DIR)
-# 	$(ARMIPS) $^
-# 	$(PYTHON) $(NARCHIVE) create $@ $(LEARNSET_DIR) -nf
+$(LEARNSET_NARC): $(LEARNSET_DEPENDENCIES)
+	mkdir -p $(LEARNSET_DIR)
+	$(ARMIPS) $^
+	$(PYTHON) $(NARCHIVE) create $@ $(LEARNSET_DIR) -nf
 
-# NARC_FILES += $(LEARNSET_NARC)
+NARC_FILES += $(LEARNSET_NARC)
 
 
 # REGIONALDEX_DIR := $(BUILD)/a138

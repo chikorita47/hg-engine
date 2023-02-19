@@ -205,8 +205,8 @@ move_narc: $(NARC_FILES)
 	# @echo "evolution data:"
 	# cp $(EVOS_NARC) $(EVOS_TARGET)
 
-	# @echo "mon learnset data:"
-	# cp $(LEARNSET_NARC) $(LEARNSET_TARGET)
+	@echo "mon learnset data:"
+	cp $(LEARNSET_NARC) $(LEARNSET_TARGET)
 
 	# @echo "regional dex order:"
 	# cp $(REGIONALDEX_NARC) $(REGIONALDEX_TARGET)

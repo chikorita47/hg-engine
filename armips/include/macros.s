@@ -3,19 +3,19 @@
 .macro levelup,species
 
 	.if species < 10
-		.create "build/a033/learnset_000" + tostring(species),0
+		.create "build/wotbl/learnset_000" + tostring(species),0
 	.elseif species < 100
-		.create "build/a033/learnset_00" + tostring(species),0
+		.create "build/wotbl/learnset_00" + tostring(species),0
 	.elseif species < 1000
-		.create "build/a033/learnset_0" + tostring(species),0
+		.create "build/wotbl/learnset_0" + tostring(species),0
 	.else
-		.create "build/a033/learnset_" + tostring(species),0
+		.create "build/wotbl/learnset_" + tostring(species),0
 	.endif
 
 .endmacro
 
 .macro learnset,move,level
-.if move <= MOVE_FUSION_BOLT
+.if move <= MOVE_SHADOW_FORCE
     .word (level << 16 | move)
 .endif
 .endmacro
