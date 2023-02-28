@@ -16,7 +16,7 @@ if args[0] == 'extract':
         if not os.path.isdir(args[3]):
             os.makedirs(args[3])
         for idx in range(len(narc.files)):
-            name = os.path.join(args[3], '%s_%s' % (os.path.basename(args[1]), format_int(idx, len(narc.files))))
+            name = os.path.join(args[3], '%s_%s' % (os.path.splitext(os.path.basename(args[1]))[0], format_int(idx, len(narc.files))))
             data = narc.files[idx]
             with open(name, 'wb') as out:
                 out.write(data)
