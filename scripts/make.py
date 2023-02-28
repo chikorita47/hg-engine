@@ -348,8 +348,8 @@ def hook():
 
 
 def writeall():
-    OFFECTSFILES = "build/a028/8_0"
-    with open(OFFECTSFILES, 'rb+') as rom:
+    OFFECTSFILES = "build/data/weather_sys_09"
+    with open(OFFECTSFILES, 'wb+') as rom:
         print("Inserting code.")
         table = GetSymbols(GetTextSection())
         with open(OUTPUT, 'rb') as binary:

@@ -101,11 +101,11 @@ all: $(OUTPUT)
 	find . -name '*.DS_Store' -execdir rm -f {} \;
 	$(NDSTOOL) -x $(ROMNAME) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
 	@echo -e "$(ROMNAME) Decompression successful!!"
-	# skipping $(PYTHON) $(NARCHIVE) extract $(FILESYS)/a/0/2/8 -o $(BUILD)/a028/ -nf
+	$(PYTHON) $(NARCHIVE) extract $(FILESYS)/data/weather_sys.narc -o $(BUILD)/data/ -nf
 	$(PYTHON) scripts/make.py
 	$(ARMIPS) armips/global.s
 	$(MAKE) move_narc
-	# skipping $(PYTHON) $(NARCHIVE) create $(FILESYS)/a/0/2/8 $(BUILD)/a028/ -nf
+	$(PYTHON) $(NARCHIVE) create $(FILESYS)/data/weather_sys.narc $(BUILD)/data/ -nf
 	@echo -e "Making ROM.."
 	$(NDSTOOL) -c $(BUILDROM) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
 	@echo -e "Done."
