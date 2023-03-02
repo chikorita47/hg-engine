@@ -20,7 +20,7 @@ __aeabi_idivmod:
     .type __aeabi_uidiv,function
 __aeabi_uidiv:
     push {lr}
-    blx  0x020f2998
+    blx  0x020E1F6C
     pop {pc}
 	.size __aeabi_idiv, . - __aeabi_idiv
 	.size __aeabi_idivmod, . - __aeabi_idivmod
@@ -50,7 +50,7 @@ __gnu_thumb1_case_uqi:
     .type __aeabi_uidivmod,function
 __aeabi_uidivmod:
     push {lr}
-    blx  0x020f2998
+    blx  0x020E1F6C
     pop {pc}
 	.size __aeabi_uidivmod, . - __aeabi_uidivmod
 
@@ -114,7 +114,7 @@ __gnu_thumb1_case_si:
     .type memset,function
 memset:
     push {lr}
-    blx 0x020E5B44
+    blx 0x020D5124
     pop {pc}
     .size memset, . - memset
     
@@ -143,6 +143,19 @@ __gnu_thumb1_case_shi:
     .type memcpy,function
 memcpy:
     push {lr}
-    blx 0x020E5AD8
+    blx 0x020D50B8
     pop {pc}
     .size memcpy, . - memcpy
+
+
+.global sprintf
+sprintf:
+    push {lr}
+    blx 0x020D7510
+    pop {pc}
+
+
+.global debugsyscall
+debugsyscall:
+    swi 0xFC
+    bx lr
