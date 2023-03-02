@@ -3,7 +3,7 @@
 
 //.include "armips/include/abilities.s" // included by armips/global.s
 
-.create "build/a028/8_7", 0
+.create "build/data/weather_sys_65", 0
 
 /* SPECIES_NONE                        */ .halfword ABILITY_NONE
 /* SPECIES_BULBASAUR                   */ .halfword ABILITY_CHLOROPHYLL

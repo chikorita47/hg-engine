@@ -569,7 +569,7 @@ if __name__ == '__main__':
     decompress()
     writeall()
     # install()
-    # hook()
+    hook()
     # repoint()
     # offset()
     # changeoffset()

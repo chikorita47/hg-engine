@@ -2972,17 +2972,17 @@ void SetBoxMonAbility(void *boxmon) // actually takes boxmon struct as parameter
     pid = GetBoxMonData(boxmon, ID_PARA_personal_rnd, NULL);
     form = GetBoxMonData(boxmon, ID_PARA_form_no, NULL);
 
-    if (CheckScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG) == 1)
-    {
-        SET_BOX_MON_HIDDEN_ABILITY_BIT(boxmon)
-        has_hidden_ability = 1;
-        // need to clear this script flag because this function is used for in-battle form change ability resets as well, which shouldn't happen normally
-        ClearScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG);
-    }
-    else
-    {
+    // if (CheckScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG) == 1)
+    // {
+    //     SET_BOX_MON_HIDDEN_ABILITY_BIT(boxmon)
+    //     has_hidden_ability = 1;
+    //     // need to clear this script flag because this function is used for in-battle form change ability resets as well, which shouldn't happen normally
+    //     ClearScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG);
+    // }
+    // else
+    // {
         has_hidden_ability = GetBoxMonData(boxmon, ID_PARA_dummy_p2_1, NULL) & DUMMY_P2_1_HIDDEN_ABILITY_MASK; // dummy_p2_2 & hidden ability mask
-    }
+    // }
 
     hiddenability = GetMonHiddenAbility(mons_no, form);
     mons_no = PokeOtherFormMonsNoGet(mons_no, form);
