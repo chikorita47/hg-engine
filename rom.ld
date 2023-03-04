@@ -46,7 +46,7 @@ gf_rand = 0x0201D2E8 |1; /*pt*/
 GF_ASSERT = 0x0202551C + 1;
 SetPokemonGet = 0x0202A434 |1;
 SetPokemonSee = 0x0202A36C |1;
-UpdatePokedexWithReceivedSpecies = 0x0202ECC0 | 1;
+UpdatePokedexWithReceivedSpecies = 0x0202F180 | 1; /*pt*/
 ArchiveDataLoadMalloc = 0x02007524 | 1;
 ArchiveDataLoad = 0x02006AA4 | 1; /*pt*/
 ArchiveDataLoadMallocOfs = 0x0200757C | 1;
@@ -54,9 +54,9 @@ ArchiveDataLoadOfs = 0x02007560 | 1;
 sqrt = 0x0200048A | 1;
 
 /*Pokemon*/
-PokemonParam_AllocWork = 0x0206DD2C | 1;
-PokeParaInit = 0x0206DCE4 |1;
-PokeParaSet = 0x0206DE38 |1;
+PokemonParam_AllocWork = 0x02073C74 | 1; /*pt*/
+PokeParaInit = 0x02073C2C |1; /*pt*/
+PokeParaSet = 0x02073D80 |1; /*pt*/
 PokeParaSetChr = 0x0206E108 |1;
 PokeParaSetSexChr = 0x0206E14C |1;
 PokeCopyPPtoPP = 0x0207188C |1;
@@ -86,7 +86,7 @@ PokeParaLevelExpGet = 0x0206FCDC | 1;
 PokeLevelUpCheck = 0x02070DB4 | 1;
 MonHasMove = 0x02071754 | 1;
 PartyHasMon = 0x020748CC | 1;
-sub_020720FC = 0x020720FC | 1;
+PokeParaGetInfoSet = 0x02077E64 | 1; /*pt*/
 InitBoxMonMoveset = 0x02077020 | 1; /*pt*/
 GrabAndRegisterUnownForm = 0x02248444 | 1;
 WildMonSetRandomHeldItem = 0x02077F0C | 1; /*pt*/
@@ -97,7 +97,7 @@ GetBagSaveData = 0x5AC + 0x021F9381;
 SaveData_GetRepelPtr = 0x0202DB05;
 SaveData_GetEventPtr = 0x020503D0 | 1;
 SaveData_GetDexPtr = 0x0202A634 |1;
-SaveData_GetPlayerPartyPtr = 0x02074904 |1;
+SaveData_GetPlayerPartyPtr = 0x0207A268 |1; /*pt*/
 
 
 GetVarAdrs = 0x020504A4 | 1;
@@ -292,7 +292,7 @@ GetScriptVar = 0x02066AAC | 1;
 SetScriptFlag = 0x0206659C | 1;
 ClearScriptFlag = 0x020665A4 | 1;
 CheckScriptFlag = 0x020665AC | 1;
-Sav2_PlayerData_GetProfileAddr = 0x02028E9C | 1;
+Sav2_PlayerData_GetProfileAddr = 0x02025E38 | 1; /*pt*/
 
 /* rtc functions */
 Party_ResetAllShayminToLandForme = 0x02071E2C | 1;

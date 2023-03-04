@@ -3798,7 +3798,7 @@ BOOL GiveMon(int heapId, void *saveData, int species, int level, int forme, u8 a
     pokemon = PokemonParam_AllocWork(heapId);
     PokeParaInit(pokemon);
     PokeParaSet(pokemon, species, level, 32, FALSE, 0, 0, 0); // CreateMon
-    sub_020720FC(pokemon, profile, ITEM_POKE_BALL, ball, encounterType, heapId);
+    PokeParaGetInfoSet(pokemon, profile, ITEM_POKE_BALL, ball, encounterType, heapId);
     sp1C = heldItem;
     SetMonData(pokemon, ID_PARA_item, &sp1C);
     SetMonData(pokemon, ID_PARA_form_no, &forme);
@@ -3810,12 +3810,12 @@ BOOL GiveMon(int heapId, void *saveData, int species, int level, int forme, u8 a
 
     PokeParaCalc(pokemon); // recalculate stats
 
-    if (CheckScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG) == 1)
-    {
-        SET_MON_HIDDEN_ABILITY_BIT(pokemon)
-        // need to clear this script flag because this function is used for in-battle form change ability resets as well, which shouldn't happen normally
-        ClearScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG);
-    }
+    // if (CheckScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG) == 1)
+    // {
+    //     SET_MON_HIDDEN_ABILITY_BIT(pokemon)
+    //     // need to clear this script flag because this function is used for in-battle form change ability resets as well, which shouldn't happen normally
+    //     ClearScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG);
+    // }
 
     if (ability != 0) {
         SetMonData(pokemon, ID_PARA_speabino, &ability);

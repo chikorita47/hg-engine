@@ -571,7 +571,7 @@ BOOL __attribute__((long_call)) PartyHasMon(struct Party *party, u16 species);
 BOOL __attribute__((long_call)) MonHasMove(struct PartyPokemon *mon, u16 move);
 BOOL __attribute__((long_call)) does_species_have_dimorphism(u32 species);
 BOOL __attribute__((long_call)) get_ow_data_file_num(u32 species);
-BOOL __attribute__((long_call)) sub_020720FC(struct PartyPokemon *pp, void *profile, u16 item, u16 ball, u32 encounterType, int heapId);
+BOOL __attribute__((long_call)) PokeParaGetInfoSet(struct PartyPokemon *pp, void *profile, u16 item, u16 ball, u32 encounterType, int heapId);
 void __attribute__((long_call)) UpdatePokedexWithReceivedSpecies(void *saveData, struct PartyPokemon *pokemon);
 void __attribute__((long_call)) InitBoxMonMoveset(struct BoxPokemon *pokemon);
 void __attribute__((long_call)) WildMonSetRandomHeldItem(struct PartyPokemon *pokemon, u32 fight_type, u32 item_type);
