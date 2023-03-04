@@ -2972,17 +2972,17 @@ void SetBoxMonAbility(void *boxmon) // actually takes boxmon struct as parameter
     pid = GetBoxMonData(boxmon, ID_PARA_personal_rnd, NULL);
     form = GetBoxMonData(boxmon, ID_PARA_form_no, NULL);
 
-    // if (CheckScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG) == 1)
-    // {
-    //     SET_BOX_MON_HIDDEN_ABILITY_BIT(boxmon)
-    //     has_hidden_ability = 1;
-    //     // need to clear this script flag because this function is used for in-battle form change ability resets as well, which shouldn't happen normally
-    //     ClearScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG);
-    // }
-    // else
-    // {
+    if (CheckScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG) == 1)
+    {
+        SET_BOX_MON_HIDDEN_ABILITY_BIT(boxmon)
+        has_hidden_ability = 1;
+        // need to clear this script flag because this function is used for in-battle form change ability resets as well, which shouldn't happen normally
+        ClearScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG);
+    }
+    else
+    {
         has_hidden_ability = GetBoxMonData(boxmon, ID_PARA_dummy_p2_1, NULL) & DUMMY_P2_1_HIDDEN_ABILITY_MASK; // dummy_p2_2 & hidden ability mask
-    // }
+    }
 
     hiddenability = GetMonHiddenAbility(mons_no, form);
     mons_no = PokeOtherFormMonsNoGet(mons_no, form);
@@ -3810,12 +3810,12 @@ BOOL GiveMon(int heapId, void *saveData, int species, int level, int forme, u8 a
 
     PokeParaCalc(pokemon); // recalculate stats
 
-    // if (CheckScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG) == 1)
-    // {
-    //     SET_MON_HIDDEN_ABILITY_BIT(pokemon)
-    //     // need to clear this script flag because this function is used for in-battle form change ability resets as well, which shouldn't happen normally
-    //     ClearScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG);
-    // }
+    if (CheckScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG) == 1)
+    {
+        SET_MON_HIDDEN_ABILITY_BIT(pokemon)
+        // need to clear this script flag because this function is used for in-battle form change ability resets as well, which shouldn't happen normally
+        ClearScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG);
+    }
 
     if (ability != 0) {
         SetMonData(pokemon, ID_PARA_speabino, &ability);
@@ -3903,12 +3903,12 @@ BOOL AddWildPartyPokemon(int inTarget, EncounterInfo *encounterInfo, struct Part
         space_for_setmondata = 0;
     }
 
-    // if (CheckScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG) == 1)
-    // {
-    //     SET_MON_HIDDEN_ABILITY_BIT(encounterPartyPokemon)
-    //     ClearScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG);
-    //     PokeParaSpeabiSet(encounterPartyPokemon);
-    // }
+    if (CheckScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG) == 1)
+    {
+        SET_MON_HIDDEN_ABILITY_BIT(encounterPartyPokemon)
+        ClearScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG);
+        PokeParaSpeabiSet(encounterPartyPokemon);
+    }
 
     if (change_form)
     {

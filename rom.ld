@@ -277,9 +277,9 @@ GrashideaFeasibleCheck = 0x02071DB4 | 1;
 PokeList_FormDemoOverlayLoad = 0x0207CB54 | 1;
 
 /* save stuff */
-SaveBlock2_get = 0x020272B0 | 1;
+SaveBlock2_get = 0x020245A4 | 1; /*pt*/
 Sav2_Misc_get = 0x0202A954 | 1;
-SavArray_Flags_get = 0x020503D0 | 1;
+SavArray_Flags_get = 0x020507E4 | 1; /*pt*/
 PokeParty_Delete = 0x0207456C | 1;
 Overlay_UnloadID = 0x02006F7C | 1;
 Overlay_Load = 0x02006FF8 | 1;
@@ -289,9 +289,9 @@ PROC_GetWork = 0x02007290 | 1;
 ScriptJump = 0x0203FE0C | 1;
 SetScriptVar = 0x02066A7C | 1;
 GetScriptVar = 0x02066AAC | 1;
-SetScriptFlag = 0x0206659C | 1;
-ClearScriptFlag = 0x020665A4 | 1;
-CheckScriptFlag = 0x020665AC | 1;
+SetScriptFlag = 0x0206A8DC | 1; /*pt*/
+ClearScriptFlag = 0x0206A8E4 | 1; /*pt*/
+CheckScriptFlag = 0x0206A8EC | 1; /*pt*/
 Sav2_PlayerData_GetProfileAddr = 0x02025E38 | 1; /*pt*/
 
 /* rtc functions */
