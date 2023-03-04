@@ -192,7 +192,7 @@ bx r0
 
 
 
-// 02247910
+// 02241bac
 // edits to the beginning of EncountParamSetRare to extract species + form
 // r0 is species | (form << 11)
 // treating r4-r7 as free since this function is only called at the end of other ones
@@ -218,12 +218,12 @@ push {r3-r7, lr}
 sub sp, #0x28
 str r0, [sp, #0x10]
 ldr r6, [sp, #0x40]
-ldr r4, =0x02247918 | 1
+ldr r4, =0x02241bb4 | 1
 bx r4
 
 
 
-// 02247A00 - end of above function
+// 02241ca4 - end of above function
 // sp1C is param
 // need to set form
 .global modify_species_encounter_data_rare
@@ -240,20 +240,20 @@ bl UpdateFormIfDeerling
 
 // hopefully with form set, this grabs everything correctly (it should please please please)
 ldr r0, [sp, #(0x1c+0x10)] // pp
-ldr r3, =0x0206E250 | 1 //PokeParaCalc(pp);
+ldr r3, =0x0207418C | 1 //PokeParaCalc(pp);
 bl call_via_r3
 ldr r0, [sp, #(0x1c+0x10)] // pp
-ldr r3, =0x020722D4 | 1 //PokeParaSpeabiSet(pp);
+ldr r3, =0x0207803C | 1 //PokeParaSpeabiSet(pp);
 bl call_via_r3
 ldr r0, [sp, #(0x1c+0x10)] // pp
-ldr r3, =0x020712D8 | 1 //InitBoxMonMoveset(ppp);
+ldr r3, =0x02077020 | 1 //InitBoxMonMoveset(ppp);
 bl call_via_r3
 
 pop {r0-r3}
 add r1, r6, #0
-bl 0x0224855C // should not need longcall
+bl 0x02242514 // should not need longcall
 ldr r0, [sp, #0x1c]
-ldr r5, =0x02247A10 | 1
+ldr r5, =0x02241cb4 | 1
 bx r5
 
 .pool

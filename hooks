@@ -3,6 +3,10 @@
 arm9 PokeOtherFormMonsNoGet 02078740 2
 
 # wild mon hidden ability/form stuff
+#02241BAC
+0006 get_form_out_of_encounter_species_rare 02241BAC 4
+#02241CA4
+0006 modify_species_encounter_data_rare 02241CA4 1
 #02241CC0
 0006 get_form_out_of_encounter_species 02241CC0 4
 #02241D9C
