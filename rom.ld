@@ -42,7 +42,7 @@ TetsunoKobushiTable = 0x0226CBBE;
 CondChgTable = 0x226CB88;
 ItemDataIndex = 0x2100194;
 
-gf_rand = 0x0201FD44 |1;
+gf_rand = 0x0201D2E8 |1; /*pt*/
 GF_ASSERT = 0x0202551C + 1;
 SetPokemonGet = 0x0202A434 |1;
 SetPokemonSee = 0x0202A36C |1;
@@ -60,12 +60,12 @@ PokeParaSet = 0x0206DE38 |1;
 PokeParaSetChr = 0x0206E108 |1;
 PokeParaSetSexChr = 0x0206E14C |1;
 PokeCopyPPtoPP = 0x0207188C |1;
-GetMonData = 0x0206E540 |1;
+GetMonData = 0x02074470 |1; /*pt*/
 GetBoxMonData = 0x02074570 |1; /*pt*/
-SetMonData = 0x0206EC40 |1;
+SetMonData = 0x02074B30 |1; /*pt*/
 PokeStatusPokeParamGet = 0x0208A520 | 1;
-PokeParaCalc = 0x0206E250 | 1;
-PokeParaSpeabiSet = 0x020722D4 |1;
+PokeParaCalc = 0x0207418C | 1; /*pt*/
+PokeParaSpeabiSet = 0x0207803C |1; /*pt*/
 PokeFuseiFormNoCheck = 0x02070438 |1;
 PokePasoParaUnknownFormGet = 0x02070DA0 |1;
 PokeFormNoPersonalParaGet = 0x020759CC |1; /*pt*/
@@ -87,9 +87,9 @@ PokeLevelUpCheck = 0x02070DB4 | 1;
 MonHasMove = 0x02071754 | 1;
 PartyHasMon = 0x020748CC | 1;
 sub_020720FC = 0x020720FC | 1;
-InitBoxMonMoveset = 0x020712D8 | 1;
+InitBoxMonMoveset = 0x02077020 | 1; /*pt*/
 GrabAndRegisterUnownForm = 0x02248444 | 1;
-WildMonSetRandomHeldItem = 0x020721A4 | 1;
+WildMonSetRandomHeldItem = 0x02077F0C | 1; /*pt*/
 MonIsShiny = 0x0207003C | 1;
 BoxMonIsShiny = 0x02070044 | 1;
 
@@ -243,7 +243,7 @@ try_force_gender_maybe = 0x02073A98 | 1;
 TrainerMonHandleFrustration = 0x02073AE4 | 1;
 SetPartyPokemonMoveAtPos = 0x020714E8 | 1;
 gf_srand = 0x0201FD38 | 1;
-PokeParty_Add = 0x02074524 | 1;
+PokeParty_Add = 0x0207A048 | 1; /*pt*/
 
 /* Illusion */
 CT_PokemonEncountSet = 0x02259968 | 1;

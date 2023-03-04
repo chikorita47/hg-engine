@@ -568,7 +568,7 @@ def changeoffset():
 if __name__ == '__main__':
     decompress()
     writeall()
-    # install()
+    install()
     hook()
     # repoint()
     # offset()

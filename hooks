@@ -2,5 +2,14 @@
 
 arm9 PokeOtherFormMonsNoGet 02078740 2
 
+# wild mon hidden ability/form stuff
+#02241CC0
+0006 get_form_out_of_encounter_species 02241CC0 4
+#02241D9C
+0006 modify_species_encounter_data 02241D9C 3
+
 #hidden ability
 arm9 SetBoxMonAbility 02078044 1
+#02242514
+#need to use this to UpdateFormIfDeerling, reinitialize the moveset, set the hidden ability, recalc stats
+0006 AddWildPartyPokemon_hook 080043D8 5

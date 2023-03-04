@@ -3840,8 +3840,8 @@ typedef struct EncounterInfo
     u8 level;
     u8 isEgg;
     u8 ability;
-    u8 unkE[2];
-    u8 unk11;
+    u8 form[2]; // form data for Shellos & Gastrodon
+    u8 unownTableType;
 } EncounterInfo; // size = 0x12
 
 
@@ -3861,32 +3861,54 @@ BOOL AddWildPartyPokemon(int inTarget, EncounterInfo *encounterInfo, struct Part
     
     species = GetMonData(encounterPartyPokemon, ID_PARA_monsno, NULL);
     
-    if (space_for_setmondata != 0)
-    {
-        change_form = 1;
-        form_no = space_for_setmondata;//(species & 0xF800) >> 11;
-        space_for_setmondata = 0;
-    }
-    
     WildMonSetRandomHeldItem(encounterPartyPokemon, encounterBattleParam->fight_type, range);
 
     change_form = 0;
-    if (species == SPECIES_UNOWN)
+    if (species == SPECIES_SHELLOS)
     {
         change_form = 1;
-        form_no = GrabAndRegisterUnownForm(encounterPartyPokemon);
+        if (!encounterInfo->form[0]) {
+            form_no = 0; // SPECIES_SHELLOS (west sea)
+        } else {
+            form_no = 1; // SPECIES_SHELLOS_EAST_SEA
+        }
+    }
+    else if (species == SPECIES_GASTRODON)
+    {
+        change_form = 1;
+        if (!encounterInfo->form[1]) {
+            form_no = 0; // SPECIES_GASTRODON (west sea)
+        } else {
+            form_no = 1; // SPECIES_GASTRODON_EAST_SEA
+        }
+    }
+    else if (species == SPECIES_UNOWN)
+    {
+        u8 num;
+        change_form = 1;
+        // num = UNOWN_TABLE[encounterInfo->unownTableType].Num;
+        num = *(u8 *)(0x02248ff0 + encounterInfo->unownTableType * 8);
+        // form_no = UNOWN_TABLE[encounterInfo->unownTableType].Tbl[gf_rand()%num];
+        form_no = *(u8 *)(*(int *)(0x02248ff4 + encounterInfo->unownTableType * 8) + gf_rand() % num);
     }
     else if (species == SPECIES_DEERLING || species == SPECIES_SAWSBUCK)
     {
         UpdateFormIfDeerling(encounterPartyPokemon);
     }
 
-    if (CheckScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG) == 1)
+    if (space_for_setmondata != 0)
     {
-        SET_MON_HIDDEN_ABILITY_BIT(encounterPartyPokemon)
-        ClearScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG);
-        PokeParaSpeabiSet(encounterPartyPokemon);
+        change_form = 1;
+        form_no = space_for_setmondata;//(species & 0xF800) >> 11;
+        space_for_setmondata = 0;
     }
+
+    // if (CheckScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG) == 1)
+    // {
+    //     SET_MON_HIDDEN_ABILITY_BIT(encounterPartyPokemon)
+    //     ClearScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG);
+    //     PokeParaSpeabiSet(encounterPartyPokemon);
+    // }
 
     if (change_form)
     {

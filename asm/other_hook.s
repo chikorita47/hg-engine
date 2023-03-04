@@ -260,7 +260,7 @@ bx r5
 
 
 
-// 02247A18
+// 02241cc0
 // edits to the beginning of EncountParamSet to extract species + form
 // r0 is species | (form << 11)
 // treating r4-r7 as free since this function is only called at the end of other ones
@@ -280,17 +280,17 @@ lsl r4, #8
 add r4, #0xFF
 and r0, r4 // make r0 solely the species
 
-// reset the function up
-push {r3-r7, lr}
-sub sp, #0x20
+// re-setup the function
+push {r4-r7, lr}
+sub sp, #0x14
 
-str r0, [sp, #0xC]
-ldr r0, [sp, #0x3C]
-ldr r4, =0x02247A20 | 1
+mov r7, r0
+mov r0, #0xb
+ldr r4, =0x02241cc8 | 1
 bx r4
 
 
-// 02247B42 - end of above function
+// 02241d9c - end of above function
 // r4 is param
 // need to set form
 .global modify_species_encounter_data
@@ -306,23 +306,23 @@ bl UpdateFormIfDeerling
 
 // hopefully with form set, this grabs everything correctly
 mov r0, r4
-ldr r3, =0x0206E250 | 1 //PokeParaCalc(pp);
+ldr r3, =0x0207418C | 1 //PokeParaCalc(pp);
 bl call_via_r3
 mov r0, r4
-ldr r3, =0x020722D4 | 1 //PokeParaSpeabiSet(pp);
+ldr r3, =0x0207803C | 1 //PokeParaSpeabiSet(pp);
 bl call_via_r3
 mov r0, r4 // me when the boxmon is at offset 0 of the PartyPokemon structure so i should be able to just pass it like this and have it work :)
-ldr r3, =0x020712D8 | 1 //InitBoxMonMoveset(ppp);
+ldr r3, =0x02077020 | 1 //InitBoxMonMoveset(ppp);
 bl call_via_r3
 
-ldr r0, [sp, #0x14]
-ldr r3, [sp, #0x40]
-mov r1, r7
-ldr r5, =0x02247B4C | 1
+ldr r0, [sp, #0x10]
+ldr r3, [sp, #0x2c]
+mov r1, r5
+ldr r5, =0x02241da6 | 1
 bx r5
 
 call_setmondata:
-ldr r3, =0x0206EC40 | 1
+ldr r3, =0x02074B30 | 1
 call_via_r3:
 bx r3
 
