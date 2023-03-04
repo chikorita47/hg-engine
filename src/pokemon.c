@@ -3850,7 +3850,7 @@ extern u32 space_for_setmondata;
 BOOL AddWildPartyPokemon(int inTarget, EncounterInfo *encounterInfo, struct PartyPokemon *encounterPartyPokemon, struct BATTLE_PARAM *encounterBattleParam)
 {
     int range = 0;
-    u8 change_form;
+    u8 change_form = 0;
     u8 form_no;
     u16 species;
 
@@ -3860,10 +3860,16 @@ BOOL AddWildPartyPokemon(int inTarget, EncounterInfo *encounterInfo, struct Part
     }
     
     species = GetMonData(encounterPartyPokemon, ID_PARA_monsno, NULL);
+
+    if (space_for_setmondata != 0)
+    {
+        change_form = 1;
+        form_no = space_for_setmondata;//(species & 0xF800) >> 11;
+        space_for_setmondata = 0;
+    }
     
     WildMonSetRandomHeldItem(encounterPartyPokemon, encounterBattleParam->fight_type, range);
 
-    change_form = 0;
     if (species == SPECIES_SHELLOS)
     {
         change_form = 1;
@@ -3894,13 +3900,6 @@ BOOL AddWildPartyPokemon(int inTarget, EncounterInfo *encounterInfo, struct Part
     else if (species == SPECIES_DEERLING || species == SPECIES_SAWSBUCK)
     {
         UpdateFormIfDeerling(encounterPartyPokemon);
-    }
-
-    if (space_for_setmondata != 0)
-    {
-        change_form = 1;
-        form_no = space_for_setmondata;//(species & 0xF800) >> 11;
-        space_for_setmondata = 0;
     }
 
     if (CheckScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG) == 1)
