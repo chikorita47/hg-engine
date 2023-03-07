@@ -6,84 +6,84 @@ BattleItemDataGet = 0x205B4 + 0x022378C1;
 BattleTypeGet = 0x2F20 + 0x022378C1;
 CheckFieldMoveEffect = 0x1B428 + 0x022378C1;
 CheckNumMonsHit = 0x1A9A0 + 0x022378C1;
-BattleWorkPokemonParamGet = 0x2FC0 + 0x022378C1;
-BattleWorkPokeCountGet = 0x2F74 + 0x022378C1;
-BattleWorkZukanWorkGet = 0x307C + 0x022378C1;
-BattleWorkClientSetMaxGet = 0x2F30 + 0x022378C1;
-ST_ServerAgiCalc = 0x18388 + 0x022378C1;
-Sub_GaugeObjHeadGet = 0x2E2F8 + 0x022378C1;
-ST_ServerSelectWazaGet = 0x1AA30 + 0x022378C1;
-ST_ServerNamakeCheck = 0x1B380 + 0x022378C1;
-SCIO_BlankMessage = 0x2CA30 + 0x022378C1;
-BattleWorkFightMsgGet = 0x0223A930 | 1;
+BattleWorkPokemonParamGet = 0x0223DFAC | 1; /*pt*/
+BattleWorkPokeCountGet = 0x0223DF60 | 1; /*pt*/
+BattleWorkZukanWorkGet = 0x0223E068 | 1; /*pt*/
+BattleWorkClientSetMaxGet = 0x0223DF1C | 1; /*pt*/
+ST_ServerAgiCalc = 0x02252EC8 | 1; /*pt*/
+Sub_GaugeObjHeadGet = 0x022682B0 | 1; /*pt*/
+ST_ServerSelectWazaGet = 0x02255570 | 1; /*pt*/
+ST_ServerNamakeCheck = 0x02255EC0 | 1; /*pt*/
+SCIO_BlankMessage = 0x02266AA0 | 1; /*pt*/
+BattleWorkFightMsgGet = 0x0223E05C | 1; /*pt*/
 Task_DistributeExp = 0x02245898 | 1;
 
 
-ServerCriticalMessage = 0x166BC+ 0x022378C1;
-ServerWazaStatusMessage = 0x166D8 + 0x022378C1;
-ST_ServerAddStatusCheck = 0x18BD0 + 0x022378C1;
-ServerIkariCheck = 0x1672C + 0x022378C1;
+ServerCriticalMessage = 0x022511FC | 1; /*pt*/
+ServerWazaStatusMessage = 0x02251218 | 1; /*pt*/
+ST_ServerAddStatusCheck = 0x02253710 | 1; /*pt*/
+ServerIkariCheck = 0x0225126C | 1; /*pt*/
 ST_ServerWazaHitTokuseiCheck_Old = 0x1C544 + 0x022378C1;
-ST_ServerWaruagakiCheck = 0x19F2C + 0x022378C1;
-ServerSenseiCheck = 0x143E4 + 0x022378C1;
-ServerStatusCheck = 0x13C68 + 0x022378C1;
-ServerBadgeCheck = 0x13610 + 0x022378C1;
-ServerPPCheck = 0x1393C + 0x022378C1;
-ServerDefenceCheck = 0x13AD8 + 0x022378C1;
-ST_ServerDefenceClientTokuseiCheck = 0x19158 + 0x022378C1;
-ST_ServerTotteokiCountCalc = 0x1B570 + 0x022378C1;
-ST_ServerMetronomeBeforeCheck = 0x1ED20 + 0x022378C1;
-ST_ServerPokeAppearCheck = 0x1B8D4 + 0x022378C1;
-SCIO_StatusEffectSet = 0x2BF88 + 0x022378C1;
+ST_ServerWaruagakiCheck = 0x02254A6C | 1; /*pt*/
+ServerSenseiCheck = 0x0224EF00 | 1; /*pt*/
+ServerStatusCheck = 0x0224E784 | 1; /*pt*/
+ServerBadgeCheck = 0x0224E13C | 1; /*pt*/
+ServerPPCheck = 0x0224E458 | 1; /*pt*/
+ServerDefenceCheck = 0x0224E5F4 | 1; /*pt*/
+ST_ServerDefenceClientTokuseiCheck = 0x02253C98 | 1; /*pt*/
+ST_ServerTotteokiCountCalc = 0x022560B0 | 1; /*pt*/
+ST_ServerMetronomeBeforeCheck = 0x02259868 | 1; /*pt*/
+ST_ServerPokeAppearCheck = 0x02256414 | 1; /*pt*/
+SCIO_StatusEffectSet = 0x02265FF8 | 1; /*pt*/
 
 /*battle table*/
-SoubiItemWazaTypePowUpTbl = 0x0226CC3A;
-TetsunoKobushiTable = 0x0226CBBE;
-CondChgTable = 0x226CB88;
-ItemDataIndex = 0x2100194;
+SoubiItemWazaTypePowUpTbl = 0x0226EC92; /*pt*/
+TetsunoKobushiTable = 0x0226EC16; /*pt*/
+CondChgTable = 0x0226EBE0; /*pt*/
+ItemDataIndex = 0x020F0CC4; /*pt*/
 
 gf_rand = 0x0201D2E8 |1; /*pt*/
-GF_ASSERT = 0x0202551C + 1;
+GF_ASSERT = 0x02022974 + 1; /*pt*/
 SetPokemonGet = 0x0202A434 |1;
 SetPokemonSee = 0x0202A36C |1;
 UpdatePokedexWithReceivedSpecies = 0x0202F180 | 1; /*pt*/
-ArchiveDataLoadMalloc = 0x02007524 | 1;
+ArchiveDataLoadMalloc = 0x02006AC0 | 1; /*pt*/
 ArchiveDataLoad = 0x02006AA4 | 1; /*pt*/
-ArchiveDataLoadMallocOfs = 0x0200757C | 1;
-ArchiveDataLoadOfs = 0x02007560 | 1;
+ArchiveDataLoadMallocOfs = 0x02006B18 | 1; /*pt*/
+ArchiveDataLoadOfs = 0x02006AFC | 1; /*pt*/
 sqrt = 0x0200048A | 1;
 
 /*Pokemon*/
 PokemonParam_AllocWork = 0x02073C74 | 1; /*pt*/
 PokeParaInit = 0x02073C2C |1; /*pt*/
 PokeParaSet = 0x02073D80 |1; /*pt*/
-PokeParaSetChr = 0x0206E108 |1;
-PokeParaSetSexChr = 0x0206E14C |1;
-PokeCopyPPtoPP = 0x0207188C |1;
+PokeParaSetChr = 0x02074044 | 1; /*pt*/
+PokeParaSetSexChr = 0x02074088 | 1; /*pt*/
+PokeCopyPPtoPP = 0x020775EC | 1; /*pt*/
 GetMonData = 0x02074470 |1; /*pt*/
 GetBoxMonData = 0x02074570 |1; /*pt*/
 SetMonData = 0x02074B30 |1; /*pt*/
-PokeStatusPokeParamGet = 0x0208A520 | 1;
+PokeStatusPokeParamGet = 0x0208DD48 | 1; /*pt*/
 PokeParaCalc = 0x0207418C | 1; /*pt*/
 PokeParaSpeabiSet = 0x0207803C |1; /*pt*/
-PokeFuseiFormNoCheck = 0x02070438 |1;
-PokePasoParaUnknownFormGet = 0x02070DA0 |1;
+PokeFuseiFormNoCheck = 0x020761E8 | 1; /*pt*/
+PokePasoParaUnknownFormGet = 0x02076B00 | 1; /*pt*/
 PokeFormNoPersonalParaGet = 0x020759CC |1; /*pt*/
 GetBoxMonGender = 0x0206FF90 |1;
-PokeSexGetMonsNo = 0x0206FFC8 |1;
+PokeSexGetMonsNo = 0x02075DAC | 1; /*pt*/
 BoxMonSetFastModeOn = 0x02073D20 |1; /*pt*/
 BoxMonSetFastModeOff = 0x02073D48 |1; /*pt*/
 BoxMonDataSet = 0x02074C60 |1;
 FillInBoxMonLearnset = 0x020712D8 |1;
-PokePersonalParaGet = 0x0206FBE8 |1;
+PokePersonalParaGet = 0x020759F0 | 1; /*pt*/
 BoxMonInit = 0x0206DD0C |1;
-PokeLevelExpGet = 0x0206FD00 |1;
-SodateyaWork_GetPokePasoPointer = 0x0206BDB0 |1;
-PokeParaPersonalRndChange = 0x0207235C | 1;
+PokeLevelExpGet = 0x02075AD0 | 1; /*pt*/
+SodateyaWork_GetPokePasoPointer = 0x021E622C | 1; /*pt*/
+PokeParaPersonalRndChange = 0x020780C4 | 1; /*pt*/
 PokeNatureGet = 0x0206FE2C |1;
 PokeSetMove = 0x020712D8 |1;
-PokeParaLevelExpGet = 0x0206FCDC | 1;
-PokeLevelUpCheck = 0x02070DB4 | 1;
+PokeParaLevelExpGet = 0x02075AAC | 1; /*pt*/
+PokeLevelUpCheck = 0x02076B14 | 1; /*pt*/
 MonHasMove = 0x02071754 | 1;
 PartyHasMon = 0x020748CC | 1;
 PokeParaGetInfoSet = 0x02077E64 | 1; /*pt*/
@@ -101,30 +101,30 @@ SaveData_GetPlayerPartyPtr = 0x0207A268 |1; /*pt*/
 
 
 GetVarAdrs = 0x020504A4 | 1;
-EncDataSave_GetSaveDataPtr = 0x0202D9C4 | 1;
+EncDataSave_GetSaveDataPtr = 0x0202D834 | 1; /*pt*/
 GetVarPointer = 0x02040374 |1;
 VarSet = 0x020403C0 | 1;
 VarGet = 0x020403AC | 1;
 GF_CpuCopy8 = 0x0204D450;
-GetEvScriptWorkMemberAdrs = 0x020402F0 |1;
+GetEvScriptWorkMemberAdrs = 0x0203F098 | 1; /*pt*/
 WORDSET_RegisterAbilityName = 0x0200C060|1;
-EventSet_Script = 0x0203FE74 |1;
+EventSet_Script = 0x0203E880 | 1; /*pt*/
 
 sys_AllocMemory = 0x02018144 | 1; /*pt*/
 sys_FreeMemoryEz = 0x020181C4 | 1; /*pt*/
 
 /*TextBox*/
-TalkWinGraphicSet = 0x0200E644 |1;
-CONFIG_GetWindowType = 0x0202ADCC |1;
-GF_BGL_BmpWinGet_Frame = 0x0201EE8C |1;
-FieldTalkWinClear = 0x0205B5A8 |1;
-BmpTalkWinWrite = 0x0200E998 |1;
-MSG_PrintInit = 0x02020080 |1;
-SystemFontPaletteLoad = 0x02003030 |1;
-TalkFontPaletteLoad = 0x0200304C |1;
+TalkWinGraphicSet = 0x0200DD0C | 1; /*pt*/
+CONFIG_GetWindowType = 0x02027B50 | 1; /*pt*/
+GF_BGL_BmpWinGet_Frame = 0x0201C290 | 1; /*pt*/
+FieldTalkWinClear = 0x0205D988 | 1; /*pt*/
+BmpTalkWinWrite = 0x0200E060 | 1; /*pt*/
+MSG_PrintInit = 0x0201D710 | 1; /*pt*/
+SystemFontPaletteLoad = 0x02002E7C | 1; /*pt*/
+TalkFontPaletteLoad = 0x02002E98 | 1; /*pt*/
 
 /*Pal*/
-ArcUtil_PalSet = 0x02007938 |1;
+ArcUtil_PalSet = 0x02006E84 | 1; /*pt*/
 
 /*Window*/
 FillWindowPixelBuffer = 0x0201D978 |1;
@@ -133,7 +133,7 @@ StringPut = 0x0208C778 |1;
 PutWindows = 0x0201D578 |1;
 
 /*ItemUse*/
-SetUpItemScript = 0x02064A8C |1;
+SetUpItemScript = 0x02068540 | 1; /*pt*/
 
 /*OAM*/
 OAM_LoadResourceCharArcH = 0x0200D504 | 1;
@@ -152,30 +152,30 @@ OAM_FreeResourceChar = 0x0200D958 |1;
 OAM_FreeResourceCell = 0x0200D978 |1;
 OAM_FreeResourceCellAnm = 0x0200D988 |1;
 OAM_FreeResourcePltt = 0x0200D968 |1;
-CATS_ActorPointerDelete_S = 0x0200D9DC |1;
+CATS_ActorPointerDelete_S = 0x0200D0F4 | 1; /*pt*/
 
 BG_LoadScreenTilemapData = 0x0201C0A8 | 1;
 ScheduleBgTilemapBufferTransfer = 0x0201EFBC | 1;
-ArcUtil_ScrnDataGet = 0x020079D8 | 1;
+ArcUtil_ScrnDataGet = 0x02006F6C | 1; /*pt*/
 
 /*BATTLE_OAM*/
-BGCallback_FightOnly = 0x2FADC + 0x022378C1;
-BG_SlideSetInit = 0x02F5AC + 0x022378C1;
-BattleWorkCATS_SYS_PTRGet = 0x3024 + 0x022378C1;
-BattleWorkCATS_RES_PTRGet = 0x302C + 0x022378C1;
+BGCallback_FightOnly = 0x022698BC | 1; /*pt*/
+BG_SlideSetInit = 0x02269550 | 1; /*pt*/
+BattleWorkCATS_SYS_PTRGet = 0x0223E010 | 1; /*pt*/
+BattleWorkCATS_RES_PTRGet = 0x0223E018 | 1; /*pt*/
 BGCallback_CommandSelect = 0x2F6C4 + 0x022378C1;
-BattleWorkPfdGet = 0x3078 + 0x022378C1;
-PokeIconPalArcIndexGet = 0x02074490 | 1;
-PokeIconAnmCellArcIndexGet = 0x02074498 | 1;
-PokeIconAnmCellAnmArcIndexGet = 0x020744A4 | 1;
+BattleWorkPfdGet = 0x0223E064 | 1; /*pt*/
+PokeIconPalArcIndexGet = 0x02079FD0 | 1; /*pt*/
+PokeIconAnmCellArcIndexGet = 0x02079FD8 | 1; /*pt*/
+PokeIconAnmCellAnmArcIndexGet = 0x02079FE4 | 1; /*pt*/
 
 EffectTCB_Delete = 0x315F8 + 0x022378C1;
 Sub_TouchEndDelete = 0x314C8 + 0x022378C1;
 Sub_ScrnOffsetRewrite = 0x31624 + 0x022378C1;
 EffectTCB_Add = 0x315C4 + 0x022378C1;
-BattleWorkGF_BGL_INIGet = 0x0223A7D4 | 1;
+BattleWorkGF_BGL_INIGet = 0x0223DF00 | 1; /*pt*/
 
-Snd_SePlay = 0x0200604C | 1;
+Snd_SePlay = 0x02005748 | 1; /*pt*/
 
 
 
@@ -184,7 +184,7 @@ Snd_SePlay = 0x0200604C | 1;
 /* new battle engine */
 GetBattlerAbility = 0x022527CC | 1;
 BattleDamageDivide = 0x02253178 | 1;
-BattleWorkWeatherGet = 0x0223BAF8 | 1;
+BattleWorkWeatherGet = 0x0223F21C | 1; /*pt*/
 BattleWorkEnemyClientGet = 0x32F8 + 0x022378C1;
 TraceClientGet = 0x022585B8 | 1;
 IsClientEnemy = 0x0223AB1C | 1;
@@ -201,68 +201,68 @@ HeldItemAtkGet = 0x02255844 | 1;
 IsMovingAfterClient = 0x0225561C | 1;
 CheckSubstitute = 0x02256838 | 1;
 GetArceusType = 0x02071C28 | 1;
-BattleWorkBattleStatusFlagGet = 0x0223B514 | 1;
+BattleWorkBattleStatusFlagGet = 0x0223EBEC | 1; /*pt*/
 PokeParaGiratinaFormChange = 0x02071CA0 | 1;
-SCIO_PSPtoPPCopy = 0x02263B4C | 1;
-SCIO_IncRecord = 0x02263F0C | 1;
-ST_ServerTokuseiStatusRecoverReshuffleCheck = 0x0225451C | 1;
-ST_ServerPressurePPDecCheck = 0x02258180 | 1;
-ST_ServerWazaPosGet = 0x02251C60 | 1;
-BattleWorkConfigWazaEffectOnOffCheck = 0x0223B6D4 | 1;
-SCIO_WazaEffectSet = 0x0226340C | 1;
-SCIO_WazaEffect2Set = 0x0226343C | 1;
-SkillSequenceGosub = 0x02245520 | 1;
-ServerKizetsuCheck = 0x0224DC74 | 1;
-Snd_BgmPlay = 0x02005D48 | 1;
-BattleWorkPinchSEFlagSet = 0x0223BD3C | 1;
-ST_ServerPokeOneSelfCheckActPP = 0x022568B0 | 1;
-PokeExpCalc = 0x022463E8 | 1;
-BattleWorkConfigMsgSpeedGet = 0x0223B718 | 1;
-BattleMSG_Print = 0x0223C494 | 1;
-GF_MSG_PrintEndCheck = 0x02020094 | 1;
-SCIO_EXPGaugeCalcSet = 0x02263564 | 1;
-ST_ServerQueCheck = 0x0224ED48 | 1;
-SCIO_StatusEffectSet = 0x02263848 | 1;
-SCIO_LevelUpEffectSet = 0x0226399C | 1;
-BattleWorkPlaceIDGet = 0x0223AB60 | 1;
+SCIO_PSPtoPPCopy = 0x022662FC | 1; /*pt*/
+SCIO_IncRecord = 0x022666BC | 1; /*pt*/
+ST_ServerTokuseiStatusRecoverReshuffleCheck = 0x022577A4 | 1; /*pt*/
+ST_ServerPressurePPDecCheck = 0x0225B408 | 1; /*pt*/
+ST_ServerWazaPosGet = 0x02254EE0 | 1; /*pt*/
+BattleWorkConfigWazaEffectOnOffCheck = 0x0223EDAC | 1; /*pt*/
+SCIO_WazaEffectSet = 0x02265BBC | 1; /*pt*/
+SCIO_WazaEffect2Set = 0x02265BEC | 1; /*pt*/
+SkillSequenceGosub = 0x02248B08 | 1; /*pt*/
+ServerKizetsuCheck = 0x02250EF4 | 1; /*pt*/
+Snd_BgmPlay = 0x0200549C | 1; /*pt*/
+BattleWorkPinchSEFlagSet = 0x0223F460 | 1; /*pt*/
+ST_ServerPokeOneSelfCheckActPP = 0x02259B38 | 1; /*pt*/
+PokeExpCalc = 0x022499C0 | 1; /*pt*/
+BattleWorkConfigMsgSpeedGet = 0x0223EDF0 | 1; /*pt*/
+BattleMSG_Print = 0x0223FB24 | 1; /*pt*/
+GF_MSG_PrintEndCheck = 0x0201D724 | 1; /*pt*/
+SCIO_EXPGaugeCalcSet = 0x02265D14 | 1; /*pt*/
+ST_ServerQueCheck = 0x02251FC8 | 1; /*pt*/
+SCIO_StatusEffectSet = 0x02265FF8 | 1; /*pt*/
+SCIO_LevelUpEffectSet = 0x0226614C | 1; /*pt*/
+BattleWorkPlaceIDGet = 0x0223E24C | 1; /*pt*/
 
 /*Battle Script Functions*/
 IncrementBattleScriptPtr = 0x02245508 | 1;
 read_battle_script_param = 0x022454E8 | 1;
 TagNickParaMake = 0x022522E0 | 1;
 JumpToMoveEffectScript = 0x02245518 | 1;
-BGCallback_Waza = 0x0226748C | 1;
+BGCallback_Waza = 0x022699AC | 1; /*pt*/
 
 /* Trainer data expansion */
-gf_get_seed = 0x0201FD2C | 1;
-PokeParty_Init = 0x020744DC | 1;
-TT_TrainerPokeDataGet = 0x020735E8 | 1;
-TT_TrainerTypeSexGet = 0x020735F8 | 1;
-TrainerCBSet = 0x02072A44 | 1;
+gf_get_seed = 0x0201D2D0 | 1; /*pt*/
+PokeParty_Init = 0x0207A014 | 1; /*pt*/
+TT_TrainerPokeDataGet = 0x0207939C | 1; /*pt*/
+TT_TrainerTypeSexGet = 0x020793AC | 1; /*pt*/
+TrainerCBSet = 0x02078AEC | 1; /*pt*/
 try_force_gender_maybe = 0x02073A98 | 1;
 TrainerMonHandleFrustration = 0x02073AE4 | 1;
 SetPartyPokemonMoveAtPos = 0x020714E8 | 1;
-gf_srand = 0x0201FD38 | 1;
+gf_srand = 0x0201D2DC | 1; /*pt*/
 PokeParty_Add = 0x0207A048 | 1; /*pt*/
 
 /* Illusion */
-CT_PokemonEncountSet = 0x02259968 | 1;
-CT_PokemonEncountAppearSet = 0x02259BA8 | 1;
-CT_PokemonAppearSet = 0x02259D48 | 1;
-ClientCommandReset = 0x02259928 | 1;
-BattleWorkPokePartyGet = 0x0223A7F4 | 1;
-PokeParty_GetPokeCount = 0x02074640 | 1;
-PokeParty_GetMemberPointer = 0x02074644 | 1;
-SideClientNoGet = 0x0224768C | 1;
-BattleWorkClientNoGet = 0x0223AAD8 | 1;
-BattleWorkPartnerClientNoGet = 0x0223AB6C | 1;
-BattleWorkCommIDGet = 0x0223BFC0 | 1;
-BattleWorkCommStandNoGet = 0x0223BFCC | 1;
+CT_PokemonEncountSet = 0x0225CBDC | 1; /*pt*/
+CT_PokemonEncountAppearSet = 0x0225CE1C | 1; /*pt*/
+CT_PokemonAppearSet = 0x0225CF70 | 1; /*pt*/
+ClientCommandReset = 0x0225CBB0 | 1; /*pt*/
+BattleWorkPokePartyGet = 0x0223DF20 | 1; /*pt*/
+PokeParty_GetPokeCount = 0x0207A0F8 | 1; /*pt*/
+PokeParty_GetMemberPointer = 0x0207A0FC | 1; /*pt*/
+SideClientNoGet = 0x0224A984 | 1; /*pt*/
+BattleWorkClientNoGet = 0x0223E1C4 | 1; /*pt*/
+BattleWorkPartnerClientNoGet = 0x0223E258 | 1; /*pt*/
+BattleWorkCommIDGet = 0x0223F6E4 | 1; /*pt*/
+BattleWorkCommStandNoGet = 0x0223F6F0 | 1; /*pt*/
 
 
 /*Overworld Code*/
-AddPokemonParam = 0x0224855C | 1;
-GetEncountChar = 0x02247854 | 1;
+AddPokemonParam = 0x02242514 | 1; /*pt*/
+GetEncountChar = 0x02241AE4 | 1; /*pt*/
 /*get_mon_ow_tag = 0x02069D70 | 1;*/
 get_ow_data_file_num = 0x0206A304 | 1;
 does_species_have_dimorphism = 0x0206A338 | 1;
@@ -273,19 +273,19 @@ BattleScriptCmdTable = 0x0226C6C8;
 /* i can't believe i haven't used this one yet */
 GetItemData = 0x02077D88 | 1;
 GiratinaBoxPokemonFormChange = 0x02071CBC | 1;
-GrashideaFeasibleCheck = 0x02071DB4 | 1;
-PokeList_FormDemoOverlayLoad = 0x0207CB54 | 1;
+GrashideaFeasibleCheck = 0x02077B14 | 1; /*pt*/
+PokeList_FormDemoOverlayLoad = 0x020819B4 | 1; /*pt*/
 
 /* save stuff */
 SaveBlock2_get = 0x020245A4 | 1; /*pt*/
 Sav2_Misc_get = 0x0202A954 | 1;
 SavArray_Flags_get = 0x020507E4 | 1; /*pt*/
-PokeParty_Delete = 0x0207456C | 1;
-Overlay_UnloadID = 0x02006F7C | 1;
-Overlay_Load = 0x02006FF8 | 1;
-WIPE_SYS_EndCheck = 0x0200FB5C | 1;
-PokeListProc_End = 0x020795E0 | 1;
-PROC_GetWork = 0x02007290 | 1;
+PokeParty_Delete = 0x0207A080 | 1; /*pt*/
+Overlay_UnloadID = 0x02006514 | 1; /*pt*/
+Overlay_Load = 0x02006590 | 1; /*pt*/
+WIPE_SYS_EndCheck = 0x0200F2AC | 1; /*pt*/
+PokeListProc_End = 0x0207E7E0 | 1; /*pt*/
+PROC_GetWork = 0x0200682C | 1; /*pt*/
 ScriptJump = 0x0203FE0C | 1;
 SetScriptVar = 0x02066A7C | 1;
 GetScriptVar = 0x02066AAC | 1;
