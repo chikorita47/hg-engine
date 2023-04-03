@@ -3,7 +3,7 @@
 
 // included by armips/global.s
 
-.open "base/overlay/overlay_0018.bin", 0x021E5900
+.open "base/overlay/overlay_0021.bin", 0x021d0d80
 
 
 // here, we need to allocate memory space for the two new poke_lists and store them at workspace+0x878 and workspace+0x1030
@@ -14,22 +14,131 @@
 //   literally 10 more by the way.  holy shit.
 
 
-.org 0x021E5A9C
+.org 0x021D57B0 // ZknWt_GetCountryPokeData
 
 .word NUM_OF_MONS
 
 
-.org 0x021E5AA2 // expand the ram usable by the dex (give about 12 more kb just in case)
-    mov r2, #0x64 // old:  mov r2, #0x61
-    // later lsld by 0xC to get space to pass to 0x201A910
+// .org 0x021E5AA2 // expand the ram usable by the dex (give about 12 more kb just in case) ---- ZKN_GLBDATA_Init?
+//     mov r2, #0x64 // old:  mov r2, #0x61
+//     // later lsld by 0xC to get space to pass to 0x201A910
 
 
-.org 0x021E5AD0 // branch out of the init function
-    // r4 = p->workspace
+.org 0x021d321a // branch out of the init function
+    // r5 = p->workspace
     bl allocate_lists
 
-.org 0x021E5B8A // branch out of the delete function
+.org 0x021d333e // branch out of the delete function
     bl unallocate_lists
+
+
+.org 0x021d3772 // ZKN_GLBDATA_PokeListTblNoGet_Monsno
+    ldr r5, [r0, #4] // new_zkn_pokelist_tbl;  old:  add r5, r0, #0
+
+.org 0x021d3780
+    ldr r1, [r5] // old:  ldr r1, [r5, #4]
+
+
+.org 0x021d37c2 // ZKN_GLBDATA_PokeMonsNoGet
+    ldr r0, [r0, #4]
+    ldr r0, [r0, r1]
+
+
+.org 0x021d37d2 // ZKN_GLBDATA_PokeMonsTypeGet
+    bl PokeMonsTypeGet_patch
+
+
+.org 0x021d37ea // ZKN_GLBDATA_PokeListTblGet
+    ldr r1, [r5, #4] // old:  add r1, [r5, #4]
+
+
+.org 0x021d3a7c // ZknPokeListTblMake
+    cmp r0, #0
+    beq @@_type_caught
+    mov r0, #2
+    b @@_set_type
+@@_type_caught:
+    mov r0, #1
+@@_set_type:
+    ldr r1, =0xF6C
+    ldr r1, [r5, r1]
+    lsl r1, r1, #3 // r1 = shift amount inside of zkn_pokelist_tbl
+    ldr r2, [r5] // r2 = address of new_zkn_pokelist_tbl
+    add r2, r2, r1
+    str r0, [r2, #4]
+    ldrh r0, [r4, #0]
+    add r6, r6, #1
+    str r0, [r2]
+    nop
+    nop
+    nop
+    nop
+    nop
+
+.org 0x021d3ab4 // keep the pool in its original location
+
+.pool
+
+
+.org 0x // ZknPokeListTblSeeGetNumCount -- TODO
+
+
+.org 0x021d3824 // ZKN_GLBDATA_PokeListDrawTblNoSet
+    lsl r4, r4, #2 // r4 is now offset in zkn_pokelistdraw_tbl
+    ldr r1, =0xF74
+    ldr r1, [r5, r1] // r1 = new_zkn_pokelistdraw_tbl
+    ldr r1, [r1, r4]
+    nop
+
+.org 0x021d3840
+
+.pool
+
+
+.org 0x021d385a // ZKN_GLBDATA_PokeListDrawTblNoAdd
+    // r0 = value of p_glb->poke_list.draw_tbl_no
+    lsl r0, r0, #2 // r2 = offset in zkn_pokelistdraw_tbl
+    ldr r1, =0xF74
+    ldr r1, [r5, r1] // r1 = new_zkn_pokelistdraw_tbl
+    ldr r1, [r1, r2]
+    nop
+    mov r0, r5
+
+.org 0x021d3878
+
+.pool
+
+
+.org 0x021d38b2 // ZKN_GLBDATA_PokeListDrawTblDataGet
+    // r1 = offset in zkn_pokelistdraw_tbl
+    ldr r2, =0xF74
+    ldr r0, [r0, r2]
+    ldr r0, [r0, r1]
+
+.org 0x021d38bc
+
+.pool
+
+
+.org 0x // ZknPokeListDrawTblMake -- TODO
+
+
+.org 0x021d3b3e  // ZknPokeListDrawTblCopy
+    // r3 = 0xF70
+    ldr r3, [r0, r3]
+    add r2, r5, #0
+    sub r4, r3, #4
+@@_loop:
+    ldr r6, [r0, r2]
+    lsl r6, r6, #2
+    str r1, [r3, r6]
+    ldr r6,[r0,r5]
+    add r1,r1,#0x1
+    add r6,r6,#0x1
+    str r6,[r0,r5]
+    ldr r6,[r0,r4]
+    cmp r1,r6
+    blt @@_loop
 
 
 .org 0x021E6B42 // make a 1032 work, net loss of an instruction i believe
@@ -200,7 +309,7 @@ _21E6C60:
 .endarea
 
 
-.org 0x021E8698
+.org 0x021E8698 // ZKN_RANGEDATA_GetMonsNoRange, 021D57B4 in pt
 
 .area 0x7C
 
@@ -537,7 +646,7 @@ sub_21F2EC8: // just rewriting this one entirely, huge optimization = no need to
 .pool
 
 
-.org 0x021F7EE0 // edit a 878 out
+.org 0x021F7EE0 // edit a 878 out  --- maybe ZKN_GLBDATA_PokeListTblMake_DummyListCutFlg?
 
     ldr r1, [r5, r2] // old:  add r1, r5, r2
 
@@ -551,7 +660,7 @@ sub_21F2EC8: // just rewriting this one entirely, huge optimization = no need to
 .word (NUM_OF_MONS) * 2 // fuck it we keep the extra space here
 
 
-.org 0x021F81D8 // 102C based on 878 edit.  replace r5 with r6 here
+.org 0x021F81D8 // 102C based on 878 edit.  replace r5 with r6 here ---- ZknPokeListTblMake
 
 // r5 is going to be p->workspace when this is called at all times
 // r0 = p->878 poke list
@@ -827,75 +936,6 @@ get_dex_num: // god i wish this could be well-rewritten
 .org 0x020FF088 // where the old gSpeciesToOWNum table was
 
 .area 0x3DA // make sure we are not overflowing out of old space
-
-// still need to call 0x201AA8C (AllocMemory) with a heapid (r0) of 0x25, and size (r1) of mons_no*4
-// then call 0x20E5B44 (memset) with r0 = p->poke_list, r1 = 0, r2 = size (mons_no*4)
-// call 0x201AB0C (sys_FreeMemoryEz) with the pointer in r0 to free up the memory upon destroying dex
-
-// r4 = p->workspace
-allocate_lists:
-    push {r0-r7, lr}
-    mov r5, r4 // r5 = p->workspace
-
-    // allocate for 878 table - extra (19) entries are to ensure no garbage data gets displayed at the end
-
-    mov r0, #0x25 // heapid
-    ldr r1, =((NUM_OF_MONS + 19) * 4)
-    bl 0x201AA8C // allocate the memory
-
-    ldr r1, =0x878
-    str r0, [r5, r1] // workspace+0x878 = AllocMemory(0x25, NUM_OF_MONS * 4)
-
-    mov r1, #0
-    ldr r2, =((NUM_OF_MONS + 19) * 4)
-    blx 0x20E5B44 // memset(p->878_list, 0, NUM_OF_MONS * 4)
-
-    // allocate for 1030 table - extra entries are to ensure no garbage data at the end
-
-    mov r0, #0x25 // heapid
-    ldr r1, =((NUM_OF_MONS + 19) * 4)
-    bl 0x201AA8C // allocate the memory
-
-    ldr r1, =0x1030
-    str r0, [r5, r1] // workspace+0x1030 = AllocMemory(0x25, NUM_OF_MONS * 4)
-
-    mov r1, #0
-    ldr r2, =((NUM_OF_MONS + 19) * 4)
-    blx 0x20E5B44 // memset(p->1030_list, 0, NUM_OF_MONS * 4)
-
-    // should be all good; restore values and branch back
-
-    pop {r0-r7}
-    str r1, [r4, r0]
-    ldr r0, [r4]
-    pop {pc}
-
-.pool
-
-// r0 = p->workspace
-unallocate_lists:
-    push {r0-r7, lr}
-    mov r5, r0
-
-    // now need to unallocate the space
-
-    ldr r0, =0x878
-    ldr r0, [r5, r0]
-    bl 0x201AB0C // sys_FreeMemoryEz(p->878_list)
-
-    ldr r0, =0x1030
-    ldr r0, [r5, r0]
-    bl 0x201AB0C // sys_FreeMemoryEz(p->1030_list)
-
-    // clean up and branch back
-
-    pop {r0-r7}
-    mov r4, r0
-    mov r0, #0
-    pop {pc}
-
-.pool
-
 
 // r6 = p->workspace
 patch1: // load the 1030 list and add 2 to the offset, comes back to ldrh r0, [r1, r0]

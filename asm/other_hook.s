@@ -448,3 +448,83 @@ ldrb r2, [r6, #0x18]
 bl GrabSexFromSpeciesAndForm
 ldr r1, =0x0206EA24|1
 bx r1
+
+
+
+// dex expansion
+
+
+
+// still need to call 0x02018144 (AllocMemory) with a heapid (r0) of r6, and size (r1) of mons_no*8
+// then call 0x020D5124 (memset) with r0 = p->poke_list, r1 = 0, r2 = size (mons_no*8)
+// call 0x020181C4 (sys_FreeMemoryEz) with the pointer in r0 to free up the memory upon destroying dex
+
+// r5 = p_glb
+// r6 = heap
+.global allocate_lists
+allocate_lists:
+    push {r0-r7, lr}
+
+    // allocate for zkn_pokelist_tbl - extra (19) entries are to ensure no garbage data gets displayed at the end
+
+    mov r0, r6 // heap
+    ldr r1, =((NUM_OF_MONS + 19) * 8)
+    bl 0x02018144 // allocate the memory
+
+    str r0, [r5, #4] // workspace+4 (p_glb->poke_list->zkn_pokelist_tbl) = sys_AllocMemory(heap, NUM_OF_MONS * 8)
+
+    mov r1, #0
+    ldr r2, =((NUM_OF_MONS + 19) * 8)
+    blx 0x020D5124 // memset(new_zkn_pokelist_tbl, 0, NUM_OF_MONS * 8)
+
+    // allocate for zkn_pokelistdraw_tbl - extra entries are to ensure no garbage data at the end
+
+    mov r0, r6 // heap
+    ldr r1, =((NUM_OF_MONS + 19) * 4)
+    bl 0x02018144 // allocate the memory
+
+    ldr r1, =0xF74
+    str r0, [r5, r1] // workspace+0xF74 (p_glb->poke_list->zkn_pokelistdraw_tbl) = sys_AllocMemory(heap, NUM_OF_MONS * 4)
+
+    mov r1, #0
+    ldr r2, =((NUM_OF_MONS + 19) * 4)
+    blx 0x020D5124 // memset(new_zkn_pokelistdraw_tbl, 0, NUM_OF_MONS * 4)
+
+    // should be all good; restore values and branch back
+
+    pop {r0-r7}
+    ldr r0, [r4]
+    str r0, [r5]
+    pop {pc}
+
+.pool
+
+// r4 = p_glb
+.global unallocate_lists
+unallocate_lists:
+    push {r0-r7, lr}
+
+    // now need to unallocate the space
+
+    ldr r0, [r4, #4]
+    bl 0x020181C4 // sys_FreeMemoryEz(new_zkn_pokelist_tbl)
+
+    ldr r0, =0xF74
+    ldr r0, [r4, r0]
+    bl 0x020181C4 // sys_FreeMemoryEz(new_zkn_pokelistdraw_tbl)
+
+    // clean up and branch back
+
+    pop {r0-r7}
+    mov r1, #0
+    str r1, [r4, r0]
+    pop {pc}
+
+.pool
+
+.global PokeMonsTypeGet_patch
+PokeMonsTypeGet_patch:
+    ldr r0, [r0, #4]
+    add r0, [r0, r1]
+    ldr r0, [r0, #4]
+    bx lr
