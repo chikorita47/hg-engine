@@ -19,9 +19,13 @@
 .word NUM_OF_MONS
 
 
-// .org 0x021E5AA2 // expand the ram usable by the dex (give about 12 more kb just in case) ---- ZKN_GLBDATA_Init?
-//     mov r2, #0x64 // old:  mov r2, #0x61
-//     // later lsld by 0xC to get space to pass to 0x201A910
+// expand the ram usable by the dex (give about 12 more kb just in case)
+.org 0x021d0d90 // ZKN_ProcInit
+    mov r2, #0x43 // old:  mov r2, #1
+    mov r0, #3
+    mov r1, #0x25
+    lsl r2, r2, #0xC // old:  lsl r2, r2, #0x12
+    // should end up with 0x43000 (was 0x40000)
 
 
 .org 0x021d321a // branch out of the init function
@@ -80,7 +84,8 @@
 .pool
 
 
-.org 0x // ZknPokeListTblSeeGetNumCount -- TODO
+.org 0x021d3fba // ZknPokeListTblSeeGetNumCount
+    ldr r4, [r0] // old:  add r4, r0, #0
 
 
 .org 0x021d3824 // ZKN_GLBDATA_PokeListDrawTblNoSet
@@ -120,7 +125,22 @@
 .pool
 
 
-.org 0x // ZknPokeListDrawTblMake -- TODO
+.org 0x021d3ace // ZknPokeListDrawTblMake
+    ldr r5, [r0] // old:  add r5, r0, #0
+
+.org 0x021d3ae8
+    // r1 = shift amount in zkn_pokelistdraw_tbl
+    mov r2, #0xF7
+    lsl r2, r2, #4
+    ldr r2, [r0, r2] // r2 = new_zkn_pokelistdraw_tbl
+    str r4, [r2, r1]
+
+.org 0x021d3b00
+    // r1 = shift amount in zkn_pokelistdraw_tbl
+    // r2 = 0x1EE (value to store)
+    lsl r3, r2, #3 // r3 = 0x1EE << 3 = 0xF70 (!!)
+    ldr r3, [r0, r3] // r3 = new_zkn_pokelistdraw_tbl
+    str r2, [r3, r1]
 
 
 .org 0x021d3b3e  // ZknPokeListDrawTblCopy
@@ -1737,7 +1757,7 @@ SetMonCaught: // 0x0202A434
 
 .if ALWAYS_HAVE_NATIONAL_DEX == 1
 
-.org 0x0202A56E
+.org 0x02027486
     mov r0, #1
 
 .endif

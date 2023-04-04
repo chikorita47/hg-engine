@@ -525,6 +525,6 @@ unallocate_lists:
 .global PokeMonsTypeGet_patch
 PokeMonsTypeGet_patch:
     ldr r0, [r0, #4]
-    add r0, [r0, r1]
+    add r0, r0, r1
     ldr r0, [r0, #4]
     bx lr
