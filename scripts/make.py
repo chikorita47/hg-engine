@@ -549,19 +549,19 @@ def decompress_file(path):
 
 
 def changeoffset():
+    searchStrings = ["PokeIconPalNumGet", "allocate_lists", "unallocate_lists", "GetDexNum_patch", "PokeMonsTypeGet_patch"]
     txt = open('offsets.ini', 'r', encoding="utf-8")
     p = txt.readlines()
     txt.close()
 
-    word = ""
+    offsets = []
     for i in p:
-        if "PokeIconPalNumGet:" in i:
-            word = i.replace(" ", '').split('/')[0].split(":")[1]
-            break
-
-    p = "PokeIconPalNumGet equ 0x" + word + "\n"
+        for name in searchStrings:
+            if "/" + name + ":" in i:
+                word = i.replace(" ", '').split('/')[0].split(":")[1]
+                offsets.append(name + " equ 0x" + word + "\n")
     txt = open("armips/asm/offset.s", 'w', encoding="utf-8")
-    txt.writelines(p)
+    txt.writelines(offsets)
     txt.close()
 
 
@@ -572,5 +572,5 @@ if __name__ == '__main__':
     hook()
     # repoint()
     # offset()
-    # changeoffset()
+    changeoffset()
 

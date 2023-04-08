@@ -3,6 +3,8 @@
 
 // included by armips/global.s
 
+.include "armips/asm/offset.s"
+
 .open "base/overlay/overlay_0021.bin", 0x021d0d80
 
 
@@ -48,8 +50,10 @@
     ldr r0, [r0, r1]
 
 
-.org 0x021d37d2 // ZKN_GLBDATA_PokeMonsTypeGet
+.org 0x021d37ce // ZKN_GLBDATA_PokeMonsTypeGet
+    push {lr}
     bl PokeMonsTypeGet_patch
+    pop {pc}
 
 
 .org 0x021d37ea // ZKN_GLBDATA_PokeListTblGet
