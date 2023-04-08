@@ -10,7 +10,9 @@
     bl load_arm9_expansion
 
 
-.org 0x02100E20
+.org 0x0207804c
+
+.area 0x020780c4-.
  
 load_arm9_expansion: // load the narc subfile with arm9 expansion data
     push {r2, lr}
@@ -53,5 +55,7 @@ load_arm9_expansion: // load the narc subfile with arm9 expansion data
 
 ; rom_invalid:
 ;     swi 0x00
+
+.endarea
  
 .close
