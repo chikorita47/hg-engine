@@ -102,10 +102,10 @@
 
 .org 0x021d385a // ZKN_GLBDATA_PokeListDrawTblNoAdd
     // r0 = value of p_glb->poke_list.draw_tbl_no
-    lsl r0, r0, #2 // r2 = offset in zkn_pokelistdraw_tbl
+    lsl r0, r0, #2 // r0 = offset in zkn_pokelistdraw_tbl
     ldr r1, =0xF74
     ldr r1, [r5, r1] // r1 = new_zkn_pokelistdraw_tbl
-    ldr r1, [r1, r2]
+    ldr r1, [r1, r0]
     nop
     mov r0, r5
 
@@ -261,42 +261,12 @@ _return_21E86DE:
 
 get_dex_num: // god i wish this could be well-rewritten
     push {lr}
-    bl get_dex_num_patch
+    bl GetDexNum_patch
     pop {pc}
 
 .pool
 
 .endarea
-
-
-.org 0x020FF088 // where the old gSpeciesToOWNum table was TODO -- move to new overlay (or find somewhere else to put it)
-
-.area 0x3DA // make sure we are not overflowing out of old space
-
-// r1 = species
-get_dex_num_patch:
-    push {lr}
-    cmp r0, #0
-    bne @@_getNationalNum
-    mov r0, r1
-    bl 0x020775a4 // get_regional_dex_num
-    b @@_return
-
-@@_getNationalNum:
-    ldr r0, =SPECIES_ARCEUS
-    cmp r1, r0
-    ble @@_return_r1 // if not a new mon
-    sub r1, #50
-@@_return_r1:
-    mov r0, r1
-@@_return:
-    pop {pc}
-
-.pool
-
-.endarea
-
-.close
 
 
 

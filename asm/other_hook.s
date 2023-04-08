@@ -468,26 +468,41 @@ allocate_lists:
     // allocate for zkn_pokelist_tbl - extra (19) entries are to ensure no garbage data gets displayed at the end
 
     mov r0, r6 // heap
-    ldr r1, =((NUM_OF_MONS + 19) * 8)
+    // ldr r1, =((NUM_OF_MONS + 19) * 8)
+    mov r1, #0x1E // ((NUM_OF_MONS + 19) * 8) >> 8
+    lsl r1, r1, #8
+    add r1, r1, #0x70 // ((NUM_OF_MONS + 19) * 8) && 0xFF
     bl 0x02018144 // allocate the memory
 
     str r0, [r5, #4] // workspace+4 (p_glb->poke_list->zkn_pokelist_tbl) = sys_AllocMemory(heap, NUM_OF_MONS * 8)
 
     mov r1, #0
-    ldr r2, =((NUM_OF_MONS + 19) * 8)
+    // ldr r2, =((NUM_OF_MONS + 19) * 8)
+    mov r2, #0x1E // ((NUM_OF_MONS + 19) * 8) >> 8
+    lsl r2, r2, #8
+    add r2, r2, #0x70 // ((NUM_OF_MONS + 19) * 8) && 0xFF
     blx 0x020D5124 // memset(new_zkn_pokelist_tbl, 0, NUM_OF_MONS * 8)
 
     // allocate for zkn_pokelistdraw_tbl - extra entries are to ensure no garbage data at the end
 
     mov r0, r6 // heap
-    ldr r1, =((NUM_OF_MONS + 19) * 4)
+    // ldr r1, =((NUM_OF_MONS + 19) * 4)
+    mov r1, #0xF // ((NUM_OF_MONS + 19) * 4) >> 8
+    lsl r1, r1, #8
+    add r1, r1, #0x38 // ((NUM_OF_MONS + 19) * 4) && 0xFF
     bl 0x02018144 // allocate the memory
 
-    ldr r1, =0xF74
+    // ldr r1, =0xF74
+    mov r1, #0xF
+    lsl r1, r1, #8
+    add r1, r1, #0x74
     str r0, [r5, r1] // workspace+0xF74 (p_glb->poke_list->zkn_pokelistdraw_tbl) = sys_AllocMemory(heap, NUM_OF_MONS * 4)
 
     mov r1, #0
-    ldr r2, =((NUM_OF_MONS + 19) * 4)
+    // ldr r2, =((NUM_OF_MONS + 19) * 4)
+    mov r2, #0xF // ((NUM_OF_MONS + 19) * 4) >> 8
+    lsl r2, r2, #8
+    add r2, r2, #0x38 // ((NUM_OF_MONS + 19) * 4) && 0xFF
     blx 0x020D5124 // memset(new_zkn_pokelistdraw_tbl, 0, NUM_OF_MONS * 4)
 
     // should be all good; restore values and branch back
@@ -496,8 +511,6 @@ allocate_lists:
     ldr r0, [r4]
     str r0, [r5]
     pop {pc}
-
-.pool
 
 // r4 = p_glb
 .global unallocate_lists
@@ -509,7 +522,10 @@ unallocate_lists:
     ldr r0, [r4, #4]
     bl 0x020181C4 // sys_FreeMemoryEz(new_zkn_pokelist_tbl)
 
-    ldr r0, =0xF74
+    // ldr r0, =0xF74
+    mov r0, #0xF
+    lsl r0, r0, #8
+    add r0, r0, #0x74
     ldr r0, [r4, r0]
     bl 0x020181C4 // sys_FreeMemoryEz(new_zkn_pokelistdraw_tbl)
 
@@ -520,11 +536,32 @@ unallocate_lists:
     str r1, [r4, r0]
     pop {pc}
 
-.pool
-
 .global PokeMonsTypeGet_patch
 PokeMonsTypeGet_patch:
     ldr r0, [r0, #4]
     add r0, r0, r1
     ldr r0, [r0, #4]
     bx lr
+
+// r1 = species
+.global GetDexNum_patch
+GetDexNum_patch:
+    push {lr}
+    cmp r0, #0
+    bne GetNationalNum
+    mov r0, r1
+    bl 0x020775a4 // get_regional_dex_num
+    b GetDexNum_patch_return
+
+GetNationalNum:
+    // ldr r0, =SPECIES_ARCEUS
+    mov r0, #0x1
+    lsl r0, r0, #8
+    add r0, r0, #0xED
+    cmp r1, r0
+    ble GetDexNum_patch_return_r1 // if not a new mon
+    sub r1, #50
+GetDexNum_patch_return_r1:
+    mov r0, r1
+GetDexNum_patch_return:
+    pop {pc}
