@@ -279,9 +279,9 @@ get_dex_num: // god i wish this could be well-rewritten
 
 
 
-// here, we need to increase the pokedex structure size to 0x700 (originally 0x340)
+// here, we need to increase the pokedex structure size to 0x700 (originally 0x324)
 // trying to support up to 2048 mons = 2048 / 8 = 256 bytes per flags field that we need to support
-// 0x340 gets extended through 0x400 from 0x300, i think that is the language bytes or something
+// 0x324 gets extended through 0x400 from 0x300, i think that is the language bytes or something
 // we need to repoint 0x44 within that structure to 0x400 (repoint the seen flags)
 // we then need to repoint 0x84 within that structure to 0x500 (repoint the male flags)
 // 0xC4 obviously then needs to be 0x600 (repoint the female flags)
@@ -299,7 +299,7 @@ DEX_SAVE_SIZE equ 0x700
 // in the name of maintaining PKHeX compatibility for vanilla saves, this whole part needs to be possibly conditionally built.
 .ifdef ALLOW_SAVE_CHANGES
 
-.org 0x020293E0
+.org 0x0202631c
 
 GetPokedexStructSize: // used by the save data to get the struct size needed
     mov r0, #DEX_SAVE_SIZE >> 4
@@ -307,23 +307,23 @@ GetPokedexStructSize: // used by the save data to get the struct size needed
     bx lr
 
 
-.org 0x020293E8
+.org 0x02026324
 
 AllocatePokedexStructSize: // rewrite for new struct size
     push {r4, lr}
     mov r1, #DEX_SAVE_SIZE >> 4
     lsl r1, #0x4
-    bl 0x0201AA8C // AllocMemory
+    bl 0x02018144 // AllocMemory
     mov r4, r0
     bl PokedexInit
     mov r0, r4
     pop {r4, pc}
 
 
-.org 0x020293FC
+.org 0x02026338
 
 CopyPokedexStruct: // rewrite for new struct size
-    ldr r3, =(0x020D4A50) // CpuCopy8
+    ldr r3, =(0x020c4db0) // CpuCopy8
     mov r2, #DEX_SAVE_SIZE >> 4
     lsl r2, #0x4
     bx r3
@@ -331,7 +331,7 @@ CopyPokedexStruct: // rewrite for new struct size
 .pool
 
 
-.org 0x02029408
+.org 0x02026344
 
 IsMonNotValid:
     push {r3, lr}
@@ -342,7 +342,7 @@ IsMonNotValid:
     bls @@_return_valid
 
 @@_invalid_mon:
-    bl 0x0202551C // HandleError
+    bl 0x02022974 // HandleError
     mov r0, #1
     pop {r3, pc}
 
@@ -355,7 +355,7 @@ IsMonNotValid:
 
 // edits to SetGenderBit
 
-.org 0x0202943E // replace C4 with 440
+.org 0x0202637a // replace C4 with 440
     mov r3, r0
     mov r1, #7
     and r3, r1
@@ -366,7 +366,7 @@ IsMonNotValid:
     add r2, r1
     asr r1, r0, #3
 
-.org 0x0202946C
+.org 0x020263a8
     mov r3, #MALE_FLAGS_OFFSET >> 4
     lsl r3, #4
     add r5, r3
@@ -374,35 +374,35 @@ IsMonNotValid:
 
 
 
-// edit to sub_20298E0
+// edit to SetDeoxysFormNo
 // net -0x10 bytes from removing error handling and casting
 
-.org 0x020298E0
+.org 0x02026850 // setDEOKISISUFormNo
 
-.area 0x0202991C-., 0xFF
+.area 0x0202688c-., 0xFF
 
-sub_20298E0: // 0x020298E0
+SetDeoxysFormNo:
     push {r4-r6, lr}
     add r4, r2, #0
     add r5, r0, #0
     add r6, r1, #0
 // old error handling, -0x10 bytes
 //    cmp r4, #4
-//    blo @@_020298F0
-//    bl 0x0202551C
-//@@_020298F0:
+//    blo @@_02026860
+//    bl 0x02022974
+//@@_02026860:
 //    cmp r6, #0xf
-//    bls @@_020298F8
-//    bl 0x0202551C
-//@@_020298F8:
+//    bls @@_02026868
+//    bl 0x02022974
+//@@_02026868:
     cmp r4, #2
-    bhs @@_02029908
+    bhs @@_02026878
     add r0, r5, #4
     add r1, r6, #0
     add r2, r4, #0
-    bl 0x020298C4
+    bl 0x02026834
     pop {r4-r6, pc}
-@@_02029908:
+@@_02026878:
     sub r2, r4, #2
 // new:  add SEEN_FLAGS_OFFSET instead of 0x44, +6 bytes
     mov r4, #SEEN_FLAGS_OFFSET >> 4
@@ -415,15 +415,18 @@ sub_20298E0: // 0x020298E0
     add r0, r5, #0
     add r1, r6, #0
 //    lsr r2, r2, #0x18 // get rid of byte cast
-    bl 0x020298C4
+    bl 0x02026834
     pop {r4-r6, pc}
 
 .endarea
 
 
+// TODO: 0x0202688c, getDEOKISISUFormNo?
+
+
 // edits to GetNormalMonGender
 
-.org 0x02029C26
+.org 0x02026bce
     sub r2, r6, #1
     mov r1, #1
     mov r0, #7
@@ -438,9 +441,9 @@ sub_20298E0: // 0x020298E0
     add r3, r6
 
 
-.org 0x02029C46
+.org 0x02026bee
     cmp r4, #1
-    bne 0x2029C76
+    bne 0x02026c1e
     mov r4, r2
     asr r2, r2, #3
     add r2, r5, r2
@@ -450,7 +453,7 @@ sub_20298E0: // 0x020298E0
     add r2, r3
 
 
-.org 0x02029D98
+.org 0x02026d6c
 
 PokedexInit: // rewrite the beginning for new struct size
     push {r4, lr}
@@ -461,7 +464,7 @@ PokedexInit: // rewrite the beginning for new struct size
 
 // edits to GetCaughtMonCount
 
-.org 0x02029E0C
+.org 0x02026dd0
 
 .area 0x3C, 0xFF
 
@@ -474,7 +477,7 @@ GetCaughtMonCount:
 @@_loop:
     mov r0, r6
     mov r1, r4
-    bl 0x02029FF8 // GetCaughtFlag
+    bl 0x02026f9c // GetCaughtFlag
     cmp r0, #1
     bne @@_increment
     add r5, #1
@@ -501,7 +504,7 @@ GetCaughtMonCount:
 
 // edits to GetSeenMonCount
 
-.org 0x02029E48
+.org 0x02026e0c
 
 .area 0x3C, 0xFF
 
@@ -514,7 +517,7 @@ GetSeenMonCount:
 @@_loop:
     mov r0, r6
     mov r1, r4
-    bl 0x0202A044 // GetSeenFlag
+    bl 0x02026fe8 // GetSeenFlag
     cmp r0, #1
     bne @@_increment
     add r5, #1
@@ -541,30 +544,30 @@ GetSeenMonCount:
 
 // edits to GetRegionalDexCaughtCount
 
-.org 0x02029EF0
+.org 0x02026ea8
 
 .word NUM_OF_MONS
 
 
 // edits to GetRegionalDexSeenCount
 
-.org 0x02029F44
+.org 0x02026ef0
 
 .word NUM_OF_MONS
 
 
 // something to do with counting the mons that are not mythical
 
-// edits to sub_2029F74
+// edits to ZukanWork_GetZenkokuGetCompCount
 
-.org 0x02029FA8
+.org 0x02026f54
 
 .word NUM_OF_MONS
 
 
-// edits to sub_2029FAC
+// edits to ZukanWork_GetShinouSeeCompCount
 
-.org 0x02029FF4
+.org 0x02026f98
 
 .word NUM_OF_MONS
 
@@ -572,11 +575,11 @@ GetSeenMonCount:
 // edits to GetCaughtFlag
 // net -0x8 bytes from removing error handling and casting
 
-.org 0x02029FF8
+.org 0x02026f9c
 
-.area 0x0202A044-., 0xFF
+.area 0x02026fe8-., 0xFF
 
-GetCaughtFlag: // 0x02029FF8
+GetCaughtFlag: // 0x02026f9c
     push {r3-r5, lr}
     add r5, r0, #0
     add r4, r1, #0
@@ -584,16 +587,16 @@ GetCaughtFlag: // 0x02029FF8
     ldr r0, =0xBEEFCAFE
 // old error handling, -8 bytes
 //    cmp r1, r0
-//    beq @@_0202A00A
-//    bl 0x0202551C
-//@@_0202A00A:
+//    beq @@_02026fae
+//    bl 0x02022974
+//@@_02026fae:
     add r0, r4, #0
-    bl 0x02029408
+    bl 0x02026344
     cmp r0, #0
-    beq @@_0202A018
+    beq @@_02026fbc
     mov r0, #0
     pop {r3-r5, pc}
-@@_0202A018:
+@@_02026fbc:
 // new replace below:  +2 bytes
     sub r2, r4, #1
 // get rid of old casting, -6 bytes
@@ -609,7 +612,7 @@ GetCaughtFlag: // 0x02029FF8
     add r2, r5, r1
     ldrb r1, [r2, #CAUGHT_FLAGS_OFFSET]
     tst r1, r3
-    beq @@_0202A03A
+    beq @@_02026fde
 // get rid of old handling, -2 bytes
 //    add r2, #0x44
 // new: +6 bytes
@@ -618,10 +621,10 @@ GetCaughtFlag: // 0x02029FF8
     add r2, r5
     ldrb r1, [r2]
     tst r1, r3
-    bne @@_0202A03C
-@@_0202A03A:
+    bne @@_02026fe0
+@@_02026fde:
     mov r0, #0
-@@_0202A03C:
+@@_02026fe0:
     pop {r3-r5, pc}
 //    nop
 
@@ -633,11 +636,11 @@ GetCaughtFlag: // 0x02029FF8
 // edits to GetSeenFlag
 // net -0x8 bytes from removing error handling and casting
 
-.org 0x0202A044
+.org 0x02026fe8
 
-.area 0x0202A088-., 0xFF
+.area 0x0202702c-., 0xFF
 
-GetSeenFlag: // 0x0202A044
+GetSeenFlag: // 0x02026fe8
     push {r3-r5, lr}
     add r5, r0, #0
     add r4, r1, #0
@@ -645,16 +648,16 @@ GetSeenFlag: // 0x0202A044
     ldr r0, =0xBEEFCAFE
 // remove error handling:  -8 bytes
 //    cmp r1, r0
-//    beq @@_0202A056
-//    bl 0x0202551C
-//@@_0202A056:
+//    beq @@_02026ffa
+//    bl 0x02022974
+//@@_02026ffa:
     add r0, r4, #0
-    bl 0x02029408
+    bl 0x02026344
     cmp r0, #0
-    beq @@_0202A064
+    beq @@_02027008
     mov r0, #0
     pop {r3, r4, r5, pc}
-@@_0202A064:
+@@_02027008:
 // new replace below:  +2 bytes
     sub r3, r4, #1
 // get rid of cast: -6 bytes
@@ -676,9 +679,9 @@ GetSeenFlag: // 0x0202A044
     add r1, r3
     ldrb r1, [r1]
     tst r1, r2
-    bne @@_0202A082
+    bne @@_02027026
     mov r0, #0
-@@_0202A082:
+@@_02027026:
     pop {r3-r5, pc}
 
 .pool
@@ -686,13 +689,13 @@ GetSeenFlag: // 0x0202A044
 .endarea
 
 
-// edits to unknown function
+// edits to ZukanWork_GetPokeSexFlag
 
-.org 0x0202A0B4
+.org 0x02027058
 
-.area 0x0202A108-., 0xFF
+.area 0x020270ac-., 0xFF
 
-sub_0202A0B4: // 0x0202A0B4
+ZukanWork_GetPokeSexFlag: // 0x02027058
     push {r4-r6, lr}
     add r5, r0, #0
     add r4, r1, #0
@@ -700,17 +703,17 @@ sub_0202A0B4: // 0x0202A0B4
     ldr r0, =0xBEEFCAFE
     add r6, r2, #0
     cmp r1, r0
-    beq @@_0202A0C8
-    bl 0x0202551C
-@@_0202A0C8:
+    beq @@_0202706c
+    bl 0x02022974
+@@_0202706c:
     add r0, r4, #0
-    bl 0x02029408
+    bl 0x02026344
     cmp r0, #0
-    beq @@_0202A0D8
+    beq @@_0202707c
     mov r0, #0
     mvn r0, r0
     pop {r4-r6, pc}
-@@_0202A0D8:
+@@_0202707c:
 //    sub r0, r4, #1
 //    lsl r0, r0, #0x10
 //    lsr r2, r0, #0x10
@@ -728,13 +731,13 @@ sub_0202A0B4: // 0x0202A0B4
     ldrb r2, [r2]
     lsl r1, r3
     tst r1, r2
-    beq @@_0202A100
+    beq @@_020270a4
     add r0, r5, #0
     add r1, r4, #0
     add r2, r6, #0
-    bl 0x02029C04
+    bl 0x02026bac
     pop {r4-r6, pc}
-@@_0202A100:
+@@_020270a4:
     sub r0, #8
     pop {r4-r6, pc}
 
@@ -745,11 +748,11 @@ sub_0202A0B4: // 0x0202A0B4
 
 // edits to SetMonSeen
 
-.org 0x0202A36C
+.org 0x020272a4
 
-.area 0x0202A434-., 0xFF
+.area 0x0202736c-., 0xFF
 
-SetMonSeen: // 0x0202A36C
+SetMonSeen: // 0x020272a4
     push {r3-r7, lr}
     sub sp, #8
     add r5, r0, #0
@@ -757,27 +760,27 @@ SetMonSeen: // 0x0202A36C
     add r0, r1, #0
     mov r1, #5
     mov r2, #0
-    bl 0x0206E540
+    bl 0x02074470
     lsl r0, r0, #0x10
     lsr r4, r0, #0x10
     mov r1, #0
     ldr r0, [sp]
     add r2, r1, #0
-    bl 0x0206E540
+    bl 0x02074470
     str r0, [sp, #4]
     ldr r0, [sp]
-    bl 0x0206FF88
+    bl 0x02075d6c
     add r6, r0, #0
     ldr r1, [r5]
     ldr r0, =0xBEEFCAFE
     cmp r1, r0
-    beq @@_0202A3A2
-    bl 0x0202551C
-@@_0202A3A2:
+    beq @@_020272da
+    bl 0x02022974
+@@_020272da:
     add r0, r4, #0
-    bl 0x02029408
+    bl 0x02026344
     cmp r0, #0
-    bne @@_0202A426
+    bne @@_0202735e
 //    sub r0, r4, #1
 //    lsl r0, r0, #0x10
 //    lsr r7, r0, #0x10
@@ -796,23 +799,23 @@ SetMonSeen: // 0x0202A36C
     add r2, r1 // net +4
     ldrb r2, [r2]
     tst r2, r0
-    bne @@_0202A3E6
+    bne @@_0202731e
     ldr r1, =0x00000147
     cmp r4, r1
-    bne @@_0202A3D6
+    bne @@_0202730e
     ldr r0, [sp, #4]
     sub r1, #0x43
     str r0, [r5, r1]
-@@_0202A3D6:
+@@_0202730e:
 //    lsl r1, r6, #0x18
     add r0, r5, #0
 //    lsr r1, r1, #0x18
     mov r1, r6 // net -2
     mov r2, #0
     add r3, r4, #0
-    bl 0x0202949C
-    b @@_0202A408
-@@_0202A3E6:
+    bl 0x020263d8
+    b @@_02027340
+@@_0202731e:
     add r2, r5, r3
     mov r3, #MALE_FLAGS_OFFSET >> 4
     lsl r3, #4
@@ -823,19 +826,19 @@ SetMonSeen: // 0x0202A36C
     mov r1, #0
 @@_next:
     cmp r1, r6
-    beq @@_0202A408
+    beq @@_02027340
 //    lsl r1, r6, #0x18
     add r0, r5, #0
 //    lsr r1, r1, #0x18
     mov r1, r6 // net -2
     mov r2, #1
     add r3, r4, #0
-    bl 0x0202949C
-@@_0202A408:
+    bl 0x020263d8
+@@_02027340:
     ldr r2, [sp]
     add r0, r5, #0
     add r1, r4, #0
-    bl 0x02029AF0
+    bl 0x02026a60
     mov r1, #7
 //    add r5, #0x44 // here
     mov r0, #SEEN_FLAGS_OFFSET >> 4
@@ -849,7 +852,7 @@ SetMonSeen: // 0x0202A36C
     add r1, r3, #0
     orr r1, r2
     strb r1, [r5, r0]
-@@_0202A426:
+@@_0202735e:
     add sp, #8
     pop {r3-r7, pc}
     nop
@@ -860,12 +863,13 @@ SetMonSeen: // 0x0202A36C
 
 
 // edits to SetMonCaught
+// here we diverge from hg a bit, A4E4 thru A50D is different (unown dex + some other check)
 
-.org 0x0202A434
+.org 0x0202736c
 
-.area 0x0202A53C-., 0xFF
+.area 0x02027454-., 0xFF
 
-SetMonCaught: // 0x0202A434
+SetMonCaught: // 0x0202736c
     push {r3-r7, lr}
     sub sp, #8
     add r7, r1, #0
@@ -873,33 +877,33 @@ SetMonCaught: // 0x0202A434
     add r0, r7, #0
     mov r1, #5
     mov r2, #0
-    bl 0x0206E540
+    bl 0x02074470
 //    lsl r0, r0, #0x10
 //    lsr r4, r0, #0x10
     mov r4, r0 // net -2
     add r0, r7, #0
     mov r1, #0xc
     mov r2, #0
-    bl 0x0206E540
+    bl 0x02074470
     mov r1, #0
     str r0, [sp, #4]
     add r0, r7, #0
     add r2, r1, #0
-    bl 0x0206E540
+    bl 0x02074470
     str r0, [sp]
     add r0, r7, #0
-    bl 0x0206FF88
+    bl 0x02075d6c
     add r6, r0, #0
     ldr r1, [r5]
     ldr r0, =0xBEEFCAFE
     cmp r1, r0
-    beq @@_0202A476
-    bl 0x0202551C
-@@_0202A476:
+    beq @@_020273ae
+    bl 0x02022974
+@@_020273ae:
     add r0, r4, #0
-    bl 0x02029408
+    bl 0x02026344
     cmp r0, #0
-    bne @@_0202A530
+    bne @@_02027448
 //    sub r0, r4, #1
 //    lsl r0, r0, #0x10
 //    lsr r3, r0, #0x10
@@ -919,23 +923,23 @@ SetMonCaught: // 0x0202A434
     pop {r0}
     ldrb r3, [r3]
     tst r3, r1
-    bne @@_0202A4B8
+    bne @@_020273f0
     ldr r1, =0x00000147
     cmp r4, r1
-    bne @@_0202A4A8
+    bne @@_020273e0
     ldr r0, [sp]
     sub r1, #0x43
     str r0, [r5, r1]
-@@_0202A4A8:
+@@_020273e0:
 //    lsl r1, r6, #0x18
     add r0, r5, #0
 //    lsr r1, r1, #0x18
     mov r1, r6 // net -2
     mov r2, #0
     add r3, r4, #0
-    bl 0x0202949C
-    b @@_0202A4DA
-@@_0202A4B8:
+    bl 0x020263d8
+    b @@_02027412
+@@_020273f0:
     add r0, r5, r0
     mov r3, #MALE_FLAGS_OFFSET >> 4
     lsl r3, #4
@@ -946,39 +950,24 @@ SetMonCaught: // 0x0202A434
     mov r2, #0
 @@_next1:
     cmp r2, r6
-    beq @@_0202A4DA
+    beq @@_02027412
 //    lsl r1, r6, #0x18
     add r0, r5, #0
 //    lsr r1, r1, #0x18
 	mov r1, r6
     mov r2, #1
     add r3, r4, #0
-    bl 0x0202949C
-@@_0202A4DA:
+    bl 0x020263d8
+@@_02027412:
     add r0, r5, #0
     add r1, r4, #0
     add r2, r7, #0
-    bl 0x02029AF0
-    cmp r4, #0xc9
-    bne @@_0202A4F8
-    add r0, r7, #0
-    bl 0x02070D98
-    add r1, r0, #0
-    add r0, r5, #0
-    mov r2, #1
-    bl 0x020295A0
-@@_0202A4F8:
+    bl 0x02026a60
     ldr r2, [sp, #4]
     add r0, r5, #0
     add r1, r4, #0
-    bl 0x02029BE0
-    ldr r0, [sp, #4]
-    cmp r0, #2
-    beq @@_0202A50E
-    add r0, r5, #0
-    bl 0x0202A5DC
-@@_0202A50E:
-    sub r6, r4, #1
+    bl 0x02026b88
+    sub r6, r4, #1 // A50E => 7426
     //lsl r0, r0, #0x10
     //lsr r6, r0, #0x10
     add r1, r5, #CAUGHT_FLAGS_OFFSET
@@ -998,7 +987,7 @@ SetMonCaught: // 0x0202A434
     ldrb r1, [r5, r0]
     orr r1, r3
     strb r1, [r5, r0]
-@@_0202A530:
+@@_02027448:
     add sp, #8
     pop {r3-r7, pc}
 
