@@ -721,11 +721,12 @@ ZukanWork_GetPokeSexFlag: // 0x02027058
     add r3, r2, #0
     asr r2, r2, #3
     add r2, r5, r2
-    mov r0, #7
+//    mov r0, #7
 //    add r2, #0x44 // here
-    mov r3, #SEEN_FLAGS_OFFSET >> 4
-    lsl r3, #4
-    add r2, r3 // net +4
+    mov r0, #SEEN_FLAGS_OFFSET >> 4
+    lsl r0, #4
+    add r2, r0 // net +4
+    mov r0, #7
     mov r1, #1
     and r3, r0
     ldrb r2, [r2]
