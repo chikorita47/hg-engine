@@ -42,19 +42,19 @@
 # NARC_FILES += $(MOVEPARTICLES_NARC)
 
 
-# MSGDATA_DIR := $(BUILD)/text
-# MSGDATA_NARC := $(BUILD_NARC)/msg_data.narc
-# MSGDATA_TARGET := $(FILESYS)/a/0/2/7
-# MSGDATA_DEPENDENCIES_DIR := data/text
-# MSGDATA_DEPENDENCIES := $(MSGDATA_DEPENDENCIES_DIR)/*
-# CHARMAP := charmap.txt
+MSGDATA_DIR := $(BUILD)/text
+MSGDATA_NARC := $(BUILD_NARC)/pl_msg.narc
+MSGDATA_TARGET := $(FILESYS)/msgdata/pl_msg.narc
+MSGDATA_DEPENDENCIES_DIR := data/text
+MSGDATA_DEPENDENCIES := $(MSGDATA_DEPENDENCIES_DIR)/*
+CHARMAP := charmap.txt
 
-# $(MSGDATA_NARC): $(MSGDATA_DEPENDENCIES)
-# 	$(PYTHON) $(NARCHIVE) extract $(MSGDATA_TARGET) -o $(MSGDATA_DIR) -nf
-# 	for file in $^; do $(MSGENC) -e -c $(CHARMAP) $$file $(MSGDATA_DIR)/7_$$(basename $$file .txt); done
-# 	$(PYTHON) $(NARCHIVE) create $@ $(MSGDATA_DIR) -nf
+$(MSGDATA_NARC): $(MSGDATA_DEPENDENCIES)
+	$(PYTHON) $(NARCHIVE) extract $(MSGDATA_TARGET) -o $(MSGDATA_DIR) -nf
+	for file in $^; do $(MSGENC) -e -c $(CHARMAP) $$file $(MSGDATA_DIR)/pl_msg_$$(basename $$file .txt); done
+	$(PYTHON) $(NARCHIVE) create $@ $(MSGDATA_DIR) -nf
 
-# NARC_FILES += $(MSGDATA_NARC)
+NARC_FILES += $(MSGDATA_NARC)
 
 
 # OPENDEMO_DIR := $(BUILD)/a262

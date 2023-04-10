@@ -170,8 +170,8 @@ move_narc: $(NARC_FILES)
 	# @echo "move particles:"
 	# cp $(MOVEPARTICLES_NARC) $(MOVEPARTICLES_TARGET)
 
-	# @echo "text data:"
-	# cp $(MSGDATA_NARC) $(MSGDATA_TARGET)
+	@echo "text data:"
+	cp $(MSGDATA_NARC) $(MSGDATA_TARGET)
 
 	# @echo "item data files:"
 	# cp $(ITEMDATA_NARC) $(ITEMDATA_TARGET)
