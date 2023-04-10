@@ -32,13 +32,13 @@
 .macro mondata,species
 
 	.if species < 10
-		.create "build/a002/mondata_000" + tostring(species),0
+		.create "build/pl_personal/mondata_000" + tostring(species),0
 	.elseif species < 100
-		.create "build/a002/mondata_00" + tostring(species),0
+		.create "build/pl_personal/mondata_00" + tostring(species),0
 	.elseif species < 1000
-		.create "build/a002/mondata_0" + tostring(species),0
+		.create "build/pl_personal/mondata_0" + tostring(species),0
 	.else
-		.create "build/a002/mondata_" + tostring(species),0
+		.create "build/pl_personal/mondata_" + tostring(species),0
 	.endif
 
 .endmacro

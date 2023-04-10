@@ -71,17 +71,17 @@
 # NARC_FILES += $(OPENDEMO_NARC)
 
 
-# MONDATA_DIR := $(BUILD)/a002
-# MONDATA_NARC := $(BUILD_NARC)/mondata.narc
-# MONDATA_TARGET := $(FILESYS)/a/0/0/2
-# MONDATA_DEPENDENCIES := armips/data/mondata.s
+MONDATA_DIR := $(BUILD)/pl_personal
+MONDATA_NARC := $(BUILD_NARC)/pl_personal.narc
+MONDATA_TARGET := $(FILESYS)/poketool/personal/pl_personal.narc
+MONDATA_DEPENDENCIES := armips/data/mondata.s
 
-# $(MONDATA_NARC): $(MONDATA_DEPENDENCIES)
-# 	mkdir -p $(MONDATA_DIR)
-# 	$(ARMIPS) $^
-# 	$(PYTHON) $(NARCHIVE) create $@ $(MONDATA_DIR) -nf
+$(MONDATA_NARC): $(MONDATA_DEPENDENCIES)
+	mkdir -p $(MONDATA_DIR)
+	$(ARMIPS) $^
+	$(PYTHON) $(NARCHIVE) create $@ $(MONDATA_DIR) -nf
 
-# NARC_FILES += $(MONDATA_NARC)
+NARC_FILES += $(MONDATA_NARC)
 
 
 # SPRITEOFFSETS_DIR := $(BUILD)/a180
