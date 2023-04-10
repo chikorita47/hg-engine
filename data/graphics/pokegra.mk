@@ -2,8 +2,8 @@ POKEGRA_DIR := data/graphics
 POKEGRA_SPRITES_DIR := $(POKEGRA_DIR)/sprites
 POKEGRA_BUILD_DIR := $(BUILD)/pokemonpic
 POKEGRA_NARC := $(BUILD_NARC)/pokegra.narc
-POKEGRA_TARGET := $(FILESYS)/a/0/0/4
-PBR_POKEGRA_TARGET := $(FILESYS)/pbr/pokegra.narc
+POKEGRA_TARGET := $(FILESYS)/poketool/pokegra/pl_pokegra.narc
+PBR_POKEGRA_TARGET := $(FILESYS)/poketool/pokegra/pokegra.narc
 
 POKEGRA_GFX_FLAGS_SPRITE := -scanfronttoback -handleempty
 POKEGRA_GFX_FLAGS_PAL := -bitdepth 8 -nopad -comp 10

@@ -72,7 +72,7 @@ OW_SPRITES_SRC := $(wildcard data/graphics/overworlds/*.png)
 OW_SPRITES_OBJS := $(patsubst data/graphics/overworlds/*.png,build/data/graphics/overworlds/%.swav,$(OW_SPRITES_SRC))
 
 ## includes
-# include data/graphics/pokegra.mk
+include data/graphics/pokegra.mk
 # include data/itemdata/itemdata.mk
 include narcs.mk
 
@@ -176,9 +176,9 @@ move_narc: $(NARC_FILES)
 	# @echo "item data files:"
 	# cp $(ITEMDATA_NARC) $(ITEMDATA_TARGET)
 
-	# @echo "mon sprite data:"
-	# cp $(POKEGRA_NARC) $(POKEGRA_TARGET)
-	# cp $(POKEGRA_NARC) $(PBR_POKEGRA_TARGET)
+	@echo "mon sprite data:"
+	cp $(POKEGRA_NARC) $(POKEGRA_TARGET)
+	cp $(POKEGRA_NARC) $(PBR_POKEGRA_TARGET)
 
 	# @echo "opening demo files:"
 	# cp $(OPENDEMO_NARC) $(OPENDEMO_TARGET)
