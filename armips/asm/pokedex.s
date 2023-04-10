@@ -421,7 +421,31 @@ SetDeoxysFormNo:
 .endarea
 
 
-// TODO: 0x0202688c, getDEOKISISUFormNo?
+// edits to getDEOKISISUFormNo
+
+.org 0x020268a0
+.area 0x020268b8-., 0xFF
+// old:
+//    add r0, #0x80
+//    ldr r2, [r0, #0]
+// instead of 0x80, need SEEN_FLAGS_OFFSET + (0x80 - 0x44) = 0x43C
+    mov r0, #(SEEN_FLAGS_OFFSET + (0x80 - 0x44)) >> 4
+    lsl r0, #4
+    ldr r2, [r0, #(SEEN_FLAGS_OFFSET + (0x80 - 0x44)) & 0xF] // +2 bytes
+    sub r0, r1, #2
+// old:
+//    lsl r0, r0, #0x18
+//    lsr r0, r0, #0x16
+// new: remove cast, -2 bytes
+    lsl r0, #2
+    add r0, #0x18
+    add r1, r2, #0
+    lsr r1, r0
+    mov r0, #0xf
+    and r0, r1
+    bx lr
+
+.endarea
 
 
 // edits to GetNormalMonGender
