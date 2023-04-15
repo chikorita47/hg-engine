@@ -156,10 +156,10 @@ DEXAREA_RAWDATA_DIR := rawdata/files_from_zukan_enc_platinum
 DEXAREA_DEPENDENCIES := armips/data/pokedex/areadata.s
 
 $(DEXAREA_NARC): $(DEXAREA_DEPENDENCIES)
-	$(PYTHON) $(NARCHIVE) extract $(DEXAREA_TARGET) -o $(DEXAREA_DIR) -nf
+#    $(PYTHON) $(NARCHIVE) extract $(DEXAREA_TARGET) -o $(DEXAREA_DIR) -nf
 	mkdir -p $(DEXAREA_DIR)
 	$(ARMIPS) $^
-	# cp -r $(DEXAREA_RAWDATA_DIR)/. $(DEXAREA_DIR)
+	cp -r $(DEXAREA_RAWDATA_DIR)/. $(DEXAREA_DIR)
 	$(PYTHON) $(NARCHIVE) create $@ $(DEXAREA_DIR) -nf
 
 NARC_FILES += $(DEXAREA_NARC)
