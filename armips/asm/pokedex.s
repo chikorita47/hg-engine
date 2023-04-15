@@ -170,6 +170,11 @@
 .word (NUM_OF_MONS) * 2 // fuck it we keep the extra space here
 
 
+.org 0x021d171a // ZKN_UTIL_PokeListPokeNameTblBmpMake_Zenkoku
+.area 0x021d171e-.
+    bl GetNationalDexDrawNum_patch
+.endarea
+
 
 /*
 .org 0x021E8698 // ZKN_RANGEDATA_GetMonsNoRange, 021D57B4 in pt

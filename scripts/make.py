@@ -549,7 +549,7 @@ def decompress_file(path):
 
 
 def changeoffset():
-    searchStrings = ["PokeIconPalNumGet", "allocate_lists", "unallocate_lists", "GetDexNum_patch", "PokeMonsTypeGet_patch"]
+    searchStrings = ["PokeIconPalNumGet", "allocate_lists", "unallocate_lists", "GetDexNum_patch", "GetNationalDexDrawNum_patch", "PokeMonsTypeGet_patch"]
     txt = open('offsets.ini', 'r', encoding="utf-8")
     p = txt.readlines()
     txt.close()

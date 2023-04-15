@@ -568,3 +568,19 @@ GetDexNum_patch_return_r1:
     mov r0, r1
 GetDexNum_patch_return:
     pop {pc}
+
+// r6 = species
+// r1 and r2 are free
+.global GetNationalDexDrawNum_patch
+GetNationalDexDrawNum_patch:
+    mov r1, r6
+    // ldr r2, =SPECIES_ARCEUS
+    mov r2, #0x1
+    lsl r2, r2, #8
+    add r2, r2, #0xED
+    cmp r1, r2
+    ble GetNationalDexDrawNum_patch_return // if not a new mon
+    sub r1, #50
+GetNationalDexDrawNum_patch_return:
+    mov r2, r6
+    bx lr
