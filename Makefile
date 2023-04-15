@@ -201,8 +201,8 @@ move_narc: $(NARC_FILES)
 	# @echo "dex area data:"
 	# cp $(DEXAREA_NARC) $(DEXAREA_TARGET)
 
-	# @echo "pokedex sort lists:"
-	# cp $(DEXSORT_NARC) $(DEXSORT_TARGET)
+	@echo "pokedex sort lists:"
+	cp $(DEXSORT_NARC) $(DEXSORT_TARGET)
 
 	# @echo "egg moves:"
 	# cp $(EGGMOVES_NARC) $(EGGMOVES_TARGET)

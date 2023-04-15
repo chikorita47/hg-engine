@@ -152,18 +152,18 @@ NARC_FILES += $(SHADOWSIZES_NARC)
 # NARC_FILES += $(DEXAREA_NARC)
 
 
-# DEXSORT_DIR := a214
-# DEXSORT_NARC := $(BUILD_NARC)/a214.narc
-# DEXSORT_TARGET := $(FILESYS)/a/2/1/4
-# DEXSORT_DEPENDENCIES := armips/data/pokedex/pokedexdata.s
+DEXSORT_DIR := a214
+DEXSORT_NARC := $(BUILD_NARC)/zukan_data.narc
+DEXSORT_TARGET := $(FILESYS)/application/zukanlist/zkn_data/zukan_data.narc
+DEXSORT_DEPENDENCIES := armips/data/pokedex/pokedexdata.s
 
-# $(DEXSORT_NARC): $(DEXSORT_DEPENDENCIES)
-# 	mkdir -p $(DEXSORT_DIR)
-# 	$(ARMIPS) $^
-# 	$(PYTHON) $(NARCHIVE) create $@ $(DEXSORT_DIR) -nf
-# 	rm -r $(DEXSORT_DIR)
+$(DEXSORT_NARC): $(DEXSORT_DEPENDENCIES)
+	mkdir -p $(DEXSORT_DIR)
+	$(ARMIPS) $^
+	$(PYTHON) $(NARCHIVE) create $@ $(DEXSORT_DIR) -nf
+	rm -r $(DEXSORT_DIR)
 
-# NARC_FILES += $(DEXSORT_NARC)
+NARC_FILES += $(DEXSORT_NARC)
 
 
 # EGGMOVES_DIR := $(BUILD)/kowaza
