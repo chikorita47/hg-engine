@@ -259,8 +259,8 @@ move_narc: $(NARC_FILES)
 	# $(ARMIPS) armips/data/iconpalettetable.s
 	# cp $(ICONGFX_NARC) $(ICONGFX_TARGET)
 
-	# @echo "wild encounters:"
-	# cp $(ENCOUNTER_NARC) $(ENCOUNTER_TARGET)
+	@echo "wild encounters:"
+	cp $(ENCOUNTER_NARC) $(ENCOUNTER_TARGET)
 
 
 	# @echo "baby mons:"

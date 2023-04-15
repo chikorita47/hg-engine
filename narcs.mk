@@ -475,14 +475,14 @@ NARC_FILES += $(FOOTPRINTS_NARC)
 # NARC_FILES += $(OTHERPOKE_NARC)
 
 
-# ENCOUNTER_DIR := $(BUILD)/a037
-# ENCOUNTER_NARC := $(BUILD_NARC)/encounters.narc
-# ENCOUNTER_TARGET := $(FILESYS)/a/0/3/7
-# ENCOUNTER_DEPENDENCIES := armips/data/encounters.s
+ENCOUNTER_DIR := $(BUILD)/pl_enc_data
+ENCOUNTER_NARC := $(BUILD_NARC)/pl_enc_data.narc
+ENCOUNTER_TARGET := $(FILESYS)/fielddata/encountdata/pl_enc_data.narc
+ENCOUNTER_DEPENDENCIES := armips/data/encounters.s
 
-# $(ENCOUNTER_NARC): $(ENCOUNTER_DEPENDENCIES)
-# 	mkdir -p $(ENCOUNTER_DIR)
-# 	$(ARMIPS) $^
-# 	$(PYTHON) $(NARCHIVE) create $@ $(ENCOUNTER_DIR) -nf
+$(ENCOUNTER_NARC): $(ENCOUNTER_DEPENDENCIES)
+	mkdir -p $(ENCOUNTER_DIR)
+	$(ARMIPS) $^
+	$(PYTHON) $(NARCHIVE) create $@ $(ENCOUNTER_DIR) -nf
 
-# NARC_FILES += $(ENCOUNTER_NARC)
+NARC_FILES += $(ENCOUNTER_NARC)

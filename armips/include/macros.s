@@ -570,49 +570,56 @@
 
 .macro encounterdata,num
 	.if num < 10
-		.create "build/a037/7_00" + tostring(num),0
+		.create "build/pl_enc_data/pl_enc_data_00" + tostring(num),0
 	.elseif num < 100
-		.create "build/a037/7_0" + tostring(num),0
+		.create "build/pl_enc_data/pl_enc_data_0" + tostring(num),0
 	.else
-		.create "build/a037/7_" + tostring(num),0
+		.create "build/pl_enc_data/pl_enc_data_" + tostring(num),0
 	.endif
 .endmacro
 
 .macro walkrate,num
-	.byte num
+	.word num
 .endmacro
 
 .macro surfrate,num
-	.byte num
-.endmacro
-
-.macro rocksmashrate,num
-	.byte num
+	.word num
 .endmacro
 
 .macro oldrodrate,num
-	.byte num
+	.word num
 .endmacro
 
 .macro goodrodrate,num
-	.byte num
+	.word num
 .endmacro
 
 .macro superrodrate,num
-	.byte num
+	.word num
 .endmacro
 
-.macro walklevels,num1,num2,num3,num4,num5,num6,num7,num8,num9,num10,num11,num12
-	.org 8
-
-	.byte num1, num2, num3, num4, num5, num6, num7, num8, num9, num10, num11, num12
+.macro encounterwithform,species,form
+	.word (species | (form << 11))
 .endmacro
 
-.macro encounterwithform,species,form,minlevel,maxlevel
-	.byte minlevel, maxlevel
-	.halfword (species | (form << 11))
+.macro encounter,species
+	encounterwithform species, 0
 .endmacro
 
-.macro encounter,species,minlevel,maxlevel
-	encounterwithform species, 0, minlevel, maxlevel
+.macro encounterwithlevelandform,species,form,level
+	.word level, (species | (form << 11))
+.endmacro
+
+.macro encounterwithlevel,species,level
+	encounterwithlevelandform species, 0, level
+.endmacro
+
+.macro encounterwithlevelsandform,species,form,minlevel,maxlevel
+	.byte maxlevel, minlevel
+	.halfword 0
+	.word (species | (form << 11))
+.endmacro
+
+.macro encounterwithlevels,species,minlevel,maxlevel
+	encounterwithlevelsandform species, 0, minlevel, maxlevel
 .endmacro
