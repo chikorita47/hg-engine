@@ -268,6 +268,38 @@
 	.close
 .endmacro
 
+.macro monanims,species,frontno,frontwait,back1no,back1wait,back2no,back2wait,back3no,back3wait,ssa1no,ssa1wait,ssa2no,ssa2wait,ssa3no,ssa3wait,ssa4no,ssa4wait,ssa5no,ssa5wait,ssa6no,ssa6wait,ssa7no,ssa7wait,ssa8no,ssa8wait,ssa9no,ssa9wait,ssa10no,ssa10wait
+	.orga (species * 28)
+	.byte frontno
+	.byte frontwait
+	.byte back1no
+	.byte back1wait
+	.byte back2no
+	.byte back2wait
+	.byte back3no
+	.byte back3wait
+	.byte ssa1no
+	.byte ssa1wait
+	.byte ssa2no
+	.byte ssa2wait
+	.byte ssa3no
+	.byte ssa3wait
+	.byte ssa4no
+	.byte ssa4wait
+	.byte ssa5no
+	.byte ssa5wait
+	.byte ssa6no
+	.byte ssa6wait
+	.byte ssa7no
+	.byte ssa7wait
+	.byte ssa8no
+	.byte ssa8wait
+	.byte ssa9no
+	.byte ssa9wait
+	.byte ssa10no
+	.byte ssa10wait
+.endmacro
+
 .macro yofs,species,monfrontanim,monbackanim,monoffy,shadowoffx,shadowsize
 	.orga (species)
 	.byte monoffy
