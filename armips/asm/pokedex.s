@@ -176,18 +176,16 @@
 .endarea
 
 
-/*
-.org 0x021E8698 // ZKN_RANGEDATA_GetMonsNoRange, 021D57B4 in pt
-
-.area 0x7C
+.org 0x021D57B4 // ZKN_RANGEDATA_GetMonsNoRange
+.area 0x021d5844-.
 
 
-sub_21E8698: // fix a crash when accessing dex data
-    push {r3, r4, lr}
+ZKN_RANGEDATA_GetMonsNoRange: // fix a crash when accessing dex data
+    push {r4, r5, lr}
     sub sp, sp, #0xC
     mov r4, r0
-    cmp r2, #7
-    bhi _return_21E86DE
+    cmp r2, #9
+    bhi _return_021d57c8
     add r0, r2, r2
     add r0, pc
     ldrh r0, [r0, #(_jumptable - . - 2)] // old:  ldrh r0, [r0, #6] // the jumptable in 3 instructions from when pc was added to r0
@@ -202,60 +200,68 @@ _jumptable: // construct a jumptable for use above
                e4 - _jumptable - 2, \
                e5 - _jumptable - 2, \
                e6 - _jumptable - 2, \
-               e7 - _jumptable - 2
+               e7 - _jumptable - 2, \
+               e8 - _jumptable - 2, \
+               e9 - _jumptable - 2
 
 e0: // entry 0
-    mov r3, #2
-    b _return_21E86DE
+    mov r5, #4
+    b _return_021d57c8
 
 e1: // entry 1
-    ldr r3, =(2 + (NUM_OF_MONS)) // each entry sequentially add (NUM_OF_MONS + 2) in vanilla.  no reason, we just add NUM_OF_MONS
-    b _return_21E86DE
+    ldr r5, =(4 + (NUM_OF_MONS)) // each entry sequentially add (NUM_OF_MONS + 2) in vanilla.  no reason, we just add NUM_OF_MONS
+    b _return_021d57c8
 
 e2: // entry 2
-    ldr r3, =(2 + 2*(NUM_OF_MONS))
-    b _return_21E86DE
+    ldr r5, =(4 + 2*(NUM_OF_MONS))
+    b _return_021d57c8
 
 e3: // entry 3
-    ldr r3, =(2 + 6*(NUM_OF_MONS))
-    b _return_21E86DE
+    ldr r5, =(4 + 3*(NUM_OF_MONS))
+    b _return_021d57c8
 
 e4: // entry 4
-    ldr r3, =(2 + 3*(NUM_OF_MONS))
-    b _return_21E86DE
+    ldr r5, =(4 + 4*(NUM_OF_MONS))
+    b _return_021d57c8
 
 e5: // entry 5
-    ldr r3, =(2 + 4*(NUM_OF_MONS))
-    b _return_21E86DE
+    ldr r5, =(4 + 5*(NUM_OF_MONS))
+    b _return_021d57c8
 
 e6: // entry 6
-    ldr r3, =(2 + 5*(NUM_OF_MONS))
-    b _return_21E86DE
+    ldr r5, =(4 + 6*(NUM_OF_MONS))
+    b _return_021d57c8
 
 e7: // entry 7
-    ldr r3, =(2 + 7*(NUM_OF_MONS))
+    ldr r5, =(4 + 7*(NUM_OF_MONS))
+    b _return_021d57c8
+
+e8: // entry 8
+    ldr r5, =(4 + 8*(NUM_OF_MONS))
+    b _return_021d57c8
+
+e9: // entry 9
+    ldr r5, =(4 + 9*(NUM_OF_MONS))
     // fall through
 
-_return_21E86DE:
+_return_021d57c8:
     mov r2, #0
     str r2, [sp]
     add r0, sp, #0x8
     str r0, [sp, #0x4]
-    add r1, r3, r1
-    mov r0, #133
-    mov r3, #0x25
-    bl 0x2007AC4 // load_narc_a0_file_r1
+    mov r0, #0xBC
+    add r1, r5, r1
+    bl 0x02007068 // ArcUtil_LoadEx
     str r0, [r4]
     ldr r0, [sp, #0x8]
     lsr r0, r0, #2
     str r0, [r4, #4]
     add sp, sp, #0xC
-    pop {r3, r4, pc}
+    pop {r4, r5, pc}
 
 .pool
 
 .endarea
-*/
 
 .close
 
@@ -276,6 +282,8 @@ get_dex_num: // god i wish this could be well-rewritten
 .pool
 
 .endarea
+
+.close
 
 
 

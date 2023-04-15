@@ -149,20 +149,20 @@ NARC_FILES += $(SHADOWSIZES_NARC)
 # NARC_FILES += $(HEIGHT_NARC)
 
 
-# DEXAREA_DIR := $(BUILD)/a133
-# DEXAREA_NARC := $(BUILD_NARC)/dexareas.narc
-# DEXAREA_TARGET := $(FILESYS)/a/1/3/3
-# DEXAREA_RAWDATA_DIR := rawdata/files_from_a133
-# DEXAREA_DEPENDENCIES := armips/data/pokedex/areadata.s
+DEXAREA_DIR := $(BUILD)/zukan_enc_platinum
+DEXAREA_NARC := $(BUILD_NARC)/zukan_enc_platinum.narc
+DEXAREA_TARGET := $(FILESYS)/application/zukanlist/zkn_data/zukan_enc_platinum.narc
+DEXAREA_RAWDATA_DIR := rawdata/files_from_zukan_enc_platinum
+DEXAREA_DEPENDENCIES := armips/data/pokedex/areadata.s
 
-# $(DEXAREA_NARC): $(DEXAREA_DEPENDENCIES)
-# #	$(PYTHON) $(NARCHIVE) extract $(DEXAREA_TARGET) -o $(DEXAREA_DIR) -nf
-# 	mkdir -p $(DEXAREA_DIR)
-# 	$(ARMIPS) $^
-# 	cp -r $(DEXAREA_RAWDATA_DIR)/. $(DEXAREA_DIR)
-# 	$(PYTHON) $(NARCHIVE) create $@ $(DEXAREA_DIR) -nf
+$(DEXAREA_NARC): $(DEXAREA_DEPENDENCIES)
+	$(PYTHON) $(NARCHIVE) extract $(DEXAREA_TARGET) -o $(DEXAREA_DIR) -nf
+	mkdir -p $(DEXAREA_DIR)
+	$(ARMIPS) $^
+	# cp -r $(DEXAREA_RAWDATA_DIR)/. $(DEXAREA_DIR)
+	$(PYTHON) $(NARCHIVE) create $@ $(DEXAREA_DIR) -nf
 
-# NARC_FILES += $(DEXAREA_NARC)
+NARC_FILES += $(DEXAREA_NARC)
 
 
 DEXSORT_DIR := a214

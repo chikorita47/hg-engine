@@ -225,6 +225,7 @@ DEX_MORNING equ 0
 DEX_DAY equ 1
 DEX_NIGHT equ 2
 DEX_SPECIAL equ 3 // like headbutt trees (blink the area red)
+DEX_SPECIAL_COMP equ 4 // not sure yet what this is for
 
 // tm constants
 

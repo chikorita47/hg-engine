@@ -338,53 +338,65 @@
 .endmacro
 
 
-// mon dex area macros (narc a133)
+// mon dex area macros
 
 .macro specialareas,monnum,timeofday
 	.if (timeofday == 0) // morning time
-		.if (2 + monnum) < 10
-			.create "build/a133/3_000" + tostring(2 + monnum),0
-		.elseif (2 + monnum) < 100
-			.create "build/a133/3_00" + tostring(2 + monnum),0
-		.elseif (2 + monnum) < 1000
-			.create "build/a133/3_0" + tostring(2 + monnum),0
+		.if (4 + monnum) < 10
+			.create "build/zukan_enc_platinum/zukan_enc_platinum_000" + tostring(4 + monnum),0
+		.elseif (4 + monnum) < 100
+			.create "build/zukan_enc_platinum/zukan_enc_platinum_00" + tostring(4 + monnum),0
+		.elseif (4 + monnum) < 1000
+			.create "build/zukan_enc_platinum/zukan_enc_platinum_0" + tostring(4 + monnum),0
 		.else
-			.create "build/a133/3_" + tostring(2 + monnum),0
+			.create "build/zukan_enc_platinum/zukan_enc_platinum_" + tostring(4 + monnum),0
 		.endif
 	.elseif (timeofday == 1) // day time
-		.if (2 + monnum + NUM_OF_MONS) < 10
-			.create "build/a133/3_000" + tostring(2 + monnum + NUM_OF_MONS),0
-		.elseif (2 + monnum + NUM_OF_MONS) < 100
-			.create "build/a133/3_00" + tostring(2 + monnum + NUM_OF_MONS),0
-		.elseif (2 + monnum + NUM_OF_MONS) < 1000
-			.create "build/a133/3_0" + tostring(2 + monnum + NUM_OF_MONS),0
+		.if (4 + monnum + NUM_OF_MONS) < 10
+			.create "build/zukan_enc_platinum/zukan_enc_platinum_000" + tostring(4 + monnum + NUM_OF_MONS),0
+		.elseif (4 + monnum + NUM_OF_MONS) < 100
+			.create "build/zukan_enc_platinum/zukan_enc_platinum_00" + tostring(4 + monnum + NUM_OF_MONS),0
+		.elseif (4 + monnum + NUM_OF_MONS) < 1000
+			.create "build/zukan_enc_platinum/zukan_enc_platinum_0" + tostring(4 + monnum + NUM_OF_MONS),0
 		.else
-			.create "build/a133/3_" + tostring(2 + monnum + NUM_OF_MONS),0
+			.create "build/zukan_enc_platinum/zukan_enc_platinum_" + tostring(4 + monnum + NUM_OF_MONS),0
 		.endif
 	.elseif (timeofday == 2) // night time
-		.if (2 + monnum + (2*NUM_OF_MONS)) < 10
-			.create "build/a133/3_000" + tostring(2 + monnum + (2*NUM_OF_MONS)),0
-		.elseif (2 + monnum + (2*NUM_OF_MONS)) < 100
-			.create "build/a133/3_00" + tostring(2 + monnum + (2*NUM_OF_MONS)),0
-		.elseif (2 + monnum + (2*NUM_OF_MONS)) < 1000
-			.create "build/a133/3_0" + tostring(2 + monnum + (2*NUM_OF_MONS)),0
+		.if (4 + monnum + (2*NUM_OF_MONS)) < 10
+			.create "build/zukan_enc_platinum/zukan_enc_platinum_000" + tostring(4 + monnum + (2*NUM_OF_MONS)),0
+		.elseif (4 + monnum + (2*NUM_OF_MONS)) < 100
+			.create "build/zukan_enc_platinum/zukan_enc_platinum_00" + tostring(4 + monnum + (2*NUM_OF_MONS)),0
+		.elseif (4 + monnum + (2*NUM_OF_MONS)) < 1000
+			.create "build/zukan_enc_platinum/zukan_enc_platinum_0" + tostring(4 + monnum + (2*NUM_OF_MONS)),0
 		.else
-			.create "build/a133/3_" + tostring(2 + monnum + (2*NUM_OF_MONS)),0
+			.create "build/zukan_enc_platinum/zukan_enc_platinum_" + tostring(4 + monnum + (2*NUM_OF_MONS)),0
 		.endif
-	.else // timeofday == 3
-		.create "build/a133/3_" + tostring(2 + monnum + (6*NUM_OF_MONS)),0
+	.elseif (timeofday == 3) // special
+		.if (4 + monnum + (3*NUM_OF_MONS)) < 10
+			.create "build/zukan_enc_platinum/zukan_enc_platinum_000" + tostring(4 + monnum + (3*NUM_OF_MONS)),0
+		.elseif (4 + monnum + (3*NUM_OF_MONS)) < 100
+			.create "build/zukan_enc_platinum/zukan_enc_platinum_00" + tostring(4 + monnum + (3*NUM_OF_MONS)),0
+		.elseif (4 + monnum + (3*NUM_OF_MONS)) < 1000
+			.create "build/zukan_enc_platinum/zukan_enc_platinum_0" + tostring(4 + monnum + (3*NUM_OF_MONS)),0
+		.else
+			.create "build/zukan_enc_platinum/zukan_enc_platinum_" + tostring(4 + monnum + (3*NUM_OF_MONS)),0
+		.endif
+	.else // timeofday == 4
+		.create "build/zukan_enc_platinum/zukan_enc_platinum_" + tostring(4 + monnum + (4*NUM_OF_MONS)),0
 	.endif
 .endmacro
 
 .macro routesandcities,monnum,timeofday
 	.if (timeofday == 0) // morning time
-		.create "build/a133/3_" + tostring(2 + monnum + (3*NUM_OF_MONS)),0
+		.create "build/zukan_enc_platinum/zukan_enc_platinum_" + tostring(4 + monnum + (5*NUM_OF_MONS)),0
 	.elseif (timeofday == 1) // day time
-		.create "build/a133/3_" + tostring(2 + monnum + (4*NUM_OF_MONS)),0
+		.create "build/zukan_enc_platinum/zukan_enc_platinum_" + tostring(4 + monnum + (6*NUM_OF_MONS)),0
 	.elseif (timeofday == 2) // night time
-		.create "build/a133/3_" + tostring(2 + monnum + (5*NUM_OF_MONS)),0
-	.else // timeofday == 3
-		.create "build/a133/3_" + tostring(2 + monnum + (7*NUM_OF_MONS)),0
+		.create "build/zukan_enc_platinum/zukan_enc_platinum_" + tostring(4 + monnum + (7*NUM_OF_MONS)),0
+	.elseif (timeofday == 3) // special
+		.create "build/zukan_enc_platinum/zukan_enc_platinum_" + tostring(4 + monnum + (8*NUM_OF_MONS)),0
+	.else // timeofday == 4
+		.create "build/zukan_enc_platinum/zukan_enc_platinum_" + tostring(4 + monnum + (9*NUM_OF_MONS)),0
 	.endif
 .endmacro
 

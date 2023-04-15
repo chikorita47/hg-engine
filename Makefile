@@ -201,8 +201,8 @@ move_narc: $(NARC_FILES)
 	# @echo "mon height offsets (a005):"
 	# cp $(HEIGHT_NARC) $(HEIGHT_TARGET)
 
-	# @echo "dex area data:"
-	# cp $(DEXAREA_NARC) $(DEXAREA_TARGET)
+	@echo "dex area data:"
+	cp $(DEXAREA_NARC) $(DEXAREA_TARGET)
 
 	@echo "pokedex sort lists:"
 	cp $(DEXSORT_NARC) $(DEXSORT_TARGET)
