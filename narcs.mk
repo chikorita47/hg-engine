@@ -136,17 +136,17 @@ $(SHADOWSIZES_NARC): $(SHADOWSIZES_DEPENDENCIES)
 NARC_FILES += $(SHADOWSIZES_NARC)
 
 
-# HEIGHT_DIR := $(BUILD)/a005
-# HEIGHT_NARC := $(BUILD_NARC)/heighttable.narc
-# HEIGHT_TARGET := $(FILESYS)/a/0/0/5
-# HEIGHT_DEPENDENCIES := armips/data/heighttable.s
+HEIGHT_DIR := $(BUILD)/height
+HEIGHT_NARC := $(BUILD_NARC)/height.narc
+HEIGHT_TARGET := $(FILESYS)/poketool/pokegra/height.narc
+HEIGHT_DEPENDENCIES := armips/data/heighttable.s
 
-# $(HEIGHT_NARC): $(HEIGHT_DEPENDENCIES)
-# 	mkdir -p $(HEIGHT_DIR)
-# 	$(ARMIPS) $^
-# 	$(PYTHON) $(NARCHIVE) create $@ $(HEIGHT_DIR) -nf
+$(HEIGHT_NARC): $(HEIGHT_DEPENDENCIES)
+	mkdir -p $(HEIGHT_DIR)
+	$(ARMIPS) $^
+	$(PYTHON) $(NARCHIVE) create $@ $(HEIGHT_DIR) -nf
 
-# NARC_FILES += $(HEIGHT_NARC)
+NARC_FILES += $(HEIGHT_NARC)
 
 
 DEXAREA_DIR := $(BUILD)/zukan_enc_platinum

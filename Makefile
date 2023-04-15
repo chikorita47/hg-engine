@@ -198,8 +198,8 @@ move_narc: $(NARC_FILES)
 	@echo "shadow sizes:"
 	cp $(SHADOWSIZES_NARC) $(SHADOWSIZES_TARGET)
 
-	# @echo "mon height offsets (a005):"
-	# cp $(HEIGHT_NARC) $(HEIGHT_TARGET)
+	@echo "mon height offsets:"
+	cp $(HEIGHT_NARC) $(HEIGHT_TARGET)
 
 	@echo "dex area data:"
 	cp $(DEXAREA_NARC) $(DEXAREA_TARGET)

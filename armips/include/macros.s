@@ -204,13 +204,13 @@
 
 .macro heightentry,species,fback,mback,ffront,mfront
 	.if ((species) * 4) < 10
-		.create "build/a005/a005_000" + tostring((species) * 4),0
+		.create "build/height/height_000" + tostring((species) * 4),0
 	.elseif ((species) * 4) < 100
-		.create "build/a005/a005_00" + tostring((species) * 4),0
+		.create "build/height/height_00" + tostring((species) * 4),0
 	.elseif ((species) * 4) < 1000
-		.create "build/a005/a005_0" + tostring((species) * 4),0
+		.create "build/height/height_0" + tostring((species) * 4),0
 	.else
-		.create "build/a005/a005_" + tostring((species) * 4),0
+		.create "build/height/height_" + tostring((species) * 4),0
 	.endif
 	
 	.if fback != "null"
@@ -220,13 +220,13 @@
 	.close
 
 	.if ((species) * 4 + 1) < 10
-		.create "build/a005/a005_000" + tostring((species) * 4 + 1),0
+		.create "build/height/height_000" + tostring((species) * 4 + 1),0
 	.elseif ((species) * 4 + 1) < 100
-		.create "build/a005/a005_00" + tostring((species) * 4 + 1),0
+		.create "build/height/height_00" + tostring((species) * 4 + 1),0
 	.elseif ((species) * 4 + 1) < 1000
-		.create "build/a005/a005_0" + tostring((species) * 4 + 1),0
+		.create "build/height/height_0" + tostring((species) * 4 + 1),0
 	.else
-		.create "build/a005/a005_" + tostring((species) * 4 + 1),0
+		.create "build/height/height_" + tostring((species) * 4 + 1),0
 	.endif
 	
 	.if mback != "null"
@@ -236,13 +236,13 @@
 	.close
 
 	.if ((species) * 4 + 2) < 10
-		.create "build/a005/a005_000" + tostring((species) * 4 + 2),0
+		.create "build/height/height_000" + tostring((species) * 4 + 2),0
 	.elseif ((species) * 4 + 2) < 100
-		.create "build/a005/a005_00" + tostring((species) * 4 + 2),0
+		.create "build/height/height_00" + tostring((species) * 4 + 2),0
 	.elseif ((species) * 4 + 2) < 1000
-		.create "build/a005/a005_0" + tostring((species) * 4 + 2),0
+		.create "build/height/height_0" + tostring((species) * 4 + 2),0
 	.else
-		.create "build/a005/a005_" + tostring((species) * 4 + 2),0
+		.create "build/height/height_" + tostring((species) * 4 + 2),0
 	.endif
 	
 	.if ffront != "null"
@@ -252,13 +252,13 @@
 	.close
 
 	.if ((species) * 4 + 3) < 10
-		.create "build/a005/a005_000" + tostring((species) * 4 + 3),0
+		.create "build/height/height_000" + tostring((species) * 4 + 3),0
 	.elseif ((species) * 4 + 3) < 100
-		.create "build/a005/a005_00" + tostring((species) * 4 + 3),0
+		.create "build/height/height_00" + tostring((species) * 4 + 3),0
 	.elseif ((species) * 4 + 3) < 1000
-		.create "build/a005/a005_0" + tostring((species) * 4 + 3),0
+		.create "build/height/height_0" + tostring((species) * 4 + 3),0
 	.else
-		.create "build/a005/a005_" + tostring((species) * 4 + 3),0
+		.create "build/height/height_" + tostring((species) * 4 + 3),0
 	.endif
 	
 	.if mfront != "null"
