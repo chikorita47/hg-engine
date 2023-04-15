@@ -225,8 +225,8 @@ move_narc: $(NARC_FILES)
 	# cp $(TRAINERDATA_NARC) $(TRAINERDATA_TARGET)
 	# cp $(TRAINERDATA_NARC_2) $(TRAINERDATA_TARGET_2)
 
-	# @echo "footprints:"
-	# cp $(FOOTPRINTS_NARC) $(FOOTPRINTS_TARGET)
+	@echo "footprints:"
+	cp $(FOOTPRINTS_NARC) $(FOOTPRINTS_TARGET)
 
 	# @echo "move anims:"
 	# cp $(MOVEANIM_NARC) $(MOVEANIM_TARGET)
