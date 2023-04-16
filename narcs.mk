@@ -129,6 +129,7 @@ NARC_FILES += $(DEXAREA_NARC)
 DEXSORT_DIR := a214
 DEXSORT_NARC := $(BUILD_NARC)/zukan_data.narc
 DEXSORT_TARGET := $(FILESYS)/application/zukanlist/zkn_data/zukan_data.narc
+DEXSORT_TARGET_2 := $(FILESYS)/application/zukanlist/zkn_data/zukan_data_gira.narc
 DEXSORT_DEPENDENCIES := armips/data/pokedex/pokedexdata.s
 
 $(DEXSORT_NARC): $(DEXSORT_DEPENDENCIES)
