@@ -246,9 +246,9 @@ move_narc: $(NARC_FILES)
 	# @echo "otherpoke gfx for fairy:"
 	# cp $(OTHERPOKE_NARC) $(OTHERPOKE_TARGET)
 
-	# @echo "pokemon icons:"
-	# $(ARMIPS) armips/data/iconpalettetable.s
-	# cp $(ICONGFX_NARC) $(ICONGFX_TARGET)
+	@echo "pokemon icons:"
+	$(ARMIPS) armips/data/iconpalettetable.s
+	cp $(ICONGFX_NARC) $(ICONGFX_TARGET)
 
 	@echo "wild encounters:"
 	cp $(ENCOUNTER_NARC) $(ENCOUNTER_TARGET)

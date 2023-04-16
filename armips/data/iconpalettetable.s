@@ -6,10 +6,10 @@
 .include "armips/include/monnums.s"
 .include "armips/asm/icons.s"
 
-.if (fileexists("build/a028/8_0"))
-    .open "build/a028/8_0", 0x023C8000
+.if (fileexists("build/data/weather_sys_09"))
+    .open "build/data/weather_sys_09", 0x023C8000
 .else
-    .create "build/a028/8_0", 0x023C8000
+    .create "build/data/weather_sys_09", 0x023C8000
 .endif
 
 .orga START_ADDRESS + ((NUM_OF_MON_OVERWORLDS + 450) * 6)

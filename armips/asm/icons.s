@@ -7,12 +7,14 @@
 
 // update the limiters
 
-.org 0x02074270
+.org 0x02079e40
 
 .word NUM_OF_MONS+1
 
 
-.org 0x02074364
+.org 0x02079edc
+.area 0x02079f84-., 0xFF
+
 push {r3,lr}
 bl PokeIconPalNumGet
 ldr r1, =gIconPalTable
@@ -20,10 +22,4 @@ ldrb r0, [r1,r0]
 pop {r3,pc}
 .pool
 
-
-.org 0x02074404
-
-.word NUM_OF_MONS+1
-.word gIconPalTable
-
-.close
+.endarea

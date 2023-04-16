@@ -344,24 +344,24 @@ NARC_FILES += $(FOOTPRINTS_NARC)
 # NARC_FILES += $(ITEMGFX_NARC)
 
 
-# ICONGFX_DIR := $(BUILD)/pokemonicon
-# ICONGFX_NARC := $(BUILD_NARC)/pokemonicon.narc
-# ICONGFX_TARGET := $(FILESYS)/a/0/2/0
-# ICONGFX_DEPENDENCIES_DIR := data/graphics/icongfx
-# ICONGFX_RAWDATA_DIR := rawdata/files_from_a020
-# ICONGFX_DEPENDENCIES := $(ICONGFX_DEPENDENCIES_DIR)/*
+ICONGFX_DIR := $(BUILD)/pokemonicon
+ICONGFX_NARC := $(BUILD_NARC)/pokemonicon.narc
+ICONGFX_TARGET := $(FILESYS)/poketool/icongra/pl_poke_icon.narc
+ICONGFX_DEPENDENCIES_DIR := data/graphics/icongfx
+ICONGFX_RAWDATA_DIR := rawdata/files_from_pl_poke_icon
+ICONGFX_DEPENDENCIES := $(ICONGFX_DEPENDENCIES_DIR)/*
 
-# ICONGFX_SRCS := $(wildcard $(ICONGFX_DEPENDENCIES_DIR)/*.png)
-# ICONGFX_OBJS := $(patsubst $(ICONGFX_DEPENDENCIES_DIR)/%.png,$(ICONGFX_DIR)/1_%.NCGR,$(ICONGFX_SRCS))
+ICONGFX_SRCS := $(wildcard $(ICONGFX_DEPENDENCIES_DIR)/*.png)
+ICONGFX_OBJS := $(patsubst $(ICONGFX_DEPENDENCIES_DIR)/%.png,$(ICONGFX_DIR)/1_%.NCGR,$(ICONGFX_SRCS))
 
-# $(ICONGFX_DIR)/1_%.NCGR:$(ICONGFX_DEPENDENCIES_DIR)/%.png
-# 	$(GFX) $< $@ -clobbersize -version101
+$(ICONGFX_DIR)/1_%.NCGR:$(ICONGFX_DEPENDENCIES_DIR)/%.png
+	$(GFX) $< $@ -clobbersize -version101
 
-# $(ICONGFX_NARC): $(ICONGFX_OBJS)
-# 	cp -r $(ICONGFX_RAWDATA_DIR)/. $(ICONGFX_DIR)
-# 	$(PYTHON) $(NARCHIVE) create $@ $(ICONGFX_DIR) -nf
+$(ICONGFX_NARC): $(ICONGFX_OBJS)
+	cp -r $(ICONGFX_RAWDATA_DIR)/. $(ICONGFX_DIR)
+	$(PYTHON) $(NARCHIVE) create $@ $(ICONGFX_DIR) -nf
 
-# NARC_FILES += $(ICONGFX_NARC)
+NARC_FILES += $(ICONGFX_NARC)
 
 
 # OVERWORLDS_DIR := $(BUILD)/pokemonow
