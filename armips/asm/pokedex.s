@@ -8,12 +8,10 @@
 .open "base/overlay/overlay_0021.bin", 0x021d0d80
 
 
-// here, we need to allocate memory space for the two new poke_lists and store them at workspace+0x878 and workspace+0x1030
+// here, we need to allocate memory space for the two new poke_lists and store them at glb+0x4 and glb+0xF74
 // so instead of allocating more size to the pokedex workspace, the goal here is just to allocate
 // enough space to two new poke_lists and place pointers to them inside the structure and change everything that references it.
 // we then need to change how each is accessed/written to
-// UPDATE:  apparently workspace+0x1032 is referenced outside of 0x1030.  love to see it, that add a few more
-//   literally 10 more by the way.  holy shit.
 
 
 .org 0x021D57B0 // ZknWt_GetCountryPokeData
@@ -279,6 +277,118 @@ get_dex_num: // god i wish this could be well-rewritten
     bl GetDexNum_patch
     pop {pc}
 
+.pool
+
+.endarea
+
+
+.org 0x020f0780 // old IconPalAtr table
+.area 0x020f099c-.
+
+// still need to call 0x02018144 (AllocMemory) with a heapid (r0) of r6, and size (r1) of mons_no*8
+// then call 0x020D5124 (memset) with r0 = p->poke_list, r1 = 0, r2 = size (mons_no*8)
+// call 0x020181C4 (sys_FreeMemoryEz) with the pointer in r0 to free up the memory upon destroying dex
+
+// r5 = p_glb
+// r6 = heap
+allocate_lists:
+    push {r0-r7, lr}
+
+    // allocate for zkn_pokelist_tbl - extra (19) entries are to ensure no garbage data gets displayed at the end
+
+    mov r0, r6 // heap
+    ldr r1, =((NUM_OF_MONS + 19) * 8)
+    bl 0x02018144 // allocate the memory
+
+    str r0, [r5, #4] // workspace+4 (p_glb->poke_list->zkn_pokelist_tbl) = sys_AllocMemory(heap, NUM_OF_MONS * 8)
+
+    mov r1, #0
+    ldr r2, =((NUM_OF_MONS + 19) * 8)
+    blx 0x020D5124 // memset(new_zkn_pokelist_tbl, 0, NUM_OF_MONS * 8)
+
+    // allocate for zkn_pokelistdraw_tbl - extra entries are to ensure no garbage data at the end
+
+    mov r0, r6 // heap
+    ldr r1, =((NUM_OF_MONS + 19) * 4)
+    bl 0x02018144 // allocate the memory
+
+    ldr r1, =0xF74
+    str r0, [r5, r1] // workspace+0xF74 (p_glb->poke_list->zkn_pokelistdraw_tbl) = sys_AllocMemory(heap, NUM_OF_MONS * 4)
+
+    mov r1, #0
+    ldr r2, =((NUM_OF_MONS + 19) * 4)
+    blx 0x020D5124 // memset(new_zkn_pokelistdraw_tbl, 0, NUM_OF_MONS * 4)
+
+    // should be all good; restore values and branch back
+
+    pop {r0-r7}
+    ldr r0, [r4]
+    str r0, [r5]
+    pop {pc}
+
+// r4 = p_glb
+unallocate_lists:
+    push {r0-r7, lr}
+
+    // now need to unallocate the space
+
+    ldr r0, [r4, #4]
+    bl 0x020181C4 // sys_FreeMemoryEz(new_zkn_pokelist_tbl)
+
+    ldr r0, =0xF74
+    ldr r0, [r4, r0]
+    bl 0x020181C4 // sys_FreeMemoryEz(new_zkn_pokelistdraw_tbl)
+
+    // clean up and branch back
+
+    pop {r0-r7}
+    mov r1, #0
+    str r1, [r4, r0]
+    pop {pc}
+.pool
+
+
+PokeMonsTypeGet_patch:
+    // r1 is 0xF6C
+    ldr r1, [r0, r1]
+    lsl r1, r1, #3
+    ldr r0, [r0, #4]
+    add r0, r0, r1
+    ldr r0, [r0, #4]
+    bx lr
+
+
+// r1 = species
+GetDexNum_patch:
+    push {lr}
+    cmp r0, #0
+    bne GetNationalNum
+    mov r0, r1
+    bl 0x020775a4 // get_regional_dex_num
+    b GetDexNum_patch_return
+
+GetNationalNum:
+    ldr r0, =SPECIES_ARCEUS
+    cmp r1, r0
+    ble GetDexNum_patch_return_r1 // if not a new mon
+    sub r1, #50
+GetDexNum_patch_return_r1:
+    mov r0, r1
+GetDexNum_patch_return:
+    pop {pc}
+
+
+// r6 = species
+// r1 and r2 are free
+GetNationalDexDrawNum_patch:
+    mov r1, r6
+    ldr r2, =SPECIES_ARCEUS
+    cmp r1, r2
+    ble GetNationalDexDrawNum_patch_return // if not a new mon
+    sub r1, #50
+GetNationalDexDrawNum_patch_return:
+    mov r2, r6
+    bx lr
 .pool
 
 .endarea
