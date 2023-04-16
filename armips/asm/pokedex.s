@@ -3,8 +3,6 @@
 
 // included by armips/global.s
 
-.include "armips/asm/offset.s"
-
 .open "base/overlay/overlay_0021.bin", 0x021d0d80
 
 

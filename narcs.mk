@@ -43,7 +43,7 @@
 
 
 MSGDATA_DIR := $(BUILD)/text
-MSGDATA_NARC := $(BUILD_NARC)/pl_msg.narc
+MSGDATA_NARC := $(BUILD_NARC)/msg_data.narc
 MSGDATA_TARGET := $(FILESYS)/msgdata/pl_msg.narc
 MSGDATA_DEPENDENCIES_DIR := data/text
 MSGDATA_DEPENDENCIES := $(MSGDATA_DEPENDENCIES_DIR)/*
@@ -71,8 +71,8 @@ NARC_FILES += $(MSGDATA_NARC)
 # NARC_FILES += $(OPENDEMO_NARC)
 
 
-MONDATA_DIR := $(BUILD)/pl_personal
-MONDATA_NARC := $(BUILD_NARC)/pl_personal.narc
+MONDATA_DIR := $(BUILD)/a002
+MONDATA_NARC := $(BUILD_NARC)/mondata.narc
 MONDATA_TARGET := $(FILESYS)/poketool/personal/pl_personal.narc
 MONDATA_DEPENDENCIES := armips/data/mondata.s
 
@@ -84,8 +84,8 @@ $(MONDATA_NARC): $(MONDATA_DEPENDENCIES)
 NARC_FILES += $(MONDATA_NARC)
 
 
-SPRITEOFFSETS_DIR := $(BUILD)/pl_poke_data
-SPRITEOFFSETS_NARC := $(BUILD_NARC)/pl_poke_data.narc
+SPRITEOFFSETS_DIR := $(BUILD)/a180
+SPRITEOFFSETS_NARC := $(BUILD_NARC)/spriteoffsets.narc
 SPRITEOFFSETS_TARGET := $(FILESYS)/poketool/poke_edit/pl_poke_data.narc
 SPRITEOFFSETS_DEPENDENCIES := armips/data/spriteoffsets.s
 
@@ -97,8 +97,8 @@ $(SPRITEOFFSETS_NARC): $(SPRITEOFFSETS_DEPENDENCIES)
 NARC_FILES += $(SPRITEOFFSETS_NARC)
 
 
-HEIGHT_DIR := $(BUILD)/height
-HEIGHT_NARC := $(BUILD_NARC)/height.narc
+HEIGHT_DIR := $(BUILD)/a005
+HEIGHT_NARC := $(BUILD_NARC)/heighttable.narc
 HEIGHT_TARGET := $(FILESYS)/poketool/pokegra/height.narc
 HEIGHT_DEPENDENCIES := armips/data/heighttable.s
 
@@ -110,14 +110,14 @@ $(HEIGHT_NARC): $(HEIGHT_DEPENDENCIES)
 NARC_FILES += $(HEIGHT_NARC)
 
 
-DEXAREA_DIR := $(BUILD)/zukan_enc_platinum
-DEXAREA_NARC := $(BUILD_NARC)/zukan_enc_platinum.narc
+DEXAREA_DIR := $(BUILD)/a133
+DEXAREA_NARC := $(BUILD_NARC)/dexareas.narc
 DEXAREA_TARGET := $(FILESYS)/application/zukanlist/zkn_data/zukan_enc_platinum.narc
 DEXAREA_RAWDATA_DIR := rawdata/files_from_zukan_enc_platinum
 DEXAREA_DEPENDENCIES := armips/data/pokedex/areadata.s
 
 $(DEXAREA_NARC): $(DEXAREA_DEPENDENCIES)
-#    $(PYTHON) $(NARCHIVE) extract $(DEXAREA_TARGET) -o $(DEXAREA_DIR) -nf
+#       $(PYTHON) $(NARCHIVE) extract $(DEXAREA_TARGET) -o $(DEXAREA_DIR) -nf
 	mkdir -p $(DEXAREA_DIR)
 	$(ARMIPS) $^
 	cp -r $(DEXAREA_RAWDATA_DIR)/. $(DEXAREA_DIR)
@@ -127,7 +127,7 @@ NARC_FILES += $(DEXAREA_NARC)
 
 
 DEXSORT_DIR := a214
-DEXSORT_NARC := $(BUILD_NARC)/zukan_data.narc
+DEXSORT_NARC := $(BUILD_NARC)/a214.narc
 DEXSORT_TARGET := $(FILESYS)/application/zukanlist/zkn_data/zukan_data.narc
 DEXSORT_TARGET_2 := $(FILESYS)/application/zukanlist/zkn_data/zukan_data_gira.narc
 DEXSORT_DEPENDENCIES := armips/data/pokedex/pokedexdata.s
@@ -168,8 +168,8 @@ NARC_FILES += $(DEXSORT_NARC)
 # NARC_FILES += $(EVOS_NARC)
 
 
-LEARNSET_DIR := $(BUILD)/wotbl
-LEARNSET_NARC := $(BUILD_NARC)/wotbl.narc
+LEARNSET_DIR := $(BUILD)/a033
+LEARNSET_NARC := $(BUILD_NARC)/a033.narc
 LEARNSET_TARGET := $(FILESYS)/poketool/personal/wotbl.narc
 LEARNSET_DEPENDENCIES := armips/data/levelupdata.s
 
@@ -211,8 +211,8 @@ NARC_FILES += $(REGIONALDEX_NARC)
 # NARC_FILES += $(TRAINERDATA_NARC)
 
 
-#FOOTPRINTS_DIR := $(BUILD)/pokefoot
-FOOTPRINTS_NARC := $(BUILD_NARC)/pokefoot.narc
+#FOOTPRINTS_DIR := $(BUILD)/a069
+FOOTPRINTS_NARC := $(BUILD_NARC)/a069.narc
 FOOTPRINTS_TARGET := $(FILESYS)/poketool/pokefoot/pokefoot.narc
 FOOTPRINTS_DEPENDENCIES_DIR := rawdata/footprints
 FOOTPRINTS_DEPENDENCIES := $(FOOTPRINTS_DEPENDENCIES_DIR)/*
@@ -436,8 +436,8 @@ NARC_FILES += $(ICONGFX_NARC)
 # NARC_FILES += $(OTHERPOKE_NARC)
 
 
-ENCOUNTER_DIR := $(BUILD)/pl_enc_data
-ENCOUNTER_NARC := $(BUILD_NARC)/pl_enc_data.narc
+ENCOUNTER_DIR := $(BUILD)/a037
+ENCOUNTER_NARC := $(BUILD_NARC)/encounters.narc
 ENCOUNTER_TARGET := $(FILESYS)/fielddata/encountdata/pl_enc_data.narc
 ENCOUNTER_DEPENDENCIES := armips/data/encounters.s
 

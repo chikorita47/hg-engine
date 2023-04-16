@@ -3,13 +3,13 @@
 .macro levelup,species
 
 	.if species < 10
-		.create "build/wotbl/learnset_000" + tostring(species),0
+		.create "build/a033/learnset_000" + tostring(species),0
 	.elseif species < 100
-		.create "build/wotbl/learnset_00" + tostring(species),0
+		.create "build/a033/learnset_00" + tostring(species),0
 	.elseif species < 1000
-		.create "build/wotbl/learnset_0" + tostring(species),0
+		.create "build/a033/learnset_0" + tostring(species),0
 	.else
-		.create "build/wotbl/learnset_" + tostring(species),0
+		.create "build/a033/learnset_" + tostring(species),0
 	.endif
 
 .endmacro
@@ -32,13 +32,13 @@
 .macro mondata,species
 
 	.if species < 10
-		.create "build/pl_personal/mondata_000" + tostring(species),0
+		.create "build/a002/mondata_000" + tostring(species),0
 	.elseif species < 100
-		.create "build/pl_personal/mondata_00" + tostring(species),0
+		.create "build/a002/mondata_00" + tostring(species),0
 	.elseif species < 1000
-		.create "build/pl_personal/mondata_0" + tostring(species),0
+		.create "build/a002/mondata_0" + tostring(species),0
 	.else
-		.create "build/pl_personal/mondata_" + tostring(species),0
+		.create "build/a002/mondata_" + tostring(species),0
 	.endif
 
 .endmacro
@@ -204,13 +204,13 @@
 
 .macro heightentry,species,fback,mback,ffront,mfront
 	.if ((species) * 4) < 10
-		.create "build/height/height_000" + tostring((species) * 4),0
+		.create "build/a005/a005_000" + tostring((species) * 4),0
 	.elseif ((species) * 4) < 100
-		.create "build/height/height_00" + tostring((species) * 4),0
+		.create "build/a005/a005_00" + tostring((species) * 4),0
 	.elseif ((species) * 4) < 1000
-		.create "build/height/height_0" + tostring((species) * 4),0
+		.create "build/a005/a005_0" + tostring((species) * 4),0
 	.else
-		.create "build/height/height_" + tostring((species) * 4),0
+		.create "build/a005/a005_" + tostring((species) * 4),0
 	.endif
 	
 	.if fback != "null"
@@ -220,13 +220,13 @@
 	.close
 
 	.if ((species) * 4 + 1) < 10
-		.create "build/height/height_000" + tostring((species) * 4 + 1),0
+		.create "build/a005/a005_000" + tostring((species) * 4 + 1),0
 	.elseif ((species) * 4 + 1) < 100
-		.create "build/height/height_00" + tostring((species) * 4 + 1),0
+		.create "build/a005/a005_00" + tostring((species) * 4 + 1),0
 	.elseif ((species) * 4 + 1) < 1000
-		.create "build/height/height_0" + tostring((species) * 4 + 1),0
+		.create "build/a005/a005_0" + tostring((species) * 4 + 1),0
 	.else
-		.create "build/height/height_" + tostring((species) * 4 + 1),0
+		.create "build/a005/a005_" + tostring((species) * 4 + 1),0
 	.endif
 	
 	.if mback != "null"
@@ -236,13 +236,13 @@
 	.close
 
 	.if ((species) * 4 + 2) < 10
-		.create "build/height/height_000" + tostring((species) * 4 + 2),0
+		.create "build/a005/a005_000" + tostring((species) * 4 + 2),0
 	.elseif ((species) * 4 + 2) < 100
-		.create "build/height/height_00" + tostring((species) * 4 + 2),0
+		.create "build/a005/a005_00" + tostring((species) * 4 + 2),0
 	.elseif ((species) * 4 + 2) < 1000
-		.create "build/height/height_0" + tostring((species) * 4 + 2),0
+		.create "build/a005/a005_0" + tostring((species) * 4 + 2),0
 	.else
-		.create "build/height/height_" + tostring((species) * 4 + 2),0
+		.create "build/a005/a005_" + tostring((species) * 4 + 2),0
 	.endif
 	
 	.if ffront != "null"
@@ -252,13 +252,13 @@
 	.close
 
 	.if ((species) * 4 + 3) < 10
-		.create "build/height/height_000" + tostring((species) * 4 + 3),0
+		.create "build/a005/a005_000" + tostring((species) * 4 + 3),0
 	.elseif ((species) * 4 + 3) < 100
-		.create "build/height/height_00" + tostring((species) * 4 + 3),0
+		.create "build/a005/a005_00" + tostring((species) * 4 + 3),0
 	.elseif ((species) * 4 + 3) < 1000
-		.create "build/height/height_0" + tostring((species) * 4 + 3),0
+		.create "build/a005/a005_0" + tostring((species) * 4 + 3),0
 	.else
-		.create "build/height/height_" + tostring((species) * 4 + 3),0
+		.create "build/a005/a005_" + tostring((species) * 4 + 3),0
 	.endif
 	
 	.if mfront != "null"
@@ -314,60 +314,60 @@
 .macro specialareas,monnum,timeofday
 	.if (timeofday == 0) // morning time
 		.if (4 + monnum) < 10
-			.create "build/zukan_enc_platinum/zukan_enc_platinum_000" + tostring(4 + monnum),0
+			.create "build/a133/3_000" + tostring(4 + monnum),0
 		.elseif (4 + monnum) < 100
-			.create "build/zukan_enc_platinum/zukan_enc_platinum_00" + tostring(4 + monnum),0
+			.create "build/a133/3_00" + tostring(4 + monnum),0
 		.elseif (4 + monnum) < 1000
-			.create "build/zukan_enc_platinum/zukan_enc_platinum_0" + tostring(4 + monnum),0
+			.create "build/a133/3_0" + tostring(4 + monnum),0
 		.else
-			.create "build/zukan_enc_platinum/zukan_enc_platinum_" + tostring(4 + monnum),0
+			.create "build/a133/3_" + tostring(4 + monnum),0
 		.endif
 	.elseif (timeofday == 1) // day time
 		.if (4 + monnum + NUM_OF_MONS) < 10
-			.create "build/zukan_enc_platinum/zukan_enc_platinum_000" + tostring(4 + monnum + NUM_OF_MONS),0
+			.create "build/a133/3_000" + tostring(4 + monnum + NUM_OF_MONS),0
 		.elseif (4 + monnum + NUM_OF_MONS) < 100
-			.create "build/zukan_enc_platinum/zukan_enc_platinum_00" + tostring(4 + monnum + NUM_OF_MONS),0
+			.create "build/a133/3_00" + tostring(4 + monnum + NUM_OF_MONS),0
 		.elseif (4 + monnum + NUM_OF_MONS) < 1000
-			.create "build/zukan_enc_platinum/zukan_enc_platinum_0" + tostring(4 + monnum + NUM_OF_MONS),0
+			.create "build/a133/3_0" + tostring(4 + monnum + NUM_OF_MONS),0
 		.else
-			.create "build/zukan_enc_platinum/zukan_enc_platinum_" + tostring(4 + monnum + NUM_OF_MONS),0
+			.create "build/a133/3_" + tostring(4 + monnum + NUM_OF_MONS),0
 		.endif
 	.elseif (timeofday == 2) // night time
 		.if (4 + monnum + (2*NUM_OF_MONS)) < 10
-			.create "build/zukan_enc_platinum/zukan_enc_platinum_000" + tostring(4 + monnum + (2*NUM_OF_MONS)),0
+			.create "build/a133/3_000" + tostring(4 + monnum + (2*NUM_OF_MONS)),0
 		.elseif (4 + monnum + (2*NUM_OF_MONS)) < 100
-			.create "build/zukan_enc_platinum/zukan_enc_platinum_00" + tostring(4 + monnum + (2*NUM_OF_MONS)),0
+			.create "build/a133/3_00" + tostring(4 + monnum + (2*NUM_OF_MONS)),0
 		.elseif (4 + monnum + (2*NUM_OF_MONS)) < 1000
-			.create "build/zukan_enc_platinum/zukan_enc_platinum_0" + tostring(4 + monnum + (2*NUM_OF_MONS)),0
+			.create "build/a133/3_0" + tostring(4 + monnum + (2*NUM_OF_MONS)),0
 		.else
-			.create "build/zukan_enc_platinum/zukan_enc_platinum_" + tostring(4 + monnum + (2*NUM_OF_MONS)),0
+			.create "build/a133/3_" + tostring(4 + monnum + (2*NUM_OF_MONS)),0
 		.endif
 	.elseif (timeofday == 3) // special
 		.if (4 + monnum + (3*NUM_OF_MONS)) < 10
-			.create "build/zukan_enc_platinum/zukan_enc_platinum_000" + tostring(4 + monnum + (3*NUM_OF_MONS)),0
+			.create "build/a133/3_000" + tostring(4 + monnum + (3*NUM_OF_MONS)),0
 		.elseif (4 + monnum + (3*NUM_OF_MONS)) < 100
-			.create "build/zukan_enc_platinum/zukan_enc_platinum_00" + tostring(4 + monnum + (3*NUM_OF_MONS)),0
+			.create "build/a133/3_00" + tostring(4 + monnum + (3*NUM_OF_MONS)),0
 		.elseif (4 + monnum + (3*NUM_OF_MONS)) < 1000
-			.create "build/zukan_enc_platinum/zukan_enc_platinum_0" + tostring(4 + monnum + (3*NUM_OF_MONS)),0
+			.create "build/a133/3_0" + tostring(4 + monnum + (3*NUM_OF_MONS)),0
 		.else
-			.create "build/zukan_enc_platinum/zukan_enc_platinum_" + tostring(4 + monnum + (3*NUM_OF_MONS)),0
+			.create "build/a133/3_" + tostring(4 + monnum + (3*NUM_OF_MONS)),0
 		.endif
 	.else // timeofday == 4
-		.create "build/zukan_enc_platinum/zukan_enc_platinum_" + tostring(4 + monnum + (4*NUM_OF_MONS)),0
+		.create "build/a133/3_" + tostring(4 + monnum + (4*NUM_OF_MONS)),0
 	.endif
 .endmacro
 
 .macro routesandcities,monnum,timeofday
 	.if (timeofday == 0) // morning time
-		.create "build/zukan_enc_platinum/zukan_enc_platinum_" + tostring(4 + monnum + (5*NUM_OF_MONS)),0
+		.create "build/a133/3_" + tostring(4 + monnum + (5*NUM_OF_MONS)),0
 	.elseif (timeofday == 1) // day time
-		.create "build/zukan_enc_platinum/zukan_enc_platinum_" + tostring(4 + monnum + (6*NUM_OF_MONS)),0
+		.create "build/a133/3_" + tostring(4 + monnum + (6*NUM_OF_MONS)),0
 	.elseif (timeofday == 2) // night time
-		.create "build/zukan_enc_platinum/zukan_enc_platinum_" + tostring(4 + monnum + (7*NUM_OF_MONS)),0
+		.create "build/a133/3_" + tostring(4 + monnum + (7*NUM_OF_MONS)),0
 	.elseif (timeofday == 3) // special
-		.create "build/zukan_enc_platinum/zukan_enc_platinum_" + tostring(4 + monnum + (8*NUM_OF_MONS)),0
+		.create "build/a133/3_" + tostring(4 + monnum + (8*NUM_OF_MONS)),0
 	.else // timeofday == 4
-		.create "build/zukan_enc_platinum/zukan_enc_platinum_" + tostring(4 + monnum + (9*NUM_OF_MONS)),0
+		.create "build/a133/3_" + tostring(4 + monnum + (9*NUM_OF_MONS)),0
 	.endif
 .endmacro
 
@@ -541,11 +541,11 @@
 
 .macro encounterdata,num
 	.if num < 10
-		.create "build/pl_enc_data/pl_enc_data_00" + tostring(num),0
+		.create "build/a037/7_00" + tostring(num),0
 	.elseif num < 100
-		.create "build/pl_enc_data/pl_enc_data_0" + tostring(num),0
+		.create "build/a037/7_0" + tostring(num),0
 	.else
-		.create "build/pl_enc_data/pl_enc_data_" + tostring(num),0
+		.create "build/a037/7_" + tostring(num),0
 	.endif
 .endmacro
 

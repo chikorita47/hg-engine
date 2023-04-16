@@ -5,7 +5,7 @@
 .include "armips/include/constants.s"
 .include "armips/include/monnums.s"
 
-.open "build/pl_poke_data/pl_poke_data_0", 0
+.open "build/a180/pl_poke_data_0", 0
 
 // the in-battle sprite offsets for each pokemon.  also included are the shadow coords + mon animation constants
 
