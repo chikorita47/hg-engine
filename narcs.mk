@@ -84,19 +84,6 @@ $(MONDATA_NARC): $(MONDATA_DEPENDENCIES)
 NARC_FILES += $(MONDATA_NARC)
 
 
-SPRITEANIMS_DIR := $(BUILD)/pl_pokeanm
-SPRITEANIMS_NARC := $(BUILD_NARC)/pl_pokeanm.narc
-SPRITEANIMS_TARGET := $(FILESYS)/poketool/pokeanm/pl_pokeanm.narc
-SPRITEANIMS_DEPENDENCIES := armips/data/spriteanims.s
-
-$(SPRITEANIMS_NARC): $(SPRITEANIMS_DEPENDENCIES)
-	$(PYTHON) $(NARCHIVE) extract $(SPRITEANIMS_TARGET) -o $(SPRITEANIMS_DIR) -nf
-	$(ARMIPS) $^
-	$(PYTHON) $(NARCHIVE) create $@ $(SPRITEANIMS_DIR) -nf
-
-NARC_FILES += $(SPRITEANIMS_NARC)
-
-
 SPRITEOFFSETS_DIR := $(BUILD)/poke_yofs
 SPRITEOFFSETS_NARC := $(BUILD_NARC)/poke_yofs.narc
 SPRITEOFFSETS_TARGET := $(FILESYS)/poketool/pokegra/poke_yofs.narc
@@ -168,7 +155,6 @@ NARC_FILES += $(DEXAREA_NARC)
 DEXSORT_DIR := a214
 DEXSORT_NARC := $(BUILD_NARC)/zukan_data.narc
 DEXSORT_TARGET := $(FILESYS)/application/zukanlist/zkn_data/zukan_data.narc
-DEXSORT_TARGET_2 := $(FILESYS)/application/zukanlist/zkn_data/zukan_data_gira.narc
 DEXSORT_DEPENDENCIES := armips/data/pokedex/pokedexdata.s
 
 $(DEXSORT_NARC): $(DEXSORT_DEPENDENCIES)
