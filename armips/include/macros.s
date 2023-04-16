@@ -558,6 +558,7 @@
 .endmacro
 
 .macro oldrodrate,num
+	.fill 44 // unused rock smash encounter table
 	.word num
 .endmacro
 
@@ -566,6 +567,15 @@
 .endmacro
 
 .macro superrodrate,num
+	.word num
+.endmacro
+
+.macro forminfo,prob
+	.word prob
+.endmacro
+
+.macro unowntable,num
+	.fill 12 // unused form prob slots
 	.word num
 .endmacro
 

@@ -615,3 +615,8 @@ NATURE_GENTLE   equ (21)
 NATURE_SASSY    equ (22)
 NATURE_CAREFUL  equ (23)
 NATURE_QUIRKY   equ (24)
+
+// encounter data constants
+
+FORM_INFO_WEST_SEA equ 0
+FORM_INFO_EAST_SEA equ 100

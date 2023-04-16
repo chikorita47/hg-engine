@@ -497,9 +497,12 @@ const monConstants = [
   "SPECIES_ARCEUS"
 ];
 
+const formprobs = {0: 'FORM_INFO_WEST_SEA', 100: 'FORM_INFO_EAST_SEA'};
+
 let output = `.nds
 .thumb
 
+.include "armips/include/constants.s"
 .include "armips/include/macros.s"
 .include "armips/include/monnums.s"
 
@@ -537,6 +540,11 @@ for (let i = 0; i <= 182; i++) {
     pointer += 4;
     output += `encounterwithlevels ${monConstants[monNum]}, ${minLevel}, ${maxLevel}\n`;
   }
+  const formProb = (comment) => {
+    const num = data.readUInt32LE(pointer);
+    pointer += 4;
+    output += `forminfo ${formprobs[num]}${comment ? ` // ${comment}` : ''}\n`;
+  }
 
   next('walkrate');
   output += '\n// morning encounter slots\n';
@@ -562,13 +570,13 @@ for (let i = 0; i <= 182; i++) {
   next('encounter', true);
   next('encounter', true);
 
-  output += '\n// unknown\n';
-  next('.word');
-  next('.word');
-  next('.word');
-  next('.word');
-  next('.word');
-  next('.word');
+  output += '\n// west vs east data\n';
+  formProb('shellos');
+  formProb('gastrodon');
+  pointer += 12; // 3 unused formProb slots
+
+  output += '\n'
+  next('unowntable');
 
   output += '\n// ruby insertion slots\n';
   next('encounter', true);

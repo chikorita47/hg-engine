@@ -1,6 +1,7 @@
 .nds
 .thumb
 
+.include "armips/include/constants.s"
 .include "armips/include/macros.s"
 .include "armips/include/monnums.s"
 
@@ -40,13 +41,11 @@ encounter SPECIES_NONE
 encounter SPECIES_NONE
 encounter SPECIES_NONE
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_NONE
@@ -143,13 +142,11 @@ encounter SPECIES_NONE
 encounter SPECIES_NONE
 encounter SPECIES_NONE
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_NONE
@@ -246,13 +243,11 @@ encounter SPECIES_NONE
 encounter SPECIES_NONE
 encounter SPECIES_NONE
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_NONE
@@ -349,13 +344,11 @@ encounter SPECIES_NONE
 encounter SPECIES_NONE
 encounter SPECIES_NONE
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_NONE
@@ -452,13 +445,11 @@ encounter SPECIES_NONE
 encounter SPECIES_NONE
 encounter SPECIES_NONE
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_NONE
@@ -555,13 +546,11 @@ encounter SPECIES_GEODUDE
 encounter SPECIES_GEODUDE
 encounter SPECIES_GEODUDE
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_GEODUDE
@@ -658,13 +647,11 @@ encounter SPECIES_GEODUDE
 encounter SPECIES_GEODUDE
 encounter SPECIES_GEODUDE
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_GEODUDE
@@ -761,13 +748,11 @@ encounter SPECIES_MAREEP
 encounter SPECIES_MAREEP
 encounter SPECIES_MAREEP
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_BUIZEL
@@ -864,13 +849,11 @@ encounter SPECIES_NINCADA
 encounter SPECIES_NINCADA
 encounter SPECIES_NINCADA
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SEEDOT
@@ -967,13 +950,11 @@ encounter SPECIES_ARON
 encounter SPECIES_ARON
 encounter SPECIES_ARON
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_FLOATZEL
@@ -1070,13 +1051,11 @@ encounter SPECIES_MEDITITE
 encounter SPECIES_ZUBAT
 encounter SPECIES_CHINGLING
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_ZUBAT
@@ -1173,13 +1152,11 @@ encounter SPECIES_MEDICHAM
 encounter SPECIES_GOLBAT
 encounter SPECIES_CHINGLING
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -1276,13 +1253,11 @@ encounter SPECIES_MEDICHAM
 encounter SPECIES_MEDICHAM
 encounter SPECIES_CHINGLING
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -1379,13 +1354,11 @@ encounter SPECIES_LOUDRED
 encounter SPECIES_LOUDRED
 encounter SPECIES_LOUDRED
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -1482,13 +1455,11 @@ encounter SPECIES_LOUDRED
 encounter SPECIES_LOUDRED
 encounter SPECIES_LOUDRED
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -1585,13 +1556,11 @@ encounter SPECIES_MEDICHAM
 encounter SPECIES_GOLBAT
 encounter SPECIES_CHINGLING
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -1688,13 +1657,11 @@ encounter SPECIES_MEDICHAM
 encounter SPECIES_GOLBAT
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -1791,13 +1758,11 @@ encounter SPECIES_MEDICHAM
 encounter SPECIES_GOLBAT
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -1894,13 +1859,11 @@ encounter SPECIES_MEDICHAM
 encounter SPECIES_GOLBAT
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -1997,13 +1960,11 @@ encounter SPECIES_MEDICHAM
 encounter SPECIES_GOLBAT
 encounter SPECIES_CHINGLING
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -2100,13 +2061,11 @@ encounter SPECIES_MEDITITE
 encounter SPECIES_GOLBAT
 encounter SPECIES_CHINGLING
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_GOLBAT
@@ -2203,13 +2162,11 @@ encounter SPECIES_MEDITITE
 encounter SPECIES_ZUBAT
 encounter SPECIES_CHINGLING
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_ZUBAT
@@ -2306,13 +2263,11 @@ encounter SPECIES_MEDITITE
 encounter SPECIES_GOLBAT
 encounter SPECIES_CHINGLING
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_GOLBAT
@@ -2409,13 +2364,11 @@ encounter SPECIES_QUAGSIRE
 encounter SPECIES_YANMA
 encounter SPECIES_TANGELA
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_YANMA
@@ -2512,13 +2465,11 @@ encounter SPECIES_QUAGSIRE
 encounter SPECIES_YANMA
 encounter SPECIES_TANGELA
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_YANMA
@@ -2615,13 +2566,11 @@ encounter SPECIES_QUAGSIRE
 encounter SPECIES_YANMA
 encounter SPECIES_TANGELA
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_YANMA
@@ -2718,13 +2667,11 @@ encounter SPECIES_QUAGSIRE
 encounter SPECIES_YANMA
 encounter SPECIES_TANGELA
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_YANMA
@@ -2821,13 +2768,11 @@ encounter SPECIES_QUAGSIRE
 encounter SPECIES_YANMA
 encounter SPECIES_TANGELA
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_YANMA
@@ -2924,13 +2869,11 @@ encounter SPECIES_QUAGSIRE
 encounter SPECIES_YANMA
 encounter SPECIES_TANGELA
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_YANMA
@@ -3027,13 +2970,11 @@ encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 8
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 8
 
 // ruby insertion slots
 encounter SPECIES_UNOWN
@@ -3130,13 +3071,11 @@ encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 1
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 1
 
 // ruby insertion slots
 encounter SPECIES_UNOWN
@@ -3233,13 +3172,11 @@ encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 1
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 1
 
 // ruby insertion slots
 encounter SPECIES_UNOWN
@@ -3336,13 +3273,11 @@ encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 2
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 2
 
 // ruby insertion slots
 encounter SPECIES_UNOWN
@@ -3439,13 +3374,11 @@ encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 1
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 1
 
 // ruby insertion slots
 encounter SPECIES_UNOWN
@@ -3542,13 +3475,11 @@ encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 3
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 3
 
 // ruby insertion slots
 encounter SPECIES_UNOWN
@@ -3645,13 +3576,11 @@ encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 1
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 1
 
 // ruby insertion slots
 encounter SPECIES_UNOWN
@@ -3748,13 +3677,11 @@ encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 1
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 1
 
 // ruby insertion slots
 encounter SPECIES_UNOWN
@@ -3851,13 +3778,11 @@ encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 1
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 1
 
 // ruby insertion slots
 encounter SPECIES_UNOWN
@@ -3954,13 +3879,11 @@ encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 1
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 1
 
 // ruby insertion slots
 encounter SPECIES_UNOWN
@@ -4057,13 +3980,11 @@ encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 1
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 1
 
 // ruby insertion slots
 encounter SPECIES_UNOWN
@@ -4160,13 +4081,11 @@ encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 4
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 4
 
 // ruby insertion slots
 encounter SPECIES_UNOWN
@@ -4263,13 +4182,11 @@ encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 5
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 5
 
 // ruby insertion slots
 encounter SPECIES_UNOWN
@@ -4366,13 +4283,11 @@ encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 6
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 6
 
 // ruby insertion slots
 encounter SPECIES_UNOWN
@@ -4469,13 +4384,11 @@ encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 7
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 7
 
 // ruby insertion slots
 encounter SPECIES_UNOWN
@@ -4572,13 +4485,11 @@ encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 1
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 1
 
 // ruby insertion slots
 encounter SPECIES_UNOWN
@@ -4675,13 +4586,11 @@ encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 1
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 1
 
 // ruby insertion slots
 encounter SPECIES_UNOWN
@@ -4778,13 +4687,11 @@ encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 encounter SPECIES_UNOWN
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 1
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 1
 
 // ruby insertion slots
 encounter SPECIES_UNOWN
@@ -4881,13 +4788,11 @@ encounter SPECIES_RHYDON
 encounter SPECIES_STEELIX
 encounter SPECIES_GABITE
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_STEELIX
@@ -4984,13 +4889,11 @@ encounter SPECIES_MAGNETON
 encounter SPECIES_ONIX
 encounter SPECIES_GABITE
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_ONIX
@@ -5087,13 +4990,11 @@ encounter SPECIES_FLOATZEL
 encounter SPECIES_STEELIX
 encounter SPECIES_GABITE
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_STEELIX
@@ -5190,13 +5091,11 @@ encounter SPECIES_FLOATZEL
 encounter SPECIES_DEWGONG
 encounter SPECIES_GABITE
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_DEWGONG
@@ -5293,13 +5192,11 @@ encounter SPECIES_FLOATZEL
 encounter SPECIES_STEELIX
 encounter SPECIES_GABITE
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_STEELIX
@@ -5396,13 +5293,11 @@ encounter SPECIES_FLOATZEL
 encounter SPECIES_STEELIX
 encounter SPECIES_GABITE
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_STEELIX
@@ -5499,13 +5394,11 @@ encounter SPECIES_ZUBAT
 encounter SPECIES_ZUBAT
 encounter SPECIES_ZUBAT
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_ZUBAT
@@ -5602,13 +5495,11 @@ encounter SPECIES_ZUBAT
 encounter SPECIES_ZUBAT
 encounter SPECIES_ZUBAT
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_ZUBAT
@@ -5705,13 +5596,11 @@ encounter SPECIES_ZUBAT
 encounter SPECIES_ZUBAT
 encounter SPECIES_GOLBAT
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_ZUBAT
@@ -5808,13 +5697,11 @@ encounter SPECIES_TORKOAL
 encounter SPECIES_TORKOAL
 encounter SPECIES_TORKOAL
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_NUMEL
@@ -5911,13 +5798,11 @@ encounter SPECIES_WEEZING
 encounter SPECIES_SLUGMA
 encounter SPECIES_RHYHORN
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SLUGMA
@@ -6014,13 +5899,11 @@ encounter SPECIES_WEEZING
 encounter SPECIES_SLUGMA
 encounter SPECIES_KOFFING
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SLUGMA
@@ -6117,13 +6000,11 @@ encounter SPECIES_STARAVIA
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHINGLING
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -6220,13 +6101,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHINGLING
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -6323,13 +6202,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -6426,13 +6303,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -6529,13 +6404,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHINGLING
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -6632,13 +6505,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHINGLING
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -6735,13 +6606,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHINGLING
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -6838,13 +6707,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHINGLING
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -6941,13 +6808,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHINGLING
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -7044,13 +6909,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHINGLING
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -7147,13 +7010,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHINGLING
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -7250,13 +7111,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHINGLING
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -7353,13 +7212,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHINGLING
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -7456,13 +7313,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHINGLING
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -7559,13 +7414,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHINGLING
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -7662,13 +7515,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHINGLING
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -7765,13 +7616,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -7868,13 +7717,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -7971,13 +7818,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -8074,13 +7919,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -8177,13 +8020,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -8280,13 +8121,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -8383,13 +8222,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -8486,13 +8323,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -8589,13 +8424,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -8692,13 +8525,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -8795,13 +8626,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -8898,13 +8727,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -9001,13 +8828,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -9104,13 +8929,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -9207,13 +9030,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -9310,13 +9131,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -9413,13 +9232,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -9516,13 +9333,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -9619,13 +9434,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -9722,13 +9535,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -9825,13 +9636,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -9928,13 +9737,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -10031,13 +9838,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -10134,13 +9939,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -10237,13 +10040,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -10340,13 +10141,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -10443,13 +10242,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -10546,13 +10343,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -10649,13 +10444,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -10752,13 +10545,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -10855,13 +10646,11 @@ encounter SPECIES_GOLBAT
 encounter SPECIES_DUSCLOPS
 encounter SPECIES_CHIMECHO
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -10958,13 +10747,11 @@ encounter SPECIES_SNEASEL
 encounter SPECIES_SMOOCHUM
 encounter SPECIES_GOLBAT
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SMOOCHUM
@@ -11061,13 +10848,11 @@ encounter SPECIES_SNEASEL
 encounter SPECIES_JYNX
 encounter SPECIES_GOLBAT
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_JYNX
@@ -11164,13 +10949,11 @@ encounter SPECIES_SNEASEL
 encounter SPECIES_JYNX
 encounter SPECIES_GOLBAT
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_JYNX
@@ -11267,13 +11050,11 @@ encounter SPECIES_SNEASEL
 encounter SPECIES_JYNX
 encounter SPECIES_GOLBAT
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_JYNX
@@ -11370,13 +11151,11 @@ encounter SPECIES_SNEASEL
 encounter SPECIES_JYNX
 encounter SPECIES_GOLBAT
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_JYNX
@@ -11473,13 +11252,11 @@ encounter SPECIES_SNEASEL
 encounter SPECIES_JYNX
 encounter SPECIES_GOLBAT
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_JYNX
@@ -11576,13 +11353,11 @@ encounter SPECIES_ONIX
 encounter SPECIES_GEODUDE
 encounter SPECIES_ONIX
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_GEODUDE
@@ -11679,13 +11454,11 @@ encounter SPECIES_ONIX
 encounter SPECIES_GIBLE
 encounter SPECIES_ONIX
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_GIBLE
@@ -11782,13 +11555,11 @@ encounter SPECIES_GEODUDE
 encounter SPECIES_GEODUDE
 encounter SPECIES_HIPPOPOTAS
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_GEODUDE
@@ -11885,13 +11656,11 @@ encounter SPECIES_GEODUDE
 encounter SPECIES_GEODUDE
 encounter SPECIES_HIPPOPOTAS
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_GEODUDE
@@ -11988,13 +11757,11 @@ encounter SPECIES_HIPPOPOTAS
 encounter SPECIES_GEODUDE
 encounter SPECIES_HIPPOPOTAS
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_GEODUDE
@@ -12091,13 +11858,11 @@ encounter SPECIES_STARAVIA
 encounter SPECIES_PIKACHU
 encounter SPECIES_PICHU
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_PIKACHU
@@ -12194,13 +11959,11 @@ encounter SPECIES_NONE
 encounter SPECIES_NONE
 encounter SPECIES_NONE
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_NONE
@@ -12297,13 +12060,11 @@ encounter SPECIES_GRAVELER
 encounter SPECIES_GEODUDE
 encounter SPECIES_GRAVELER
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_GEODUDE
@@ -12400,13 +12161,11 @@ encounter SPECIES_GRAVELER
 encounter SPECIES_GRAVELER
 encounter SPECIES_GRAVELER
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_MAWILE
@@ -12503,13 +12262,11 @@ encounter SPECIES_GRAVELER
 encounter SPECIES_GRAVELER
 encounter SPECIES_GRAVELER
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_MAWILE
@@ -12606,13 +12363,11 @@ encounter SPECIES_GRAVELER
 encounter SPECIES_GRAVELER
 encounter SPECIES_GRAVELER
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_MAWILE
@@ -12709,13 +12464,11 @@ encounter SPECIES_GRAVELER
 encounter SPECIES_GRAVELER
 encounter SPECIES_GRAVELER
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_MAWILE
@@ -12812,13 +12565,11 @@ encounter SPECIES_GRAVELER
 encounter SPECIES_GRAVELER
 encounter SPECIES_GRAVELER
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_MAWILE
@@ -12915,13 +12666,11 @@ encounter SPECIES_GASTLY
 encounter SPECIES_GASTLY
 encounter SPECIES_GASTLY
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_GASTLY
@@ -13018,13 +12767,11 @@ encounter SPECIES_GASTLY
 encounter SPECIES_GASTLY
 encounter SPECIES_GASTLY
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_GASTLY
@@ -13121,13 +12868,11 @@ encounter SPECIES_GASTLY
 encounter SPECIES_GASTLY
 encounter SPECIES_GASTLY
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_GASTLY
@@ -13224,13 +12969,11 @@ encounter SPECIES_GASTLY
 encounter SPECIES_GASTLY
 encounter SPECIES_GASTLY
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_GASTLY
@@ -13327,13 +13070,11 @@ encounter SPECIES_GASTLY
 encounter SPECIES_GASTLY
 encounter SPECIES_GASTLY
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_GASTLY
@@ -13430,13 +13171,11 @@ encounter SPECIES_GASTLY
 encounter SPECIES_GASTLY
 encounter SPECIES_GASTLY
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_GASTLY
@@ -13533,13 +13272,11 @@ encounter SPECIES_GASTLY
 encounter SPECIES_GASTLY
 encounter SPECIES_GASTLY
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_GASTLY
@@ -13636,13 +13373,11 @@ encounter SPECIES_GASTLY
 encounter SPECIES_GASTLY
 encounter SPECIES_GASTLY
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_GENGAR
@@ -13739,13 +13474,11 @@ encounter SPECIES_GASTLY
 encounter SPECIES_GASTLY
 encounter SPECIES_GASTLY
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_GASTLY
@@ -13842,13 +13575,11 @@ encounter SPECIES_WOBBUFFET
 encounter SPECIES_WOBBUFFET
 encounter SPECIES_WOBBUFFET
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -13945,13 +13676,11 @@ encounter SPECIES_WOBBUFFET
 encounter SPECIES_WOBBUFFET
 encounter SPECIES_WOBBUFFET
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -14048,13 +13777,11 @@ encounter SPECIES_WOBBUFFET
 encounter SPECIES_WOBBUFFET
 encounter SPECIES_WOBBUFFET
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -14151,13 +13878,11 @@ encounter SPECIES_SNEASEL
 encounter SPECIES_SNOVER
 encounter SPECIES_BIBAREL
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SOLROCK
@@ -14254,13 +13979,11 @@ encounter SPECIES_NIDORINA
 encounter SPECIES_NIDORINO
 encounter SPECIES_NIDORINA
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_GIRAFARIG
@@ -14357,13 +14080,11 @@ encounter SPECIES_SWINUB
 encounter SPECIES_SNEASEL
 encounter SPECIES_SNOVER
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SNEASEL
@@ -14460,13 +14181,11 @@ encounter SPECIES_NIDORAN_F
 encounter SPECIES_NIDORAN_M
 encounter SPECIES_NIDORAN_F
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_STARLY
@@ -14563,13 +14282,11 @@ encounter SPECIES_SENTRET
 encounter SPECIES_SENTRET
 encounter SPECIES_SENTRET
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_STARLY
@@ -14666,13 +14383,11 @@ encounter SPECIES_ABRA
 encounter SPECIES_STARLY
 encounter SPECIES_BIDOOF
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SEEDOT
@@ -14769,13 +14484,11 @@ encounter SPECIES_SHINX
 encounter SPECIES_STARLY
 encounter SPECIES_BIDOOF
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SEEDOT
@@ -14872,13 +14585,11 @@ encounter SPECIES_SUNKERN
 encounter SPECIES_SUNKERN
 encounter SPECIES_SUNKERN
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SEEDOT
@@ -14975,13 +14686,11 @@ encounter SPECIES_HOPPIP
 encounter SPECIES_HOPPIP
 encounter SPECIES_HOPPIP
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_BUIZEL
@@ -15078,13 +14787,11 @@ encounter SPECIES_SLOWPOKE
 encounter SPECIES_SLOWPOKE
 encounter SPECIES_SLOWPOKE
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_BUDEW
@@ -15181,13 +14888,11 @@ encounter SPECIES_BALTOY
 encounter SPECIES_BALTOY
 encounter SPECIES_BALTOY
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_MACHOP
@@ -15284,13 +14989,11 @@ encounter SPECIES_STANTLER
 encounter SPECIES_STANTLER
 encounter SPECIES_STANTLER
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_PONYTA
@@ -15387,13 +15090,11 @@ encounter SPECIES_SMEARGLE
 encounter SPECIES_SMEARGLE
 encounter SPECIES_SMEARGLE
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_ZANGOOSE
@@ -15490,13 +15191,11 @@ encounter SPECIES_KIRLIA
 encounter SPECIES_KIRLIA
 encounter SPECIES_KIRLIA
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_RALTS
@@ -15593,13 +15292,11 @@ encounter SPECIES_GASTLY
 encounter SPECIES_GASTLY
 encounter SPECIES_GASTLY
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_GASTLY
@@ -15696,13 +15393,11 @@ encounter SPECIES_GASTLY
 encounter SPECIES_GASTLY
 encounter SPECIES_GASTLY
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_GASTLY
@@ -15799,13 +15494,11 @@ encounter SPECIES_GASTLY
 encounter SPECIES_GASTLY
 encounter SPECIES_GASTLY
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_GASTLY
@@ -15902,13 +15595,11 @@ encounter SPECIES_GASTLY
 encounter SPECIES_GASTLY
 encounter SPECIES_GASTLY
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_GASTLY
@@ -16005,13 +15696,11 @@ encounter SPECIES_GASTLY
 encounter SPECIES_GASTLY
 encounter SPECIES_GASTLY
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_GASTLY
@@ -16108,13 +15797,11 @@ encounter SPECIES_TAUROS
 encounter SPECIES_MILTANK
 encounter SPECIES_TAUROS
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SEEDOT
@@ -16211,13 +15898,11 @@ encounter SPECIES_BAGON
 encounter SPECIES_BAGON
 encounter SPECIES_BAGON
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_ZANGOOSE
@@ -16314,13 +15999,11 @@ encounter SPECIES_TYROGUE
 encounter SPECIES_TYROGUE
 encounter SPECIES_TYROGUE
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_MACHOP
@@ -16417,13 +16100,11 @@ encounter SPECIES_MACHOKE
 encounter SPECIES_MACHOKE
 encounter SPECIES_BRONZOR
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_MACHOKE
@@ -16520,13 +16201,11 @@ encounter SPECIES_SMEARGLE
 encounter SPECIES_SMEARGLE
 encounter SPECIES_SMEARGLE
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_ROSELIA
@@ -16623,13 +16302,11 @@ encounter SPECIES_GRIMER
 encounter SPECIES_GRIMER
 encounter SPECIES_GRIMER
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_BUIZEL
@@ -16726,13 +16403,11 @@ encounter SPECIES_SWELLOW
 encounter SPECIES_SWELLOW
 encounter SPECIES_SWELLOW
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_BUIZEL
@@ -16829,13 +16504,11 @@ encounter SPECIES_POOCHYENA
 encounter SPECIES_POOCHYENA
 encounter SPECIES_POOCHYENA
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_HOUNDOUR
@@ -16932,13 +16605,11 @@ encounter SPECIES_ABRA
 encounter SPECIES_MARILL
 encounter SPECIES_KADABRA
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_MARILL
@@ -17035,13 +16706,11 @@ encounter SPECIES_SNEASEL
 encounter SPECIES_GRAVELER
 encounter SPECIES_SNOVER
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_GRAVELER
@@ -17138,13 +16807,11 @@ encounter SPECIES_PILOSWINE
 encounter SPECIES_PILOSWINE
 encounter SPECIES_PILOSWINE
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SNEASEL
@@ -17241,13 +16908,11 @@ encounter SPECIES_MR_MIME
 encounter SPECIES_FLOATZEL
 encounter SPECIES_GASTRODON
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_FLOATZEL
@@ -17344,13 +17009,11 @@ encounter SPECIES_NONE
 encounter SPECIES_NONE
 encounter SPECIES_NONE
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_NONE
@@ -17447,13 +17110,11 @@ encounter SPECIES_NIDORINA
 encounter SPECIES_NIDORINO
 encounter SPECIES_NIDORINA
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_FLOATZEL
@@ -17550,13 +17211,11 @@ encounter SPECIES_FLAAFFY
 encounter SPECIES_FLAAFFY
 encounter SPECIES_FLAAFFY
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_PELIPPER
@@ -17653,13 +17312,11 @@ encounter SPECIES_GASTRODON
 encounter SPECIES_BEAUTIFLY
 encounter SPECIES_DUSTOX
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_BEAUTIFLY
@@ -17756,13 +17413,11 @@ encounter SPECIES_PRIMEAPE
 encounter SPECIES_MANKEY
 encounter SPECIES_MANKEY
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_SPEAROW
@@ -17859,13 +17514,11 @@ encounter SPECIES_TORKOAL
 encounter SPECIES_TORKOAL
 encounter SPECIES_TORKOAL
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_NUMEL
@@ -17962,13 +17615,11 @@ encounter SPECIES_HIPPOWDON
 encounter SPECIES_DIGLETT
 encounter SPECIES_CACNEA
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_DIGLETT
@@ -18065,13 +17716,11 @@ encounter SPECIES_VENOMOTH
 encounter SPECIES_VENONAT
 encounter SPECIES_VENONAT
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_NUZLEAF
@@ -18168,13 +17817,11 @@ encounter SPECIES_NONE
 encounter SPECIES_NONE
 encounter SPECIES_NONE
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_NONE
@@ -18271,13 +17918,11 @@ encounter SPECIES_NONE
 encounter SPECIES_NONE
 encounter SPECIES_NONE
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_NONE
@@ -18374,13 +18019,11 @@ encounter SPECIES_NONE
 encounter SPECIES_NONE
 encounter SPECIES_NONE
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_NONE
@@ -18477,13 +18120,11 @@ encounter SPECIES_NONE
 encounter SPECIES_NONE
 encounter SPECIES_NONE
 
-// unknown
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_WEST_SEA // shellos
+forminfo FORM_INFO_WEST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_NONE
@@ -18580,13 +18221,11 @@ encounter SPECIES_NONE
 encounter SPECIES_NONE
 encounter SPECIES_NONE
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_NONE
@@ -18683,13 +18322,11 @@ encounter SPECIES_PRIMEAPE
 encounter SPECIES_MANKEY
 encounter SPECIES_MANKEY
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_WINGULL
@@ -18786,13 +18423,11 @@ encounter SPECIES_TOGEPI
 encounter SPECIES_TOGEPI
 encounter SPECIES_TOGEPI
 
-// unknown
-.word 100
-.word 100
-.word 0
-.word 0
-.word 0
-.word 0
+// west vs east data
+forminfo FORM_INFO_EAST_SEA // shellos
+forminfo FORM_INFO_EAST_SEA // gastrodon
+
+unowntable 0
 
 // ruby insertion slots
 encounter SPECIES_PELIPPER
