@@ -552,9 +552,10 @@ SetDeoxysFormNo:
 //    add r0, #0x80
 //    ldr r2, [r0, #0]
 // instead of 0x80, need SEEN_FLAGS_OFFSET + (0x80 - 0x44) = 0x43C
-    mov r0, #(SEEN_FLAGS_OFFSET + (0x80 - 0x44)) >> 4
-    lsl r0, #4
-    ldr r2, [r0, #(SEEN_FLAGS_OFFSET + (0x80 - 0x44)) & 0xF] // +2 bytes
+    mov r2, #(SEEN_FLAGS_OFFSET + (0x80 - 0x44)) >> 4
+    lsl r2, #4
+    add r2, #(SEEN_FLAGS_OFFSET + (0x80 - 0x44)) & 0xF
+    ldr r2, [r0, r2] // +4 bytes
     sub r0, r1, #2
 // old:
 //    lsl r0, r0, #0x18
@@ -567,6 +568,7 @@ SetDeoxysFormNo:
     mov r0, #0xf
     and r0, r1
     bx lr
+// -2 extra bytes from alignment
 
 .endarea
 
