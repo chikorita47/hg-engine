@@ -186,14 +186,8 @@ move_narc: $(NARC_FILES)
 	@echo "mon data properties:"
 	cp $(MONDATA_NARC) $(MONDATA_TARGET)
 
-	@echo "sprite offsets:"
-	cp $(SPRITEOFFSETS_NARC) $(SPRITEOFFSETS_TARGET)
-
-	@echo "shadow offsets:"
-	cp $(SHADOWOFFSETS_NARC) $(SHADOWOFFSETS_TARGET)
-
-	@echo "shadow sizes:"
-	cp $(SHADOWSIZES_NARC) $(SHADOWSIZES_TARGET)
+	# @echo "sprite offsets:"
+	# cp $(SPRITEOFFSETS_NARC) $(SPRITEOFFSETS_TARGET)
 
 	@echo "mon height offsets:"
 	cp $(HEIGHT_NARC) $(HEIGHT_TARGET)
