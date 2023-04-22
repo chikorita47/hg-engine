@@ -38,6 +38,14 @@ void CreateBoxMonData(struct BoxPokemon *boxmon, int species, int level, int pow
         id=0;
     }
 
+    // this function or AddWildPartyPokemon could both get here first
+    // and since both functions will initialize the moveset,
+    // we need to the form to be set correctly in either case
+    if (space_for_setmondata != 0)
+    {
+        BoxMonDataSet(boxmon, ID_PARA_form_no, (u8 *)&space_for_setmondata);
+    }
+
     BoxMonDataSet(boxmon,ID_PARA_id_no,(u8 *)&id);
     BoxMonDataSet(boxmon,ID_PARA_country_code,(u8 *)&language);
     BoxMonDataSet(boxmon,ID_PARA_monsno,(u8 *)&species);

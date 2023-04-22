@@ -599,6 +599,8 @@ u32 GrabSexFromSpeciesAndForm(u32 species, u32 pid, u32 form);
 u32 GetBoxMonSex(struct BoxPokemon *bp);
 u16 get_mon_ow_tag(u16 species, u32 form, u32 isFemale);
 
+extern u32 space_for_setmondata;
+
 
 
 #endif
