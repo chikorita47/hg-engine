@@ -3785,7 +3785,7 @@ u16 get_mon_ow_tag(u16 species, u32 form, u32 isFemale)
 }
 
 
-BOOL GiveMon(int heapId, void *saveData, int species, int level, int forme, u8 ability, u16 heldItem, int ball, int encounterType) {
+BOOL GiveMon(int heapId, void *saveData, u16 species, u8 level, u16 heldItem, int ball, int encounterType) {
     struct Party *party;
     struct PartyPokemon *pokemon;
     void *profile;
@@ -3801,12 +3801,12 @@ BOOL GiveMon(int heapId, void *saveData, int species, int level, int forme, u8 a
     PokeParaGetInfoSet(pokemon, profile, ITEM_POKE_BALL, ball, encounterType, heapId);
     sp1C = heldItem;
     SetMonData(pokemon, ID_PARA_item, &sp1C);
-    SetMonData(pokemon, ID_PARA_form_no, &forme);
+    // SetMonData(pokemon, ID_PARA_form_no, &forme);
 
-    if (forme != 0) // reinitialize moves for different learnsets
-    {
-        InitBoxMonMoveset(&pokemon->box);
-    }
+    // if (forme != 0) // reinitialize moves for different learnsets
+    // {
+    //     InitBoxMonMoveset(&pokemon->box);
+    // }
 
     PokeParaCalc(pokemon); // recalculate stats
 
@@ -3817,11 +3817,11 @@ BOOL GiveMon(int heapId, void *saveData, int species, int level, int forme, u8 a
         ClearScriptFlag(SavArray_Flags_get(SaveBlock2_get()), HIDDEN_ABILITIES_FLAG);
     }
 
-    if (ability != 0) {
-        SetMonData(pokemon, ID_PARA_speabino, &ability);
-    } else {
+    // if (ability != 0) {
+    //     SetMonData(pokemon, ID_PARA_speabino, &ability);
+    // } else {
         PokeParaSpeabiSet(pokemon); // with the flag set, the hidden ability should be set
-    }
+    // }
     result = PokeParty_Add(party, pokemon);
     if (result) {
         UpdatePokedexWithReceivedSpecies(saveData, pokemon);
