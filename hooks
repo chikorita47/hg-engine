@@ -1,6 +1,10 @@
 #include "include/config.h"
 
+arm9 PokePicLoad 02075fbc 1
 arm9 PokeOtherFormMonsNoGet 02078740 2
+arm9 PokeIconIndexGetByMonsNumber 02079D8C 3
+arm9 PokeIconCgxPatternGet 02079E44 1
+arm9 IconPalGet 02079edc 2
 
 # wild mon hidden ability/form stuff
 #02241BAC

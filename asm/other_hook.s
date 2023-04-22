@@ -25,7 +25,7 @@ add sp, #0x4
 cmp r0, #0x0
 bne HaveNewPic
 pop {r0-r3}
-ldr r0, =0x020701F8 + 1
+ldr r0, =0x02075fc8 + 1
 bx r0
 
 HaveNewPic:
@@ -68,7 +68,7 @@ IconPalGet:
 push {r3}
 bl PokeIconPalNumGet
 pop {r3}
-ldr r1, =0x020743F8 + 1
+ldr r1, =0x02079f70 + 1
 bx r1
 
 //mega

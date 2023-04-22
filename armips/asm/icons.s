@@ -13,7 +13,7 @@
 
 
 .org 0x02079edc
-.area 0x02079f84-., 0xFF
+// .area 0x02079f84-., 0xFF
 
 push {r3,lr}
 bl PokeIconPalNumGet
@@ -22,4 +22,11 @@ ldrb r0, [r1,r0]
 pop {r3,pc}
 .pool
 
-.endarea
+// .endarea
+
+.org 0x02079f7c
+
+.word NUM_OF_MONS+1
+.word gIconPalTable
+
+.close
