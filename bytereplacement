@@ -1,5 +1,8 @@
 #include "include/config.h"
 
+# PokePasoParaSet hook setup
+arm9 02073e18 60 B4 C0 46
+
 # GiveMon hook setup
 arm9 020548B0 60 B4 C0 46
 

@@ -17,7 +17,7 @@ void CreateBoxMonData(struct BoxPokemon *boxmon, int species, int level, int pow
     BOOL flag;
 
     u32 title, language;
-    title = VERSION_GOLD;
+    title = VERSION_PLATINUM;
     language = LANG_ENGLISH;
 
     BoxMonInit(boxmon);
