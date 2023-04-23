@@ -25,3 +25,7 @@ arm9 GiveMon_hook 020548B4 5
 #02242514
 #need to use this to UpdateFormIfDeerling, reinitialize the moveset, set the hidden ability, recalc stats
 0006 AddWildPartyPokemon_hook 080043D8 5
+
+# add linked overlay support
+arm9 HandleLoadOverlay 02006590 2
+arm9 UnloadOverlayByID 02006514 1

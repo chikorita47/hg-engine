@@ -16,19 +16,39 @@
  
 load_arm9_expansion: // load the narc subfile with arm9 expansion data
     push {r2, lr}
-    ; mov r0, #5
-    ; bl rom_self_check //perform self check 1
-    ; mov r0, #13
-    ; bl rom_self_check //perform self check 2
-    ldr r0, =0x023C8000 // destination ram offset
-    mov r1, #0x41 // weather_sys - archive 65
-    mov r2, #9 // 9th file of archive 65
-    bl 0x2006AA4 // ArchiveDataLoad(&(0x02FC8000), 65, 9);
+//    mov r0, #5
+//    bl rom_self_check //perform self check 1
+//    mov r0, #13
+//    bl rom_self_check //perform self check 2
+
+// load overlay 121 as arm9 expansion
+    mov r0, #121
+    mov r1, #2
+    bl HandleLoadOverlay121 // HandleLoadOverlay(121, 2) // noinit load
+
+// get entirely rid of synthetic overlay
+//// load synthetic narc to the same destination to complete the arm9 expansion and keep compatibility
+//    ldr r0, =0x023C8000 // destination ram offset
+//    mov r1, #0x41 // weather_sys - archive 65
+//    mov r2, #9 // 9th file of archive 65
+//    bl 0x2006AA4 // ArchiveDataLoad(&(0x02FC8000), 65, 9);
+    
     mov r0, #0
     mov r1, #3
     pop {r2, pc}
 
+HandleLoadOverlay121:
+	push {r3-r7, lr}
+	mov r4, r1
+	mov r1, #0
+	mvn r1, r1
+	ldr r2, =0x02006598|1 // Overlay_Load+8, need normal loading for the first one
+	bx r2
+
 .pool
+
+.endarea
+
 
 ; .org 0x0211025C
 
@@ -49,13 +69,9 @@ load_arm9_expansion: // load the narc subfile with arm9 expansion data
 ;     mov r1, #3
 ;     pop {r3, pc}
 
-; .pool
-
-; .org 0x021102D4
-
 ; rom_invalid:
 ;     swi 0x00
 
-.endarea
+; .pool
  
 .close

@@ -349,3 +349,13 @@ MapObjectMan_UnpauseAllMovement = 0x0205F5A4 | 1;
 BagView_New = 0x02077878 | 1;
 BagView_SetItem = 0x020778BC | 1;
 Sav2_Bag_get = 0x0207879C | 1;
+
+
+FreeOverlayAllocation = 0x020064F0 | 1; /*pt*/
+GetOverlayLoadDestination = 0x02006544 | 1; /*pt*/
+CanOverlayBeLoaded = 0x02006644 | 1; /*pt*/
+GetLoadedOverlaysInRegion = 0x020066C0 | 1; /*pt*/
+FS_SetDefaultDMA = 0x020C84E0; /*pt*/
+LoadOverlayNormal = 0x0200671C | 1; /*pt*/
+LoadOverlayNoInit = 0x02006724 | 1; /*pt*/
+LoadOverlayNoInitAsync = 0x0200675C | 1; /*pt*/
