@@ -9,6 +9,8 @@ arm9 IconPalGet 02079edc 2
 #02073e18+4
 arm9 CreateBoxMonData_hook 02073e1c 5
 
+arm9 GetMonIconPalette 02079edc 3
+
 # wild mon hidden ability/form stuff
 #02241BAC
 0006 get_form_out_of_encounter_species_rare 02241BAC 4
