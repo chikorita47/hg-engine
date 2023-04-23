@@ -13,7 +13,8 @@ MSGDATA_COMPILETIME_DEPENDENCIES_DIR := $(BUILD)/rawtext
 CHARMAP := charmap.txt
 
 
-$(BUILD)/rawtext/%.txt: $(BUILD_NARC)/a011.narc $(BUILD_NARC)/a055.narc $(BUILD_NARC)/mondata.narc scripts/msg_cat.py
+# $(BUILD)/rawtext/%.txt: $(BUILD_NARC)/a011.narc $(BUILD_NARC)/a055.narc $(BUILD_NARC)/mondata.narc scripts/msg_cat.py
+$(BUILD)/rawtext/%.txt: $(BUILD_NARC)/mondata.narc scripts/msg_cat.py
 	$(PYTHON) scripts/msg_cat.py $(BUILD)/rawtext
 
 # actual msgdata rule at bottom to allow MSGDATA_COMPILETIME_DEPENDENCIES to be fully defined
@@ -518,8 +519,7 @@ NARC_FILES += $(ENCOUNTER_NARC)
 
 # NARC_FILES += $(TEXTBOX_NARC)
 
-
-# $(MSGDATA_NARC): $(MSGDATA_DEPENDENCIES) $(MSGDATA_COMPILETIME_DEPENDENCIES)
-# 	$(NARCHIVE) extract $(MSGDATA_TARGET) -o $(MSGDATA_DIR) -nf
-# 	for file in $^; do $(MSGENC) -e -c $(CHARMAP) $$file $(MSGDATA_DIR)/7_$$(basename $$file .txt); done
-# 	$(NARCHIVE) create $@ $(MSGDATA_DIR) -nf
+$(MSGDATA_NARC): $(MSGDATA_DEPENDENCIES) $(MSGDATA_COMPILETIME_DEPENDENCIES)
+	$(NARCHIVE) extract $(MSGDATA_TARGET) -o $(MSGDATA_DIR) -nf
+	for file in $^; do $(MSGENC) -e -c $(CHARMAP) $$file $(MSGDATA_DIR)/7_$$(basename $$file .txt); $(PYTHON) scripts/msg_cat.py --move-pt $(MSGDATA_DIR)/7_$$(basename $$file .txt); done
+	$(NARCHIVE) create $@ $(MSGDATA_DIR) -nf
