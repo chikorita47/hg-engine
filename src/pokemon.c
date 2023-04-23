@@ -3172,6 +3172,7 @@ void __attribute__((long_call)) UpdatePassiveForms(struct PartyPokemon *pp)
 {
     u32 species = GetMonData(pp, ID_PARA_monsno, NULL);
     u32 form = 0;
+    BOOL shouldUpdate = TRUE;
     
     switch (species)
     {
@@ -3189,9 +3190,13 @@ void __attribute__((long_call)) UpdatePassiveForms(struct PartyPokemon *pp)
         case SPECIES_PYROAR:
             form = (gf_rand() % 8 != 0); // 1/8 male
             break;
+        default:
+            shouldUpdate = FALSE;
     }
 
-    SetMonData(pp, ID_PARA_form_no, &form);
+    if (shouldUpdate) {
+        SetMonData(pp, ID_PARA_form_no, &form);
+    }
 }
 
 BOOL __attribute__((long_call)) Party_UpdateDeerlingSeasonForm(struct Party *party)
