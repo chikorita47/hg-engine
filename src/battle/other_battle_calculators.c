@@ -56,11 +56,20 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     }
 
     // should take precedent over a move using an alternate accuracy calc, as this will still be called for those.
-    if ((attacker & 1) == (defender & 1) // attacker and defender are on the same side
-     && GetBattlerAbility(sp, defender) == ABILITY_TELEPATHY // defender has telepathy ability
+    if (GetBattlerAbility(sp, defender) == ABILITY_TELEPATHY // defender has telepathy ability
+     && (attacker & 1) == (defender & 1) // attacker and defender are on the same side
      && sp->moveTbl[move_no].power != 0) // move actually damages
     {
         sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS;
+        return FALSE;
+    }
+    
+    if (GetBattlerAbility(sp, attacker) == ABILITY_PRANKSTER // prankster ability
+     && (sp->battlemon[defender].type1 == TYPE_DARK || sp->battlemon[defender].type2 == TYPE_DARK) // used on a dark type
+     && sp->moveTbl[move_no].split == SPLIT_STATUS // move is actually status
+     && (attacker & 1) != (defender & 1)) // used on an enemy
+    {
+        sp->waza_status_flag |= MOVE_STATUS_FLAG_FAILED;
         return FALSE;
     }
 
@@ -710,6 +719,15 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
     {
         multiplier = 3;
     }
+    
+    if (multiplier > 1) // log critical hits for current pokemon
+    {
+        sp->battlemon[attacker].critical_hits++;
+        if (sp->battlemon[attacker].critical_hits == 3)
+        {
+            SET_MON_CRITICAL_HIT_EVOLUTION_BIT(PokeParty_GetMemberPointer(BattleWorkPokePartyGet(bw, attacker), sp->sel_mons_no[attacker]));
+        }
+    }
 
     return multiplier;
 }
@@ -754,7 +772,7 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
                 sp->battlemon[sp->defence_client].moveeffect.substitute_hp += sp->damage;
                 sp->hit_damage = sp->damage;
             }
-            sp->oneSelfFlag[sp->defence_client].status_flag |= STATUS_FLAG_MIGAWARI_HIT;
+            sp->oneSelfFlag[sp->defence_client].status_flag |= SELF_STATUS_FLAG_SUBSTITUTE_HIT;
             sp->client_work = sp->defence_client;
             LoadBattleSubSeqScript(sp, ARC_SUB_SEQ, SUB_SEQ_SUBSTITUTE_HIT);
             sp->server_seq_no = 22;

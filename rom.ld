@@ -50,12 +50,13 @@ UpdatePokedexWithReceivedSpecies = 0x0202F180 | 1; /*pt*/
 ArchiveDataLoadMalloc = 0x02006AC0 | 1; /*pt*/
 ArchiveDataLoad = 0x02006AA4 | 1; /*pt*/
 ArchiveDataLoadMallocOfs = 0x02006B18 | 1; /*pt*/
+NARC_ctor = 0x02007688 | 1;
 ArchiveDataLoadOfs = 0x02006AFC | 1; /*pt*/
 sqrt = 0x0200048A | 1;
 
 /*Pokemon*/
-PokemonParam_AllocWork = 0x02073C74 | 1; /*pt*/
-PokeParaInit = 0x02073C2C |1; /*pt*/
+AllocMonZeroed = 0x02073C74 | 1; /*pt*/
+ZeroMonData = 0x02073C2C |1; /*pt*/
 PokeParaSet = 0x02073D80 |1; /*pt*/
 PokeParaSetChr = 0x02074044 | 1; /*pt*/
 PokeParaSetSexChr = 0x02074088 | 1; /*pt*/
@@ -64,8 +65,8 @@ GetMonData = 0x02074470 |1; /*pt*/
 GetBoxMonData = 0x02074570 |1; /*pt*/
 SetMonData = 0x02074B30 |1; /*pt*/
 PokeStatusPokeParamGet = 0x0208DD48 | 1; /*pt*/
-PokeParaCalc = 0x0207418C | 1; /*pt*/
-PokeParaSpeabiSet = 0x0207803C |1; /*pt*/
+RecalcPartyPokemonStats = 0x0207418C | 1; /*pt*/
+ResetPartyPokemonAbility = 0x0207803C |1; /*pt*/
 PokeFuseiFormNoCheck = 0x020761E8 | 1; /*pt*/
 PokePasoParaUnknownFormGet = 0x02076B00 | 1; /*pt*/
 PokeFormNoPersonalParaGet = 0x020759CC |1; /*pt*/
@@ -92,6 +93,10 @@ GrabAndRegisterUnownForm = 0x02248444 | 1;
 WildMonSetRandomHeldItem = 0x02077F0C | 1; /*pt*/
 MonIsShiny = 0x0207003C | 1;
 BoxMonIsShiny = 0x02070044 | 1;
+sub_02017FE4 = 0x02017FE4 | 1;
+SetEggStats = 0x0206C8B8 | 1;
+SaveMisc_SetTogepiPersonalityGender = 0x0202ABB0 | 1;
+SaveMisc_GetTogepiPersonalityGender = 0x0202ABBC | 1;
 
 GetBagSaveData = 0x5AC + 0x021F9381;
 SaveData_GetRepelPtr = 0x0202DB05;
@@ -112,6 +117,7 @@ EventSet_Script = 0x0203E880 | 1; /*pt*/
 
 sys_AllocMemory = 0x02018144 | 1; /*pt*/
 sys_FreeMemoryEz = 0x020181C4 | 1; /*pt*/
+sys_AllocMemoryLo = 0x0201AACC | 1;
 
 /*TextBox*/
 TalkWinGraphicSet = 0x0200DD0C | 1; /*pt*/
@@ -287,11 +293,11 @@ WIPE_SYS_EndCheck = 0x0200F2AC | 1; /*pt*/
 PokeListProc_End = 0x0207E7E0 | 1; /*pt*/
 PROC_GetWork = 0x0200682C | 1; /*pt*/
 ScriptJump = 0x0203FE0C | 1;
-SetScriptVar = 0x02066A7C | 1;
-GetScriptVar = 0x02066AAC | 1;
-SetScriptFlag = 0x0206A8DC | 1; /*pt*/
-ClearScriptFlag = 0x0206A8E4 | 1; /*pt*/
-CheckScriptFlag = 0x0206A8EC | 1; /*pt*/
+SetScriptVarPassSave = 0x02066A7C | 1;
+GetScriptVarPassSave = 0x02066AAC | 1;
+SetScriptFlagPassSave = 0x0206A8DC | 1; /*pt*/
+ClearScriptFlagPassSave = 0x0206A8E4 | 1; /*pt*/
+CheckScriptFlagPassSave = 0x0206A8EC | 1; /*pt*/
 Sav2_PlayerData_GetProfileAddr = 0x02025E38 | 1; /*pt*/
 
 /* rtc functions */
@@ -303,6 +309,7 @@ IsNighttime = 0x02014804 | 1;
 GF_RTC_GetTimeOfDay = 0x0201481C | 1;
 GF_RTC_GetTimeOfDayWildParam = 0x02014844 | 1;
 GF_RTC_GetTimeOfDayWildParamByHour = 0x0201485C | 1;
+
 
 /* map object funcs */
 GetMapObjectByID = 0x0205EE60 | 1;
@@ -323,6 +330,7 @@ MapObject_SetXRange = 0x0205F318 | 1;
 MapObject_SetYRange = 0x0205F320 | 1;
 FieldSysGetAttrAddr = 0x020402F0 | 1;
 MapObject_GfxDraw = 0x0205f484 | 1;
+ChangeMapObjSprite = 0x021FA930 | 1;
 
 /* 0x16C54 in overlay1 */
 PlayerAlternate_MapObject_GfxDraw = 0x021FC554 | 1;
@@ -350,7 +358,6 @@ BagView_New = 0x02077878 | 1;
 BagView_SetItem = 0x020778BC | 1;
 Sav2_Bag_get = 0x0207879C | 1;
 
-
 FreeOverlayAllocation = 0x020064F0 | 1; /*pt*/
 GetOverlayLoadDestination = 0x02006544 | 1; /*pt*/
 CanOverlayBeLoaded = 0x02006644 | 1; /*pt*/
@@ -359,3 +366,21 @@ FS_SetDefaultDMA = 0x020C84E0; /*pt*/
 LoadOverlayNormal = 0x0200671C | 1; /*pt*/
 LoadOverlayNoInit = 0x02006724 | 1; /*pt*/
 LoadOverlayNoInitAsync = 0x0200675C | 1; /*pt*/
+
+GetSoundDataPointer = 0x020043F8 | 1;
+NNS_SndArcLoadSeq = 0x020C9DC4;
+GF_SndHeapGetFreeSize = 0x0200472C | 1;
+NNS_SndArcLoadSeqEx = 0x020C9E48;
+
+NNS_SndArcGetBankInfo = 0x020C9724;
+LoadBank = 0x020CA398;
+NNS_SndArcGetFileAddress = 0x020C99A4;
+NNS_SndArcGetWaveArcInfo = 0x020C9788;
+NNSi_SndArcLoadWaveArc = 0x020CA194;
+LoadSingleWaves = 0x020CA788;
+SND_AssignWaveArc = 0x020D6154;
+
+Fsys_GetWeather_HandleDiamondDust = 0x0203BBB4 | 1;
+sub_0206D038 = 0x0206D038 | 1;
+GetSpeciesNameIntoArray = 0x0200BC28 | 1;
+PlayCry = 0x02006218 | 1;

@@ -16,9 +16,15 @@ SYSTEM = $(shell grep -i -q 'microsoft' /proc/version; echo $$?)
 ifeq ($(SYSTEM), 0)
 EXE := .exe
 SEP := \\
+
+SWAV2SWAR := tools/swav2swar.exe
+BTX := tools/pngtobtx0.exe
 else
 EXE := 
 SEP := /
+
+SWAV2SWAR := mono tools/swav2swar.exe
+BTX := mono tools/pngtobtx0.exe
 endif
 
 default: all
@@ -26,14 +32,17 @@ default: all
 ROMNAME = rom-pt.nds
 BUILDROM = test-pt.nds
 ####################### Tools #########################
+PYTHON = python3
 O2NARC = tools/o2narc
 MSGENC = tools/msgenc
 NDSTOOL = tools/ndstool
 BLZ = tools/blz
 ARMIPS = tools/armips
-NARCHIVE = tools/narcpy.py
+NARCHIVE = $(PYTHON) tools/narcpy.py
 GFX = tools/nitrogfx
-BTX = tools/pngtobtx0$(EXE)
+SDATTOOL = $(PYTHON) tools/SDATTool.py
+ADPCMXQ = adpcm-xq
+NTRWAVTOOL = $(PYTHON) tools/ntrWavTool.py
 ###################### Setting ########################
 PREFIX = bin/arm-none-eabi-
 AS = $(DEVKITARM)/$(PREFIX)as
@@ -48,7 +57,6 @@ LDFLAGS_BATTLE = rom_gen.ld -T linker_battle.ld
 ASFLAGS = -mthumb -I ./data
 CFLAGS = -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Os -fira-loop-pressure -fipa-pta
 
-PYTHON = python3
 LINK = build/linked.o
 OUTPUT = build/output.bin
 BATTLE_LINK = build/battle_linked.o
@@ -82,8 +90,9 @@ BATTLE_OBJS   := $(BATTLE_C_OBJS) $(BATTLE_ASM_OBJS) build/thumb_help.d
 
 FIELD_C_SRCS := $(wildcard $(C_SUBDIR)/field/*.c)
 FIELD_C_OBJS := $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(FIELD_C_SRCS))
-FIELD_OBJS   := $(FIELD_C_OBJS) build/thumb_help.d
-# just build something so it doesn't crash
+FIELD_ASM_SRCS := $(wildcard $(ASM_SUBDIR)/field/*.s)
+FIELD_ASM_OBJS := $(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.d,$(FIELD_ASM_SRCS))
+FIELD_OBJS   := $(FIELD_C_OBJS) $(FIELD_ASM_OBJS) build/thumb_help.d
 
 ## includes
 include data/graphics/pokegra.mk
@@ -124,17 +133,17 @@ all: $(BATTLE_OUTPUT) $(FIELD_OUTPUT)
 	rm -rf $(BASE)
 	mkdir -p $(BASE)
 	mkdir -p $(BUILD)
-	mkdir -p $(BUILD)/pokemonow $(BUILD)/pokemonicon $(BUILD)/pokemonpic $(BUILD)/a018 $(BUILD)/narc $(BUILD)/text $(BUILD)/move $(BUILD)/a011 
+	mkdir -p $(BUILD)/pokemonow $(BUILD)/pokemonicon $(BUILD)/pokemonpic $(BUILD)/a018 $(BUILD)/narc $(BUILD)/text $(BUILD)/move $(BUILD)/a011  $(BUILD)/rawtext
 	mkdir -p $(BUILD)/move/battle_sub_seq $(BUILD)/move/battle_eff_seq $(BUILD)/move/battle_move_seq $(BUILD)/move/move_anim $(BUILD)/move/move_sub_anim $(BUILD)/move/move_anim
 	###The line below is because of junk files that macOS can create which will interrupt the build process###
 	find . -name '*.DS_Store' -execdir rm -f {} \;
 	$(NDSTOOL) -x $(ROMNAME) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
 	@echo -e "$(ROMNAME) Decompression successful!!"
-	$(PYTHON) $(NARCHIVE) extract $(FILESYS)/data/weather_sys.narc -o $(BUILD)/data/ -nf
+	$(NARCHIVE) extract $(FILESYS)/data/weather_sys.narc -o $(BUILD)/data/ -nf
 	$(PYTHON) scripts/make.py
 	$(ARMIPS) armips/global.s
 	$(MAKE) move_narc
-	$(PYTHON) $(NARCHIVE) create $(FILESYS)/data/weather_sys.narc $(BUILD)/data/ -nf
+	$(NARCHIVE) create $(FILESYS)/data/weather_sys.narc $(BUILD)/data/ -nf
 	mv $(BASE)/overlay/overlay_0129.bin $(BASE)/overlay/overlay_0121.bin
 	mv $(BASE)/overlay/overlay_0130.bin $(BASE)/overlay/overlay_0122.bin
 	mv $(BASE)/overlay/overlay_0131.bin $(BASE)/overlay/overlay_0123.bin
@@ -147,7 +156,9 @@ build_tools:
 	cd tools/source/msgenc ; $(MAKE)
 	mv tools/source/msgenc/msgenc tools/msgenc
 
-	cd tools ; $(CSC) /target:exe /out:pngtobtx0.exe source$(SEP)BTX\ Editor$(SEP)Program-P.cs source$(SEP)BTX\ Editor$(SEP)pngtobtx0.cs source$(SEP)BTX\ Editor$(SEP)BTX0.cs
+	cd tools ; $(CSC) /target:exe /out:pngtobtx0.exe "source$(SEP)BTX Editor$(SEP)Program-P.cs" "source$(SEP)BTX Editor$(SEP)pngtobtx0.cs" "source$(SEP)BTX Editor$(SEP)BTX0.cs"
+
+	cd tools ; $(CSC) /target:exe /out:swav2swar.exe "source$(SEP)swav2swar$(SEP)Principal.cs"
 
 	rm -r -f tools/source/ndstool
 	cd tools/source ; git clone https://github.com/devkitPro/ndstool.git
@@ -165,6 +176,17 @@ build_tools:
 	cd tools/source/armips/build ; cmake --build .
 	mv tools/source/armips/build/armips tools/armips
 	rm -r -f tools/source/armips
+
+	rm -r -f tools/source/adpcm-xq
+	cd tools/source ; git clone https://github.com/dbry/adpcm-xq.git
+	cd tools/source/adpcm-xq ; gcc -O2 *.c -o $(ADPCMXQ)
+	mv tools/source/adpcm-xq/$(ADPCMXQ) tools/$(ADPCMXQ)
+	rm -r -f tools/source/adpcm-xq
+
+	rm -r -f tools/source/ntrWavTool
+	cd tools/source ; git clone https://github.com/turtleisaac/ntrWavTool.git
+	mv tools/source/ntrWavTool/ntrWavTool.py tools/ntrWavTool.py
+	rm -r -f tools/source/ntrWavTool
 
 
 build_nitrogfx:
@@ -186,9 +208,11 @@ clean:
 clean_tools:
 	rm -f tools/msgenc
 	rm -f tools/pngtobtx0.exe
+	rm -f tools/swav2swar.exe
 	rm -f tools/ndstool
 	rm -f tools/armips
 	rm -f tools/nitrogfx
+	rm -f tools/adpcm-xq
 
 
 print-% : ; $(info $* is a $(flavor $*) variable set to [$($*)]) @true
@@ -204,9 +228,6 @@ move_narc: $(NARC_FILES)
 
 	# @echo "move particles:"
 	# cp $(MOVEPARTICLES_NARC) $(MOVEPARTICLES_TARGET)
-
-	@echo "text data:"
-	cp $(MSGDATA_NARC) $(MSGDATA_TARGET)
 
 	# @echo "item data files:"
 	# cp $(ITEMDATA_NARC) $(ITEMDATA_TARGET)
@@ -294,12 +315,27 @@ move_narc: $(NARC_FILES)
 	# @echo "pokemon overworld data:"
 	# cp $(OVERWORLD_DATA_NARC) $(OVERWORLD_DATA_TARGET)
 
+	# @echo "move an updated gs_sound_data.sdat:"
+	# cp $(SDAT_BUILD) $(SDAT_TARGET)
+
+	@echo "text data:"
+	cp $(MSGDATA_NARC) $(MSGDATA_TARGET)
+
+	# @echo "font:"
+	# if [ $$(grep -i -c "//#define IMPLEMENT_TRANSPARENT_TEXTBOXES" include/config.h) -eq 0 ]; then cp $(FONT_NARC) $(FONT_TARGET); fi
+
+	# @echo "textbox:"
+	# if [ $$(grep -i -c "//#define IMPLEMENT_TRANSPARENT_TEXTBOXES" include/config.h) -eq 0 ]; then cp $(TEXTBOX_NARC) $(TEXTBOX_TARGET); fi
+
 
 	# @echo "baby mons:"
 	# $(ARMIPS) armips/data/babymons.s
 
-	# @echo "move an updated gs_sound_data.sdat:"
-	# cp rawdata/gs_sound_data.sdat $(FILESYS)/data/sound/gs_sound_data.sdat
-
 	# @echo "tutor data:"
 	# $(ARMIPS) armips/data/tutordata.s
+
+# needed to keep the $(SDAT_OBJ_DIR)/WAVE_ARC_PV%/00.swav from being detected as an intermediate file
+.SECONDARY:
+
+# debug makefile print
+print-% : ; $(info $* is a $(flavor $*) variable set to [$($*)]) @true

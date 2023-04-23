@@ -1,3 +1,5 @@
+.loadtable "armips/include/utf-8.txt"
+
 // level up learnset macros
 
 .macro levelup,species
@@ -29,8 +31,8 @@
 
 // mon data macros
 
-.macro mondata,species
-
+.macro mondata,species,name
+    monname species, name
 	.if species < 10
 		.create "build/a002/mondata_000" + tostring(species),0
 	.elseif species < 100
@@ -91,8 +93,17 @@
 .endmacro
 
 .macro abilities,abi1,abi2
+.if abi1 > 255
+	.byte ABILITY_NONE
+.else
 	.byte abi1
+.endif
+
+.if abi2 > 255
+	.byte ABILITY_NONE
+.else
 	.byte abi2
+.endif
 .endmacro
 
 .macro runchance,num
@@ -380,7 +391,8 @@
 
 // trainer data macros
 
-.macro trainerdata,num
+.macro trainerdata,num,name
+    trainername num, name
 	.if num < 10
 		.create "build/a055/5_00" + tostring(num),0
 	.elseif num < 100
@@ -529,8 +541,8 @@
 	.byte num1, num2, num3, num4
 .endmacro
 
-.macro nickname,nick
-	.stringn nick
+.macro nickname,let0,let1,let2,let3,let4,let5,let6,let7,let8,let9,let10
+	.halfword let0, let1, let2, let3, let4, let5, let6, let7, let8, let9, let10
 .endmacro
 
 .macro endparty
@@ -604,3 +616,52 @@
 .macro encounterwithlevels,species,minlevel,maxlevel
 	encounterwithlevelsandform species, 0, minlevel, maxlevel
 .endmacro
+
+.macro msgbankappend,file,msg
+    .create file, 0
+    .stringn msg
+    .close
+.endmacro
+
+.macro writestring,subfile,id,str
+	.if id < 10
+	    msgbankappend "build/rawtext/" + subfile + "/000" + tostring(id) + ".txt", str
+	.elseif id < 100
+		msgbankappend "build/rawtext/" + subfile + "/00" + tostring(id) + ".txt", str
+	.elseif id < 1000
+    	msgbankappend "build/rawtext/" + subfile + "/0" + tostring(id) + ".txt", str
+	.else
+		msgbankappend "build/rawtext/" + subfile + "/" + tostring(id) + ".txt", str
+	.endif
+.endmacro
+
+.macro trainername,id,name
+    writestring "729", id, name
+.endmacro
+
+.macro monname,id,name
+    writestring "237", id, name
+    writestring "238", id, name
+    writestring "817", id, name
+.endmacro
+
+.macro mondexentry,id,description
+    writestring "803", id, description
+.endmacro
+
+.macro mondexclassification,id,classification
+    writestring "816", id, classification
+.endmacro
+
+.macro mondexheight,id,height
+    writestring "814", id, height
+    writestring "815", id, height
+.endmacro
+
+.macro mondexweight,id,weight
+    writestring "812", id, weight
+    writestring "813", id, weight
+.endmacro
+
+
+//note to self: 237.txt would be species names

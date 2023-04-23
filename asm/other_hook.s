@@ -89,14 +89,14 @@ ldr r2, =space_for_setmondata // &form
 bl call_setmondata
 
 ldr r0, [sp, #(0x1c+0x10)] // pp
-bl UpdateFormIfDeerling
+bl UpdatePassiveForms
 
 // hopefully with form set, this grabs everything correctly (it should please please please)
 ldr r0, [sp, #(0x1c+0x10)] // pp
-ldr r3, =0x0207418C | 1 //PokeParaCalc(pp);
+ldr r3, =0x0207418C | 1 //RecalcPartyPokemonStats(pp);
 bl call_via_r3
 ldr r0, [sp, #(0x1c+0x10)] // pp
-ldr r3, =0x0207803C | 1 //PokeParaSpeabiSet(pp);
+ldr r3, =0x0207803C | 1 //ResetPartyPokemonAbility(pp);
 bl call_via_r3
 ldr r0, [sp, #(0x1c+0x10)] // pp
 ldr r3, =0x02077020 | 1 //InitBoxMonMoveset(ppp);
@@ -123,10 +123,12 @@ ldr r1, [r1]
 bl GetSpeciesBasedOnForm // (species, form)
 mov r6, r0
 pop {r0-r5, r7}
+
 str r0, [sp]
 lsl r0, r6, #0x10
 lsl r1, r1, #0x18
 lsr r0, #0x10
+
 ldr r3, =0x02234870 | 1
 bx r3
 
@@ -143,12 +145,36 @@ ldrh r0, [r5, #2]
 bl GetSpeciesBasedOnForm // (species, form)
 strh r0, [r5, #2]
 pop {r0-r7}
+
 ldr r0, [r5, #4]
 str r0, [sp]
 ldrb r3, [r5, #1]
 ldrh r0, [r5, #2]
+
 ldr r2, =0x02259A1C | 1
 bx r2
+
+
+//02259DBC
+.global hook_12_spriteOffsetSpecies_escapeFromBall
+hook_12_spriteOffsetSpecies_escapeFromBall:
+push {r0-r7}
+ldr r1, =word_to_store_form_at
+ldr r1, [r1]
+ldrh r0, [r4, #2]
+bl GetSpeciesBasedOnForm // (species, form)
+strh r0, [r4, #2]
+pop {r0-r7}
+
+mov r2, r5
+str r0, [sp]
+ldrb r3, [r4, #1]
+add r2, #0x84
+
+ldr r0, =0x02259DC4 | 1
+bx r0
+
+.pool
 
 .align 2
 .global word_to_store_form_at
@@ -178,12 +204,15 @@ add r4, #0xFF
 and r0, r4 // make r0 solely the species
 
 // re-setup the function
-push {r4-r7, lr}
-sub sp, #0x14
+// push {r4-r7, lr}
+// sub sp, #0x14
 
 mov r7, r0
 mov r0, #0xb
-ldr r4, =0x02241cc8 | 1
+str r1, [sp, #0xc]
+str r2, [sp, #0x10]
+
+ldr r4, =0x02241ccc | 1
 bx r4
 
 
@@ -199,14 +228,14 @@ ldr r2, =space_for_setmondata // &form
 bl call_setmondata
 
 mov r0, r4
-bl UpdateFormIfDeerling
+bl UpdatePassiveForms
 
 // hopefully with form set, this grabs everything correctly
 mov r0, r4
-ldr r3, =0x0207418C | 1 //PokeParaCalc(pp);
+ldr r3, =0x0207418C | 1 //RecalcPartyPokemonStats(pp);
 bl call_via_r3
 mov r0, r4
-ldr r3, =0x0207803C | 1 //PokeParaSpeabiSet(pp);
+ldr r3, =0x0207803C | 1 //ResetPartyPokemonAbility(pp);
 bl call_via_r3
 mov r0, r4 // me when the boxmon is at offset 0 of the PartyPokemon structure so i should be able to just pass it like this and have it work :)
 ldr r3, =0x02077020 | 1 //InitBoxMonMoveset(ppp);
@@ -275,3 +304,37 @@ ldrb r2, [r6, #0x18]
 bl GrabSexFromSpeciesAndForm
 ldr r1, =0x0206EA24|1
 bx r1
+
+.pool
+
+
+.global StoreFieldSysPtr
+StoreFieldSysPtr:
+ldr r1, =gFieldSysPtr
+str r4, [r1]
+
+mov r1, #0
+str r1, [r0]
+ldr r0, [r4]
+mov r6, #0x7C
+
+ldr r2, =0x0203E030 | 1
+bx r2
+
+.pool
+
+.global gFieldSysPtr
+gFieldSysPtr:
+.word 0
+
+.global WindowClose
+WindowClose:
+ldr r0, =0x04000050
+mov r1, #0x0
+strh r1, [r0]
+mov r0, r5
+add r0, #0xD2
+ldrb r1, [r0, #0x0]
+mov r0, #0x40
+ldr r2, =0x02041198 + 1
+bx r2

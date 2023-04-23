@@ -147,15 +147,19 @@ memcpy:
     pop {pc}
     .size memcpy, . - memcpy
 
+.global debugsyscall
+debugsyscall:
+swi 0xFC
+bx lr
+
 
 .global sprintf
 sprintf:
-    push {lr}
-    blx 0x020D7510
-    pop {pc}
+push {r4, lr}
+//blx 0x020D7510
+ldr r4, =0x020D7510
+bl bx_r4
+pop {r4, pc}
 
-
-.global debugsyscall
-debugsyscall:
-    swi 0xFC
-    bx lr
+bx_r4:
+bx r4

@@ -65,6 +65,8 @@ dumpitem.py
 /tools/ndstool.exe
 /tools/csv2bin
 /tools/o2narc
+/tools/adpcm-xq
+/tools/ntrWavTool.py
 
 *.o
 *.d
@@ -72,3 +74,10 @@ dumpitem.py
 armips/asm/offset.s
 .vs/
 rom_gen.ld
+
+sdat/*
+*.swav
+*.swar
+tools/swav2swar.exe
+
+*:Zone.Identifier

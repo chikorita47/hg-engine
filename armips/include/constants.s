@@ -64,33 +64,46 @@ EGG_GROUP_UNDISCOVERED  equ 15
 
 // evo method constants
 
-EVO_NONE                      equ 0
-EVO_HAPPINESS                 equ 1
-EVO_HAPPINESS_DAY             equ 2
-EVO_HAPPINESS_NIGHT           equ 3
-EVO_LEVEL_UP                  equ 4
-EVO_TRADE                     equ 5
-EVO_TRADE_ITEM                equ 6
-EVO_USE_ITEM                  equ 7
-EVO_LEVEL_MORE_ATTACK         equ 8
-EVO_LEVEL_ATK_DEF_EQUAL       equ 9
-EVO_LEVEL_MORE_DEFENSE        equ 10
-EVO_LEVEL_PID_LOW             equ 11
-EVO_LEVEL_PID_HIGH            equ 12
-EVO_LEVEL_GEN_NEW_MON_1       equ 13
-EVO_LEVEL_GEN_NEW_MON_2       equ 14
-EVO_MAX_BEAUTY                equ 15
-EVO_USE_ITEM_MALE             equ 16
-EVO_USE_ITEM_FEMALE           equ 17
-EVO_USE_ITEM_DAY              equ 18
-EVO_USE_ITEM_NIGHT            equ 19
-EVO_KNOWS_MOVE                equ 20
-EVO_MON_IN_PARTY              equ 21
-EVO_LEVEL_MALE                equ 22
-EVO_LEVEL_FEMALE              equ 23
-EVO_LEVEL_ELECTRIC_FIELD      equ 24
-EVO_LEVEL_MOSSY_STONE         equ 25
-EVO_LEVEL_ICY_STONE           equ 26
+EVO_NONE                         equ 0
+EVO_HAPPINESS                    equ 1
+EVO_HAPPINESS_DAY                equ 2
+EVO_HAPPINESS_NIGHT              equ 3
+EVO_LEVEL_UP                     equ 4
+EVO_TRADE                        equ 5
+EVO_TRADE_ITEM                   equ 6
+EVO_USE_ITEM                     equ 7
+EVO_LEVEL_MORE_ATTACK            equ 8
+EVO_LEVEL_ATK_DEF_EQUAL          equ 9
+EVO_LEVEL_MORE_DEFENSE           equ 10
+EVO_LEVEL_PID_LOW                equ 11
+EVO_LEVEL_PID_HIGH               equ 12
+EVO_LEVEL_GEN_NEW_MON_1          equ 13
+EVO_LEVEL_GEN_NEW_MON_2          equ 14
+EVO_MAX_BEAUTY                   equ 15
+EVO_USE_ITEM_MALE                equ 16
+EVO_USE_ITEM_FEMALE              equ 17
+EVO_USE_ITEM_DAY                 equ 18
+EVO_USE_ITEM_NIGHT               equ 19
+EVO_KNOWS_MOVE                   equ 20
+EVO_MON_IN_PARTY                 equ 21
+EVO_LEVEL_MALE                   equ 22
+EVO_LEVEL_FEMALE                 equ 23
+EVO_LEVEL_ELECTRIC_FIELD         equ 24
+EVO_LEVEL_MOSSY_STONE            equ 25
+EVO_LEVEL_ICY_STONE              equ 26
+EVO_LEVEL_DAY                    equ 27
+EVO_LEVEL_NIGHT                  equ 28
+EVO_LEVEL_DUSK                   equ 29
+EVO_LEVEL_RAIN                   equ 30
+EVO_HAS_MOVE_TYPE                equ 31
+EVO_LEVEL_DARK_TYPE_MON_IN_PARTY equ 32
+EVO_TRADE_SPECIFIC_MON           equ 33
+EVO_LEVEL_NATURE_AMPED           equ 34
+EVO_LEVEL_NATURE_LOW_KEY         equ 35
+EVO_AMOUNT_OF_CRITICAL_HITS      equ 36
+EVO_HURT_IN_BATTLE_AMOUNT        equ 37 // will have to be repurposed eventually i suppose
+//EVO_DARK_SCROLL  // implemented through an item use forme-change-esque cut scene
+//EVO_WATER_SCROLL // implemented through an item use forme-change-esque cut scene
 
 // shadow size constants
 
@@ -562,7 +575,7 @@ F_CATCHING_DEMO equ (1 << 13)
 // battle types
 
 SINGLE_BATTLE equ 0
-DOUBLE_BATTLE equ 1
+DOUBLE_BATTLE equ 2
 
 // trainer text types
 
@@ -611,6 +624,72 @@ NATURE_GENTLE   equ (21)
 NATURE_SASSY    equ (22)
 NATURE_CAREFUL  equ (23)
 NATURE_QUIRKY   equ (24)
+
+// letter defines for nicknames
+
+_0 equ 0x0121
+_1 equ 0x0122
+_2 equ 0x0123
+_3 equ 0x0124
+_4 equ 0x0125
+_5 equ 0x0126
+_6 equ 0x0127
+_7 equ 0x0128
+_8 equ 0x0129
+_9 equ 0x012A
+_A equ 0x012B
+_B equ 0x012C
+_C equ 0x012D
+_D equ 0x012E
+_E equ 0x012F
+_F equ 0x0130
+_G equ 0x0131
+_H equ 0x0132
+_I equ 0x0133
+_J equ 0x0134
+_K equ 0x0135
+_L equ 0x0136
+_M equ 0x0137
+_N equ 0x0138
+_O equ 0x0139
+_P equ 0x013A
+_Q equ 0x013B
+_R equ 0x013C
+_S equ 0x013D
+_T equ 0x013E
+_U equ 0x013F
+_V equ 0x0140
+_W equ 0x0141
+_X equ 0x0142
+_Y equ 0x0143
+_Z equ 0x0144
+_a_ equ 0x0145
+_b_ equ 0x0146
+_c_ equ 0x0147
+_d_ equ 0x0148
+_e_ equ 0x0149
+_f_ equ 0x014A
+_g_ equ 0x014B
+_h_ equ 0x014C
+_i_ equ 0x014D
+_j_ equ 0x014E
+_k_ equ 0x014F
+_l_ equ 0x0150
+_m_ equ 0x0151
+_n_ equ 0x0152
+_o_ equ 0x0153
+_p_ equ 0x0154
+_q_ equ 0x0155
+_r_ equ 0x0156
+_s_ equ 0x0157
+_t_ equ 0x0158
+_u_ equ 0x0159
+_v_ equ 0x015A
+_w_ equ 0x015B
+_x_ equ 0x015C
+_y_ equ 0x015D
+_z_ equ 0x015E
+_endstr equ 0xFFFF
 
 // encounter data constants
 
